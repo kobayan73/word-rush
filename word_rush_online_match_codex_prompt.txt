@@ -1,0 +1,792 @@
+/Users/kobayashihikari/Desktop/app_developer/Word_Rush/Word_Rush.html を確認し、friend match / random match のオンライン対戦マッチング実装に向けた設計・実装を進めてください。
+
+まず今回は、いきなり完全な本番実装ではなく、以下の方針で MVP 実装してください。
+
+目的：
+現在 Word_Rush.html には以下の3つの開始ボタンがあります。
+
+- single play
+- friend match
+- random match
+
+single play は現在のローカルプレイとして維持します。
+friend match と random match について、Supabase を使ったオンライン対戦の基礎を実装したいです。
+
+重要な考え方：
+friend match と random match は、マッチング方法だけが違う同じオンライン対戦として設計してください。
+
+- friend match
+  - ホストが部屋を作る
+  - room code を表示する
+  - 相手が room code を入力して参加する
+
+- random match
+  - 待機中の相手を探す
+  - いなければ自分が待機する
+  - 相手が見つかったら自動で room に入る
+
+- 対戦開始後
+  - friend match / random match で共通処理にする
+  - room, playerRole, questionSet, events を使って同期する
+
+============================================================
+0. 既存仕様を壊さない
+============================================================
+
+絶対に維持すること：
+
+- single play は今まで通り動く
+- 既存の問題生成ロジックを壊さない
+- 既存の入力判定を壊さない
+- 既存のスコア処理を壊さない
+- 既存のスマホUIを大きく崩さない
+- inputA / submitA / hintA / wordsA / wordsB / scorebarFill / opponentScorebarFill の既存IDは維持する
+- JavaScript構文エラーを出さない
+
+friend match / random match は、既存 single play の横に追加する形で実装してください。
+
+============================================================
+1. Supabase接続設定
+============================================================
+
+Word_Rush.html に Supabase クライアントを追加してください。
+
+既に Supabase CDN がない場合は head または body末尾に追加してください。
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+JS側に以下のような設定を追加してください。
+
+const SUPABASE_URL = "ここにURLを入れる";
+const SUPABASE_ANON_KEY = "ここにANON_KEYを入れる";
+
+let supabaseClient = null;
+
+function initializeSupabaseClient() {
+  if (!window.supabase) {
+    console.warn("Supabase SDK is not loaded.");
+    return null;
+  }
+
+  if (!SUPABASE_URL || !SUPABASE_ANON_KEY || SUPABASE_URL.includes("ここに")) {
+    console.warn("Supabase URL / ANON KEY is not configured.");
+    return null;
+  }
+
+  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return supabaseClient;
+}
+
+ただし、URL / ANON_KEY はまだ未設定でもHTMLが壊れないようにしてください。
+未設定の場合は、friend/random を押した時に分かりやすいメッセージを表示してください。
+
+Supabase is not configured yet.
+
+============================================================
+2. 必要なテーブル設計をコメントまたはSQL文字列として残す
+============================================================
+
+実際のSQL実行はしなくてよいですが、Word_Rush.html 内にコメントとして必要テーブル設計を残してください。
+
+必要テーブル：
+
+1. word_rush_rooms
+2. word_rush_room_events
+3. word_rush_random_queue
+
+SQL例：
+
+create table if not exists word_rush_rooms (
+  id uuid primary key default gen_random_uuid(),
+  room_code text unique,
+  mode text not null,
+  status text not null default 'waiting',
+  host_id text not null,
+  guest_id text,
+  host_name text,
+  guest_name text,
+  current_round integer default 0,
+  question_set jsonb,
+  scores jsonb default '{"A":0,"B":0}'::jsonb,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now(),
+  started_at timestamptz,
+  finished_at timestamptz
+);
+
+create table if not exists word_rush_room_events (
+  id bigserial primary key,
+  room_id uuid references word_rush_rooms(id) on delete cascade,
+  event_type text not null,
+  player_id text not null,
+  player_role text not null,
+  payload jsonb default '{}'::jsonb,
+  server_time timestamptz default now(),
+  created_at timestamptz default now()
+);
+
+create table if not exists word_rush_random_queue (
+  id uuid primary key default gen_random_uuid(),
+  player_id text not null,
+  player_name text,
+  status text not null default 'waiting',
+  room_id uuid,
+  created_at timestamptz default now(),
+  updated_at timestamptz default now()
+);
+
+RLS は後で設定する前提で構いません。
+MVPではまず動作確認優先で設計してください。
+
+============================================================
+3. onlineState を追加
+============================================================
+
+既存の state とは別に、オンライン対戦用の状態を追加してください。
+
+const onlineState = {
+  enabled: false,
+  mode: null,
+  roomId: null,
+  roomCode: null,
+  playerId: null,
+  playerRole: null,
+  opponentId: null,
+  channel: null,
+  questionSet: [],
+  currentRoundStartedAt: null,
+  queueId: null,
+  isHost: false,
+  countdownStarted: false
+};
+
+playerId は localStorage に保存し、同じ端末では再利用してください。
+
+function getOrCreatePlayerId() {
+  const key = "wordRushPlayerId";
+  let id = localStorage.getItem(key);
+  if (!id) {
+    id = crypto.randomUUID ? crypto.randomUUID() : `player_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    localStorage.setItem(key, id);
+  }
+  return id;
+}
+
+============================================================
+4. Start画面に Friend Match 用UIを追加
+============================================================
+
+friend match ボタンを押したら、以下の選択UIを表示してください。
+
+Friend Match
+[ Create Room ]
+
+Join Room
+[ room code input ]
+[ Join Room ]
+[ Back ]
+
+実装方法は簡単で構いません。
+
+必要な要素ID例：
+
+<div id="friendMatchPanel" class="start-dictionary hidden">
+  <button id="createFriendRoomBtn">Create Room</button>
+  <input id="friendRoomCodeInput" placeholder="Room code" />
+  <button id="joinFriendRoomBtn">Join Room</button>
+  <button class="secondary" id="friendBackBtn">Back</button>
+  <div id="friendMatchStatus"></div>
+</div>
+
+============================================================
+5. Waiting Room UIを追加
+============================================================
+
+Friend / Random 共通で使える waiting room を作ってください。
+
+必要情報：
+
+Waiting Room
+Room Code: ABCD12
+You: Host / Guest
+Opponent: Waiting... / Joined
+Status: waiting / countdown / playing
+[ Cancel ]
+
+必要な要素ID例：
+
+<section class="card hidden" id="waitingRoomPanel">
+  <h2>Waiting Room</h2>
+  <div id="waitingRoomCode"></div>
+  <div id="waitingRoomRole"></div>
+  <div id="waitingRoomOpponent"></div>
+  <div id="waitingRoomStatus"></div>
+  <button id="cancelOnlineMatchBtn" class="secondary">Cancel</button>
+</section>
+
+============================================================
+6. Friend Match: Create Room
+============================================================
+
+以下の関数を追加してください。
+
+function generateRoomCode() {
+  return Math.random().toString(36).slice(2, 8).toUpperCase();
+}
+
+function ensureSupabaseClient() {
+  if (supabaseClient) return supabaseClient;
+  return initializeSupabaseClient();
+}
+
+async function createFriendRoom() {
+  const client = ensureSupabaseClient();
+  if (!client) return;
+
+  const playerId = getOrCreatePlayerId();
+  const roomCode = generateRoomCode();
+
+  const room = {
+    room_code: roomCode,
+    mode: "friend",
+    status: "waiting",
+    host_id: playerId,
+    host_name: "Host",
+    scores: { A: 0, B: 0 },
+    current_round: 0
+  };
+
+  const { data, error } = await client
+    .from("word_rush_rooms")
+    .insert(room)
+    .select()
+    .single();
+
+  if (error) {
+    console.error(error);
+    setFriendMatchStatus("Failed to create room.");
+    return;
+  }
+
+  onlineState.enabled = true;
+  onlineState.mode = "friend";
+  onlineState.roomId = data.id;
+  onlineState.roomCode = data.room_code;
+  onlineState.playerId = playerId;
+  onlineState.playerRole = "host";
+  onlineState.isHost = true;
+
+  showWaitingRoom(data);
+  await subscribeRoom(data.id);
+}
+
+============================================================
+7. Friend Match: Join Room
+============================================================
+
+以下の関数を追加してください。
+
+async function joinFriendRoom(roomCode) {
+  const client = ensureSupabaseClient();
+  if (!client) return;
+
+  const playerId = getOrCreatePlayerId();
+  const code = String(roomCode || "").trim().toUpperCase();
+
+  if (!code) {
+    setFriendMatchStatus("Room code is required.");
+    return;
+  }
+
+  const { data: room, error: findError } = await client
+    .from("word_rush_rooms")
+    .select("*")
+    .eq("room_code", code)
+    .eq("status", "waiting")
+    .single();
+
+  if (findError || !room) {
+    console.error(findError);
+    setFriendMatchStatus("Room not found or already started.");
+    return;
+  }
+
+  const { data: updatedRoom, error: updateError } = await client
+    .from("word_rush_rooms")
+    .update({
+      guest_id: playerId,
+      guest_name: "Guest",
+      updated_at: new Date().toISOString()
+    })
+    .eq("id", room.id)
+    .is("guest_id", null)
+    .select()
+    .single();
+
+  if (updateError) {
+    console.error(updateError);
+    setFriendMatchStatus("Failed to join room.");
+    return;
+  }
+
+  onlineState.enabled = true;
+  onlineState.mode = "friend";
+  onlineState.roomId = updatedRoom.id;
+  onlineState.roomCode = updatedRoom.room_code;
+  onlineState.playerId = playerId;
+  onlineState.playerRole = "guest";
+  onlineState.isHost = false;
+
+  showWaitingRoom(updatedRoom);
+  await subscribeRoom(updatedRoom.id);
+}
+
+============================================================
+8. Realtime購読
+============================================================
+
+以下の関数を追加してください。
+
+async function subscribeRoom(roomId) {
+  const client = ensureSupabaseClient();
+  if (!client) return;
+
+  if (onlineState.channel) {
+    await client.removeChannel(onlineState.channel);
+    onlineState.channel = null;
+  }
+
+  const channel = client
+    .channel(`word_rush_room_${roomId}`)
+    .on(
+      "postgres_changes",
+      {
+        event: "*",
+        schema: "public",
+        table: "word_rush_rooms",
+        filter: `id=eq.${roomId}`
+      },
+      (payload) => {
+        handleRoomUpdate(payload.new);
+      }
+    )
+    .on(
+      "postgres_changes",
+      {
+        event: "INSERT",
+        schema: "public",
+        table: "word_rush_room_events",
+        filter: `room_id=eq.${roomId}`
+      },
+      (payload) => {
+        handleRoomEvent(payload.new);
+      }
+    )
+    .subscribe();
+
+  onlineState.channel = channel;
+}
+
+handleRoomUpdate(room) では以下を行ってください。
+
+- waiting room 表示を更新
+- guest_id が入ったら Host側だけ countdown開始
+- status が countdown / playing / finished になったらUI反映
+- question_set が入ったら onlineState.questionSet に保存
+
+Host側だけが開始処理を行うようにしてください。
+
+if (onlineState.isHost && room.status === "waiting" && room.guest_id) {
+  await startOnlineCountdownAsHost(room);
+}
+
+ただし、同じ更新を複数回受けて countdown が重複しないように、onlineState.countdownStarted を使ってください。
+
+============================================================
+9. Hostが question_set を生成する
+============================================================
+
+オンライン対戦では、両端末で別々に問題生成するとズレる可能性があります。
+そのため、Hostだけが試合開始前に question_set を生成してください。
+
+function buildOnlineQuestionSet(count = 20) {
+  const questions = [];
+  const usedKeys = new Set();
+
+  for (let i = 0; i < count; i++) {
+    const q = buildRandomQuestionFromDictionary();
+    if (!q) break;
+
+    const key = getQuestionKey(q);
+    if (usedKeys.has(key)) continue;
+    usedKeys.add(key);
+
+    const cleanQuestion = {
+      round: questions.length + 1,
+      type: q.type,
+      start: q.start || null,
+      end: q.end || null,
+      side: q.side || null,
+      lengthMode: q.lengthMode || null,
+      minLen: q.minLen || null,
+      maxLen: q.maxLen || null,
+      direction: q.direction || null,
+      n: q.n || null,
+      letter: q.letter || null,
+      letters: q.letters || null,
+      sequence: q.sequence || null,
+      candidateCount: q.candidateCount || null,
+      label: getQuestionLabel(q)
+    };
+
+    questions.push(cleanQuestion);
+  }
+
+  return questions;
+}
+
+注意：
+- candidates 全リストは保存しないでください。大きすぎます。
+- 保存するのは問題条件だけです。
+- Guest側はこの question_set を使って同じ問題を表示します。
+
+============================================================
+10. Countdown開始
+============================================================
+
+Host側で2人揃ったら：
+
+1. question_set を生成
+2. room.status = "countdown"
+3. room.question_set = questionSet
+4. countdown_started event をinsert
+5. 3秒後に room.status = "playing"
+6. startOnlineMatch()
+
+async function startOnlineCountdownAsHost(room) {
+  if (onlineState.countdownStarted) return;
+  onlineState.countdownStarted = true;
+
+  const client = ensureSupabaseClient();
+  const questionSet = buildOnlineQuestionSet(20);
+
+  await client
+    .from("word_rush_rooms")
+    .update({
+      status: "countdown",
+      question_set: questionSet,
+      updated_at: new Date().toISOString()
+    })
+    .eq("id", room.id);
+
+  await publishRoomEvent("countdown_started", {
+    startsInMs: 3000
+  });
+
+  setWaitingRoomStatus("Starting in 3...");
+
+  setTimeout(async () => {
+    await client
+      .from("word_rush_rooms")
+      .update({
+        status: "playing",
+        started_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      })
+      .eq("id", room.id);
+
+    await publishRoomEvent("match_started", {});
+    startOnlineMatch();
+  }, 3000);
+}
+
+Guest側は countdown_started event を受けたら waiting room に Starting... を表示し、match_started を受けたら startOnlineMatch() してください。
+
+============================================================
+11. Online Match開始
+============================================================
+
+オンライン対戦開始時は、既存の画面を使います。
+
+function startOnlineMatch() {
+  $("startScreen").classList.add("hidden");
+  $("waitingRoomPanel").classList.add("hidden");
+  $("gameScreen").classList.remove("hidden");
+  $("gameScreen").classList.add("versus-mode");
+
+  state.matchMode = onlineState.mode;
+  state.status = "playing";
+  state.roundIndex = 0;
+  state.scores = { A: 0, B: 0 };
+  state.roundRoundScores = { A: 0, B: 0 };
+  state.usedWords = new Set();
+  state.matchOver = false;
+
+  startOnlineRound(0);
+}
+
+function startOnlineRound(index) {
+  const q = onlineState.questionSet[index];
+  if (!q) {
+    finishOnlineMatch(null);
+    return;
+  }
+
+  state.roundIndex = index;
+  state.currentQuestion = q;
+  state.roundWords = { A: [], B: [] };
+  state.roundRoundScores = { A: 0, B: 0 };
+  state.usedWords = new Set();
+  state.remainingMs = ROUND_SECONDS * 1000;
+  state.roundStart = performance.now();
+  state.status = "playing";
+
+  clearAnswerArea();
+  setStatus("Online");
+  setMessage(`${getQuestionLabel(q)}。条件に合う単語を入力してください。`, "");
+
+  clearInterval(state.timer);
+  state.timer = setInterval(tickTimer, 50);
+
+  updateUI();
+}
+
+MVPでは、両端末がローカルタイマーで進む形で構いません。
+より厳密な同期は後で行います。
+
+============================================================
+12. Online word submit
+============================================================
+
+既存の submitWord(player) の正解確定後に、onlineState.enabled の場合だけイベント送信を追加してください。
+
+if (onlineState.enabled) {
+  publishRoomEvent("word_accepted", {
+    roundIndex: state.roundIndex,
+    word,
+    points,
+    totalScore: state.scores[player],
+    player
+  });
+}
+
+オンラインでは各端末上で以下のように表示してください。
+
+- 自分 = A
+- 相手 = B
+
+イベントには player_id を入れ、受信時に以下で表示先を決めてください。
+
+const isMine = event.player_id === onlineState.playerId;
+const localPlayer = isMine ? "A" : "B";
+
+============================================================
+13. publishRoomEvent
+============================================================
+
+async function publishRoomEvent(eventType, payload = {}) {
+  const client = ensureSupabaseClient();
+  if (!client || !onlineState.roomId) return;
+
+  const { error } = await client.from("word_rush_room_events").insert({
+    room_id: onlineState.roomId,
+    event_type: eventType,
+    player_id: onlineState.playerId,
+    player_role: onlineState.playerRole,
+    payload
+  });
+
+  if (error) {
+    console.error("Failed to publish event:", eventType, error);
+  }
+}
+
+============================================================
+14. handleRoomEvent
+============================================================
+
+function handleRoomEvent(event) {
+  const payload = event.payload || {};
+  const isMine = event.player_id === onlineState.playerId;
+
+  if (event.event_type === "countdown_started") {
+    setWaitingRoomStatus("Starting...");
+    return;
+  }
+
+  if (event.event_type === "match_started") {
+    startOnlineMatch();
+    return;
+  }
+
+  if (event.event_type === "word_accepted") {
+    if (isMine) return;
+
+    const localPlayer = "B";
+    const word = payload.word;
+    const points = payload.points || getEffectiveWordScore(word);
+
+    state.roundWords[localPlayer].push(word);
+    state.scores[localPlayer] += points;
+    state.roundRoundScores[localPlayer] += points;
+
+    updateUI();
+    return;
+  }
+
+  if (event.event_type === "match_finished") {
+    finishOnlineMatch(payload.winner || null);
+    return;
+  }
+}
+
+============================================================
+15. Random Match MVP
+============================================================
+
+Random Match は Friend Match の後で実装してください。
+最初は簡易版で構いません。
+
+randomMatchBtn を押したら：
+
+1. word_rush_random_queue から status='waiting' の最古の相手を探す
+2. 相手がいる場合
+   - roomを作る
+   - 自分をguest、相手をhost扱いまたはその逆にする
+   - queueをmatchedにする
+   - roomへ入る
+3. 相手がいない場合
+   - 自分をqueueにinsert
+   - waiting room表示
+   - 自分のqueue rowを監視
+   - room_id が入ったらそのroomへ参加
+
+必要関数：
+
+async function enterRandomMatch()
+async function cancelRandomMatch()
+async function subscribeRandomQueue(queueId)
+
+============================================================
+16. Cancel
+============================================================
+
+Waiting中にCancelを押したら：
+
+- room status を abandoned にする
+- random queue を cancelled にする
+- channel解除
+- onlineState初期化
+- startScreenに戻る
+
+async function cancelOnlineMatch() {
+  const client = ensureSupabaseClient();
+
+  if (client && onlineState.roomId) {
+    await client
+      .from("word_rush_rooms")
+      .update({
+        status: "abandoned",
+        updated_at: new Date().toISOString()
+      })
+      .eq("id", onlineState.roomId);
+  }
+
+  if (client && onlineState.queueId) {
+    await client
+      .from("word_rush_random_queue")
+      .update({
+        status: "cancelled",
+        updated_at: new Date().toISOString()
+      })
+      .eq("id", onlineState.queueId);
+  }
+
+  if (client && onlineState.channel) {
+    await client.removeChannel(onlineState.channel);
+  }
+
+  resetOnlineState();
+  showStartScreen();
+}
+
+============================================================
+17. UI event listener
+============================================================
+
+既存の button listener を以下のように整理してください。
+
+$("singlePlayBtn").addEventListener("click", () => beginMatch("single"));
+$("friendMatchBtn").addEventListener("click", () => showFriendMatchPanel());
+$("randomMatchBtn").addEventListener("click", () => enterRandomMatch());
+
+$("createFriendRoomBtn").addEventListener("click", () => createFriendRoom());
+
+$("joinFriendRoomBtn").addEventListener("click", () => {
+  joinFriendRoom($("friendRoomCodeInput").value);
+});
+
+$("friendBackBtn").addEventListener("click", () => hideFriendMatchPanel());
+$("cancelOnlineMatchBtn").addEventListener("click", () => cancelOnlineMatch());
+
+既存のIDがない場合はnullチェックしてください。
+
+============================================================
+18. まず今回の到達目標
+============================================================
+
+Friend Match:
+1. friend matchを押す
+2. Create Roomを押す
+3. room codeが表示される
+4. 別端末でroom codeを入力してJoinできる
+5. 2人揃うとwaiting roomが更新される
+6. 3秒カウントダウンが始まる
+7. 両端末で同じquestion_setを使ってversus-mode画面に入る
+8. 自分が入力した単語が相手端末のwordsBに表示される
+
+Random Match:
+1. random matchを押す
+2. 相手がいなければwaitingになる
+3. 別端末でrandom matchを押す
+4. roomが作られる
+5. 両端末が同じroomに入る
+6. その後はfriend matchと同じ対戦画面に進む
+
+============================================================
+19. 既知の制限
+============================================================
+
+今回のMVPでは以下は完璧でなくてよいです。
+
+- 完全なサーバ時刻同期
+- RPCによるrandom matchの競合防止
+- サーバ側の正解判定
+- 厳密なチート対策
+- RLSの本番設計
+- 通信切断時の復帰
+- 同時入力の完全な整合性
+
+ただし、後から改善しやすいように、関数名と状態管理は整理してください。
+
+============================================================
+20. 確認項目
+============================================================
+
+実装後、以下を確認してください。
+
+1. single play が従来通り動く。
+2. friend match を押すと Create / Join UI が出る。
+3. Create Room で Supabase に word_rush_rooms row が作られる。
+4. room code が表示される。
+5. 別端末で Join Room できる。
+6. Host側で guest joined が検知される。
+7. Hostだけが question_set を生成する。
+8. question_set が rooms.question_set に保存される。
+9. Guest側も同じ question_set を受け取る。
+10. countdown_started / match_started event が送信される。
+11. 両端末でversus-mode画面に入る。
+12. 自分の入力が相手側のwordsBに反映される。
+13. random match で待機・マッチングができる。
+14. Supabase未設定時に分かりやすいエラーが出る。
+15. ConsoleにJavaScript構文エラーが出ない。

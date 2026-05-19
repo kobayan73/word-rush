@@ -1,0 +1,307 @@
+{
+  "generatedAt": "2026-05-18T12:29:56.832Z",
+  "dictionarySize": 369652,
+  "totalAcceptedRows": 2306,
+  "byType": {
+    "start_end": {
+      "totalQuestionKinds": 676,
+      "acceptedQuestionKinds": 119,
+      "rejectedQuestionKinds": 557,
+      "acceptedMinCandidateCount": 1000,
+      "acceptedAverageCandidateCount": 2226,
+      "acceptedMaxCandidateCount": 8129,
+      "top10ByCandidates": [
+        {
+          "label": "Sで始まりSで終わる単語",
+          "candidateCount": 8129,
+          "sampleAnswers": "sabaigrass, sabalos, sabathikos, sabatons, sabazios, sabbathless, sabbaths, sabbaticalness, sabbaticals, sabbats, sabers, sabes"
+        },
+        {
+          "label": "Cで始まりSで終わる単語",
+          "candidateCount": 7148,
+          "sampleAnswers": "cabalas, cabalisms, cabalists, caballeros, caballos, cabals, cabanas, cabarets, cabas, cabbageheadedness, cabbages, cabbalahs"
+        },
+        {
+          "label": "Pで始まりSで終わる単語",
+          "candidateCount": 6575,
+          "sampleAnswers": "paaraphimosis, paas, pabulous, pabulums, pacas, pacemakers, pacers, paces, pacesetters, pachadoms, pachalics, pachas"
+        },
+        {
+          "label": "Uで始まりDで終わる単語",
+          "candidateCount": 5487,
+          "sampleAnswers": "ubound, uddered, uglified, ugroid, ulcerated, ulcered, ullaged, ulnad, uloborid, uloid, ulstered, ultimated"
+        },
+        {
+          "label": "Sで始まりEで終わる単語",
+          "candidateCount": 5421,
+          "sampleAnswers": "sabadine, sabadinine, sabalaceae, sabalote, sabbathize, sabbathlike, sabbatine, sabbatize, sabe, sabellianize, sabellidae, saberlike"
+        },
+        {
+          "label": "Aで始まりSで終わる単語",
+          "candidateCount": 5266,
+          "sampleAnswers": "aahs, aaliis, aals, aardvarks, aardwolves, aas, aasvogels, abacas, abaciscus, abaculus, abacus, abacuses"
+        },
+        {
+          "label": "Pで始まりEで終わる単語",
+          "candidateCount": 5265,
+          "sampleAnswers": "pabble, pacable, pacane, pacate, pacative, pace, pacemake, pachydermatocele, pachyglossate, pachytene, pachnolite, pacifiable"
+        },
+        {
+          "label": "Cで始まりEで終わる単語",
+          "candidateCount": 5192,
+          "sampleAnswers": "caballine, cabane, cabbage, cabbagelike, cabbalize, cabbie, cabble, cabellerote, cabezone, cabinetmake, cabinlike, cable"
+        },
+        {
+          "label": "Sで始まりYで終わる単語",
+          "candidateCount": 4121,
+          "sampleAnswers": "sabbatary, sabbathly, sabbatically, sabby, sably, sabulosity, saccarify, saccharify, saccharimetry, saccharinely, saccharinity, saccharometry"
+        },
+        {
+          "label": "Mで始まりSで終わる単語",
+          "candidateCount": 4120,
+          "sampleAnswers": "maars, macabreness, macacos, macacus, macadamizes, macadams, macaques, macareus, macaronics, macaronies, macaronis, macaroons"
+        }
+      ]
+    },
+    "edge_min_length": {
+      "totalQuestionKinds": 312,
+      "acceptedQuestionKinds": 150,
+      "rejectedQuestionKinds": 162,
+      "acceptedMinCandidateCount": 1017,
+      "acceptedAverageCandidateCount": 6327,
+      "acceptedMaxCandidateCount": 19596,
+      "top10ByCandidates": [
+        {
+          "label": "Pで始まる10文字以上の単語",
+          "candidateCount": 19596,
+          "sampleAnswers": "pabulation, pabulatory, pacemakers, pacemaking, pacesetter, pachyacria, pachyaemia, pachyderma, pachyderms, pachyhemia, pachylosis, pachymenia"
+        },
+        {
+          "label": "Cで始まる9文字以上の単語",
+          "candidateCount": 19328,
+          "sampleAnswers": "cabaletta, cabalisms, cabalists, caballero, caballine, caballing, cabbaging, cabbalahs, cabbalism, cabbalist, cabbalize, cabdriver"
+        },
+        {
+          "label": "Nで終わる8文字以上の単語",
+          "candidateCount": 18938,
+          "sampleAnswers": "abaction, abderian, aberdeen, abhorson, ablastin, ablation, ablution, abluvion, abortion, abrasion, abutilon, acacetin"
+        },
+        {
+          "label": "Aで始まる8文字以上の単語",
+          "candidateCount": 18625,
+          "sampleAnswers": "aardvark, aardwolf, aaronite, aasvogel, abacisci, abaction, abaculus, abacuses, abadengo, abaissed, abalones, abampere"
+        },
+        {
+          "label": "Dで終わる9文字以上の単語",
+          "candidateCount": 17802,
+          "sampleAnswers": "abandoned, abattised, abdicated, aberrated, abnegated, abolished, abovesaid, abreacted, abrogated, abscessed, absconded, abstained"
+        },
+        {
+          "label": "Uで始まる9文字以上の単語",
+          "candidateCount": 17782,
+          "sampleAnswers": "uberously, ubication, ubiquious, udderless, udderlike, udometers, udometric, ueueteotl, ufologies, ufologist, ugglesome, uglifiers"
+        },
+        {
+          "label": "Sで始まる10文字以上の単語",
+          "candidateCount": 16642,
+          "sampleAnswers": "sabadinine, sabaeanism, sabaigrass, sabalaceae, sabathikos, sabbathaic, sabbathism, sabbathize, sabbatical, sabdariffa, sabellaria, sabellidae"
+        },
+        {
+          "label": "Gで終わる8文字以上の単語",
+          "candidateCount": 16233,
+          "sampleAnswers": "abashing, abducing, abetting, abjuring, ablating, aborning, aborting, abrading, abrasing, abutting, acceding, accoying"
+        },
+        {
+          "label": "Nで終わる9文字以上の単語",
+          "candidateCount": 15583,
+          "sampleAnswers": "abalation, abduction, abelonian, abjection, abkhasian, abolition, abreption, abruption, abscision, abscissin, absinthin, academian"
+        },
+        {
+          "label": "Aで始まる9文字以上の単語",
+          "candidateCount": 15276,
+          "sampleAnswers": "aardvarks, aaronical, aaronitic, aasvogels, abacinate, abaciscus, abactinal, abaisance, abalation, abamperes, abandoned, abandonee"
+        }
+      ]
+    },
+    "nth_letter": {
+      "totalQuestionKinds": 78,
+      "acceptedQuestionKinds": 48,
+      "rejectedQuestionKinds": 30,
+      "acceptedMinCandidateCount": 1004,
+      "acceptedAverageCandidateCount": 8152,
+      "acceptedMaxCandidateCount": 19510,
+      "top10ByCandidates": [
+        {
+          "label": "4文字目がNの単語",
+          "candidateCount": 19510,
+          "sampleAnswers": "aband, abandon, abandonable, abandoned, abandonedly, abandonee, abandoner, abandoners, abandoning, abandonment, abandonments, abandons"
+        },
+        {
+          "label": "3文字目がCの単語",
+          "candidateCount": 19453,
+          "sampleAnswers": "abc, abcess, abcissa, abcoulomb, acc, acca, accable, accademia, accadian, acce, accede, acceded"
+        },
+        {
+          "label": "4文字目がLの単語",
+          "candidateCount": 19215,
+          "sampleAnswers": "abalation, abalienate, abalienated, abalienating, abalienation, abalone, abalones, abel, abele, abeles, abelia, abelian"
+        },
+        {
+          "label": "4文字目がCの単語",
+          "candidateCount": 17630,
+          "sampleAnswers": "abac, abaca, abacay, abacas, abacate, abacaxi, abaci, abacinate, abacination, abacisci, abaciscus, abacist"
+        },
+        {
+          "label": "4文字目がSの単語",
+          "candidateCount": 17322,
+          "sampleAnswers": "aahs, aals, abas, abase, abased, abasedly, abasedness, abasement, abasements, abaser, abasers, abases"
+        },
+        {
+          "label": "3文字目がPの単語",
+          "candidateCount": 17157,
+          "sampleAnswers": "abp, acpt, adp, adpao, adposition, adpress, adpromission, adpromissor, aepyceros, aepyornis, aepyornithidae, aepyornithiformes"
+        },
+        {
+          "label": "3文字目がMの単語",
+          "candidateCount": 15918,
+          "sampleAnswers": "aam, abmho, abmhos, abmodality, abmodalities, acmaea, acmaeidae, acmaesthesia, acmatic, acme, acmes, acmesthesia"
+        },
+        {
+          "label": "2文字目がHの単語",
+          "candidateCount": 15452,
+          "sampleAnswers": "aha, ahaaina, ahab, ahamkara, ahankara, ahantchuyuk, ahartalav, ahaunch, ahchoo, ahead, aheap, ahey"
+        },
+        {
+          "label": "2文字目がLの単語",
+          "candidateCount": 14890,
+          "sampleAnswers": "ala, alabama, alabaman, alabamian, alabamians, alabamide, alabamine, alabandine, alabandite, alabarch, alabaster, alabastoi"
+        },
+        {
+          "label": "4文字目がPの単語",
+          "candidateCount": 13889,
+          "sampleAnswers": "abapical, abaptiston, abaptistum, abepithymia, abipon, acapnia, acapnial, acapnias, acappella, acapsular, acapu, acapulco"
+        }
+      ]
+    },
+    "contains_letters": {
+      "totalQuestionKinds": 2925,
+      "acceptedQuestionKinds": 1386,
+      "rejectedQuestionKinds": 1539,
+      "acceptedMinCandidateCount": 1000,
+      "acceptedAverageCandidateCount": 6133,
+      "acceptedMaxCandidateCount": 19824,
+      "top10ByCandidates": [
+        {
+          "label": "A と H と P をすべて含む単語",
+          "candidateCount": 19824,
+          "sampleAnswers": "abbotship, abbotships, papaphobist, phthisiophobia, posthabit, sitiophobia, sitophobia, stasiphobia, stasophobia, abepithymia, amphibiety, abigailship"
+        },
+        {
+          "label": "C と H と R をすべて含む単語",
+          "candidateCount": 19756,
+          "sampleAnswers": "abbroachment, carbomethene, chronobarometer, abdominohysterectomy, abdominothoracic, rhabdomantic, abhorrence, archbeacon, bronchorrhea, nonbreach, orobanchaceae, orobanche"
+        },
+        {
+          "label": "C と P と T をすべて含む単語",
+          "candidateCount": 19709,
+          "sampleAnswers": "abiotrophic, batrachophobia, ophiobatrachia, trichopathophobia, trichophobia, ableptical, battlepiece, biplicate, ableptically, acceptability, peccability, absorptance"
+        },
+        {
+          "label": "H と U をすべて含む単語",
+          "candidateCount": 19580,
+          "sampleAnswers": "abelmoschus, ablepharous, sphaerobolus, ablepharus, pearlbush, ablush, subhall, abouchement, abought, abranchious, branchiosaur, branchiosauria"
+        },
+        {
+          "label": "A と N と Y をすべて含む単語",
+          "candidateCount": 19564,
+          "sampleAnswers": "abactinally, cannibality, incitability, abandonedly, abdominally, abdominocystic, abdominohysterectomy, abdominohysterotomy, abdominoscopy, abeyance, abeyancy, abeyances"
+        },
+        {
+          "label": "H と Y をすべて含む単語",
+          "candidateCount": 19477,
+          "sampleAnswers": "abayah, bahay, abashedly, shadbelly, abashlessly, bashyle, abdominohysterectomy, abdominohysterotomy, abepithymia, amphibiety, abernethy, abhenry"
+        },
+        {
+          "label": "R と V をすべて含む単語",
+          "candidateCount": 19430,
+          "sampleAnswers": "aardvark, aardvarks, aardwolves, abbrev, beaver, bebrave, bereave, bereaver, berreave, brave, braver, breva"
+        },
+        {
+          "label": "R と T と Y をすべて含む単語",
+          "candidateCount": 19357,
+          "sampleAnswers": "abbreviately, irretrievability, irretrievably, rebarbatively, retrievability, retrievably, revealability, revelability, revivability, travelability, travellability, verbality"
+        },
+        {
+          "label": "C と L と U をすべて含む単語",
+          "candidateCount": 19217,
+          "sampleAnswers": "abaculi, abulic, albiculi, baculi, cabilliau, cubical, cubicula, abaculus, baculus, subclass, subclausal, subucula"
+        },
+        {
+          "label": "E と H と P をすべて含む単語",
+          "candidateCount": 19061,
+          "sampleAnswers": "abepithymia, amphibiety, ablepharia, ablepharon, balanophore, blepharoblennorrhea, ablepharous, sphaerobolus, ablepharus, pearlbush, absenteeship, academicianship"
+        }
+      ]
+    },
+    "contains_sequence": {
+      "totalQuestionKinds": 475228,
+      "acceptedQuestionKinds": 603,
+      "rejectedQuestionKinds": 474625,
+      "acceptedMinCandidateCount": 2002,
+      "acceptedAverageCandidateCount": 7001,
+      "acceptedMaxCandidateCount": 63834,
+      "top10ByCandidates": [
+        {
+          "label": "ER を含む単語",
+          "candidateCount": 63834,
+          "sampleAnswers": "abacterial, abaiser, abampere, abamperes, abandoner, abandoners, abaser, abasers, abater, abaters, abderian, abderite"
+        },
+        {
+          "label": "IN を含む単語",
+          "candidateCount": 57580,
+          "sampleAnswers": "aahing, abacinate, abacination, abactinal, abactinally, abalienating, abandoning, abashing, abasing, abassin, abating, abbreviating"
+        },
+        {
+          "label": "TI を含む単語",
+          "candidateCount": 46940,
+          "sampleAnswers": "aaronitic, abacination, abactinal, abactinally, abaction, abalation, abalienating, abalienation, abannition, abaptiston, abaptistum, abarticular"
+        },
+        {
+          "label": "ES を含む単語",
+          "candidateCount": 44843,
+          "sampleAnswers": "aardwolves, abacuses, abalones, abamperes, abantes, abasedness, abases, abashedness, abashes, abashless, abashlessly, abates"
+        },
+        {
+          "label": "ON を含む単語",
+          "candidateCount": 44235,
+          "sampleAnswers": "aaron, aaronic, aaronical, aaronite, aaronitic, abacination, abaction, abaddon, abalation, abalienation, abalone, abalones"
+        },
+        {
+          "label": "TE を含む単語",
+          "candidateCount": 42908,
+          "sampleAnswers": "aaronite, abacate, abacinate, abacterial, abadite, abalienate, abalienated, abantes, abate, abated, abatement, abatements"
+        },
+        {
+          "label": "AT を含む単語",
+          "candidateCount": 41170,
+          "sampleAnswers": "abacate, abacinate, abacination, abalation, abalienate, abalienated, abalienating, abalienation, abarticulation, abatable, abatage, abate"
+        },
+        {
+          "label": "AL を含む単語",
+          "candidateCount": 39606,
+          "sampleAnswers": "aal, aalii, aaliis, aals, aaronical, abacterial, abactinal, abactinally, abalation, abalienate, abalienated, abalienating"
+        },
+        {
+          "label": "AN を含む単語",
+          "candidateCount": 38714,
+          "sampleAnswers": "aani, abaisance, aband, abandon, abandonable, abandoned, abandonedly, abandonee, abandoner, abandoners, abandoning, abandonment"
+        },
+        {
+          "label": "RE を含む単語",
+          "candidateCount": 38384,
+          "sampleAnswers": "abampere, abamperes, abature, abbrev, abbreviatable, abbreviate, abbreviated, abbreviately, abbreviates, abbreviating, abbreviation, abbreviations"
+        }
+      ]
+    }
+  }
+}

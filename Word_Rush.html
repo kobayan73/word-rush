@@ -1,0 +1,4115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word Rush Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #080b16;
+      --ink: #f8fafc;
+      --muted: #94a3b8;
+      --card: #111827;
+      --line: rgba(148, 163, 184, 0.24);
+      --blue: #38bdf8;
+      --pink: #db2777;
+      --green: #15803d;
+      --orange: #c2410c;
+      --red: #dc2626;
+      --panel: rgba(15, 23, 42, 0.86);
+      --panel-strong: rgba(17, 24, 39, 0.94);
+      --glow-blue: rgba(56, 189, 248, 0.42);
+      --glow-pink: rgba(236, 72, 153, 0.28);
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 14% 8%, rgba(56, 189, 248, 0.26), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(168, 85, 247, 0.20), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.12), transparent 36%),
+        linear-gradient(180deg, #050816, var(--bg));
+      color: var(--ink);
+    }
+
+    .app {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 116px;
+      border-radius: 999px;
+      padding: 8px 13px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-weight: 900;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .layout {
+      display: block;
+    }
+
+    .hidden { display: none !important; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(17, 24, 39, 0.86));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+    }
+
+    .side-panel {
+      position: sticky;
+      top: 18px;
+    }
+
+    .start-screen {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      place-items: center;
+      padding: 28px 0;
+    }
+
+    .start-card {
+      width: min(520px, 100%);
+      display: grid;
+      gap: 18px;
+      text-align: center;
+    }
+
+    .start-card h1 {
+      font-size: 52px;
+    }
+
+    .start-actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .start-actions button {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .start-dictionary {
+      display: grid;
+      gap: 10px;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .policy-links {
+      margin-top: 8px;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .policy-links a {
+      color: var(--muted);
+      text-decoration: underline;
+      font-weight: 800;
+    }
+
+    .policy-links a:hover {
+      color: var(--ink);
+    }
+
+    .start-panel {
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .friend-match-menu {
+      display: grid;
+      gap: 10px;
+    }
+
+    .friend-match-menu button,
+    .start-panel button {
+      width: 100%;
+    }
+
+    .start-panel h2 {
+      margin: 0;
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+
+    .start-panel input {
+      text-transform: uppercase;
+    }
+
+    .online-status {
+      min-height: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .waiting-room-card {
+      width: min(520px, 100%);
+      display: grid;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .waiting-room-card h2 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+    }
+
+    .waiting-room-meta {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .room-code-view {
+      color: var(--ink);
+      font-size: 38px;
+      font-weight: 950;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .waiting-spinner {
+      width: 38px;
+      height: 38px;
+      margin: 2px auto 4px;
+      border-radius: 999px;
+      border: 4px solid rgba(148, 163, 184, 0.22);
+      border-top-color: var(--blue);
+      animation: waitingSpin 900ms linear infinite;
+    }
+
+    @keyframes waitingSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .controls {
+      display: grid;
+      gap: 10px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 900;
+      cursor: pointer;
+      background: linear-gradient(180deg, #38bdf8, #2563eb);
+      color: #eff6ff;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.26);
+      transition: transform 0.08s ease, opacity 0.15s ease, filter 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+
+    button:disabled {
+      opacity: 0.42;
+      cursor: not-allowed;
+      transform: none;
+      filter: grayscale(0.2);
+    }
+
+    .secondary {
+      background: rgba(30, 41, 59, 0.92);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .blue { background: var(--blue); }
+    .pink { background: var(--pink); }
+    .green { background: var(--green); }
+    .orange { background: var(--orange); }
+    .red { background: var(--red); }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: #f3f4f6;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .round-card {
+      display: grid;
+      gap: 16px;
+    }
+
+    .round-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .round-label {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .rule-visual {
+      display: grid;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .rule-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .rule-box {
+      min-height: 150px;
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(96, 165, 250, 0.34);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.20), transparent 56%),
+        linear-gradient(180deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98));
+      text-align: center;
+      padding: 16px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 28px rgba(37, 99, 235, 0.16);
+    }
+
+    .rule-box .caption {
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .rule-box .main {
+      font-size: 76px;
+      font-weight: 950;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.06em;
+      color: #e0f2fe;
+      text-shadow: 0 0 26px rgba(56, 189, 248, 0.34);
+    }
+
+    .rule-box.length-box {
+      border-color: rgba(148, 163, 184, 0.28);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(148, 163, 184, 0.16), transparent 58%),
+        linear-gradient(180deg, rgba(31, 41, 55, 0.94), rgba(15, 23, 42, 0.96));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .rule-box.length-box .caption {
+      color: #cbd5e1;
+    }
+
+    .rule-box.length-box .main {
+      color: #f8fafc;
+    }
+
+    .rule-op {
+      color: #64748b;
+      font-size: 34px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .rule-single {
+      min-height: 150px;
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(96, 165, 250, 0.34);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.20), transparent 56%),
+        linear-gradient(180deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98));
+      text-align: center;
+      padding: 18px;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 0 28px rgba(37, 99, 235, 0.16);
+    }
+
+    .rule-single .caption {
+      color: #93c5fd;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .rule-single .main {
+      font-size: 72px;
+      font-weight: 950;
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      color: #e0f2fe;
+      text-shadow: 0 0 26px rgba(56, 189, 248, 0.34);
+    }
+
+    .rule-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .rule-chip {
+      min-width: 96px;
+      min-height: 96px;
+      border-radius: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 64, 175, 0.38);
+      border: 1px solid rgba(147, 197, 253, 0.34);
+      color: #e0f2fe;
+      font-size: 64px;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .rule-pattern {
+      color: #cbd5e1;
+      font-size: 76px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-align: center;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .rule-pattern .target {
+      color: #e0f2fe;
+      text-shadow: 0 0 26px rgba(56, 189, 248, 0.45);
+    }
+
+    .rule-placeholder {
+      min-height: 150px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      border: 1px dashed rgba(148, 163, 184, 0.32);
+      background: rgba(15, 23, 42, 0.72);
+      font-weight: 900;
+    }
+
+    .timebar-wrap {
+      position: relative;
+      width: 136px;
+      height: 30px;
+      border-radius: 999px;
+      background: rgba(76, 29, 149, 0.32);
+      overflow: hidden;
+      border: 1px solid rgba(196, 181, 253, 0.34);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.20);
+    }
+
+    .timebar-fill {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+      transform: scaleX(1);
+      background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+    }
+
+    .timebar-text {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #f5f3ff;
+      font-size: 13px;
+      font-weight: 950;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .players {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    #gameScreen.versus-mode .players {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .player-card {
+      border-radius: 24px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(17, 24, 39, 0.86));
+      border: 1px solid rgba(56, 189, 248, 0.20);
+      box-shadow:
+        0 18px 54px rgba(0, 0, 0, 0.36),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: border-color 150ms ease, transform 150ms ease, background 150ms ease;
+    }
+
+    .player-card.a.active {
+      border-color: rgba(56, 189, 248, 0.64);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.16), transparent 46%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.90));
+      transform: translateY(-1px);
+      box-shadow:
+        0 18px 58px rgba(0, 0, 0, 0.40),
+        0 0 34px rgba(14, 165, 233, 0.16);
+    }
+    .player-card.b.active { border-color: #ec4899; background: #fff1f8; transform: translateY(-1px); }
+
+    .opponent-card {
+      display: none;
+      border-color: rgba(236, 72, 153, 0.22);
+    }
+
+    #gameScreen.versus-mode .opponent-card {
+      display: grid;
+    }
+
+    #gameScreen.versus-mode .player-card.b.active {
+      border-color: rgba(236, 72, 153, 0.64);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(236, 72, 153, 0.16), transparent 46%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(17, 24, 39, 0.90));
+      transform: translateY(-1px);
+      box-shadow:
+        0 18px 58px rgba(0, 0, 0, 0.40),
+        0 0 34px rgba(236, 72, 153, 0.14);
+    }
+
+    #gameScreen.versus-mode .player-card {
+      display: grid;
+      grid-template-rows: 12px minmax(0, 1fr);
+      row-gap: 12px;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    #gameScreen.versus-mode .scorebar-wrap {
+      margin: 0;
+    }
+
+    .scorebar-wrap {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.96);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .scorebar-fill {
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, #0ea5e9, #2563eb);
+      box-shadow: 0 0 18px rgba(14, 165, 233, 0.36);
+      transition:
+        transform 400ms cubic-bezier(.16, 1, .3, 1),
+        background 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .opponent-scorebar-fill {
+      background: linear-gradient(90deg, #ec4899, #be185d);
+      box-shadow: 0 0 18px rgba(236, 72, 153, 0.30);
+    }
+
+    .scorebar-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #fff;
+      opacity: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .scorebar-wrap::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -100%;
+      width: 50%;
+      height: 2px;
+      background: #fff;
+      box-shadow: 0 0 calc(var(--impact-intensity, 0) * 30px) 5px #fff;
+      z-index: 4;
+      pointer-events: none;
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+
+    .player-card.score-impact {
+      --impact-shake: calc(var(--impact-intensity, 0) * 15px);
+      animation: progress-impact-shake 400ms cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    .player-card.score-impact .scorebar-wrap {
+      animation: progress-impact-hybrid 600ms ease-out;
+    }
+
+    .player-card.score-impact .scorebar-fill {
+      box-shadow:
+        0 0 calc(var(--impact-intensity, 0) * 80px) #fff,
+        0 0 30px rgba(14, 165, 233, 0.65);
+    }
+
+    .player-card.score-impact .scorebar-wrap::after {
+      animation: progress-impact-flash 600ms ease-out;
+    }
+
+    .player-card.score-overtake .scorebar-wrap::before,
+    .player-card.score-correct .scorebar-wrap::before {
+      opacity: 1;
+      animation: progress-impact-streak 400ms ease-in;
+    }
+
+    .player-card.score-correct .scorebar-wrap::before {
+      height: 6px;
+      background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+      box-shadow: 0 0 calc(var(--impact-intensity, 0) * 40px) 10px rgba(255,255,255,0.8);
+    }
+
+    #gameScreen.max-effect-shake {
+      animation: max-effect-screen-shake 980ms cubic-bezier(.25,.85,.2,1) both;
+      transform-origin: center center;
+      will-change: transform, filter;
+    }
+
+    @keyframes progress-impact-shake {
+      10%, 90% { transform: translate3d(calc(-0.3 * var(--impact-shake, 0px)), 0, 0); }
+      20%, 80% { transform: translate3d(calc(0.6 * var(--impact-shake, 0px)), 0, 0); }
+      30%, 50%, 70% { transform: translate3d(calc(-1 * var(--impact-shake, 0px)), calc(-0.5 * var(--impact-shake, 0px)), 0); }
+      40%, 60% { transform: translate3d(var(--impact-shake, 0px), calc(0.3 * var(--impact-shake, 0px)), 0); }
+    }
+
+    @keyframes progress-impact-hybrid {
+      0% { transform: scale(1); filter: brightness(1) blur(0); }
+      15% {
+        transform: scale(calc(1 + 0.1 * var(--impact-intensity, 0)), calc(1 + 3 * var(--impact-intensity, 0)));
+        filter: brightness(calc(1 + 25 * var(--impact-intensity, 0))) blur(calc(var(--impact-intensity, 0) * 3px));
+      }
+      100% { transform: scale(1); filter: brightness(1) blur(0); }
+    }
+
+    @keyframes progress-impact-flash {
+      0% { opacity: 0; }
+      10% { opacity: calc(0.4 + 0.6 * var(--impact-intensity, 0)); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes progress-impact-streak {
+      0% { left: -100%; opacity: 1; }
+      100% { left: 200%; opacity: 0; }
+    }
+
+    @keyframes max-effect-screen-shake {
+      0% {
+        transform: scale(1.02);
+        filter: saturate(1.08) contrast(1.04);
+      }
+      5% {
+        transform: scale(1.07) translate3d(-34px, 18px, 0) rotate(-1.4deg);
+        filter: saturate(1.5) contrast(1.12);
+      }
+      10% {
+        transform: scale(1.075) translate3d(46px, -22px, 0) rotate(1.55deg);
+      }
+      16% {
+        transform: scale(1.07) translate3d(-56px, -26px, 0) rotate(-1.8deg);
+      }
+      23% {
+        transform: scale(1.065) translate3d(60px, 30px, 0) rotate(1.9deg);
+        filter: saturate(1.72) contrast(1.18);
+      }
+      31% {
+        transform: scale(1.058) translate3d(-50px, 22px, 0) rotate(-1.35deg);
+      }
+      41% {
+        transform: scale(1.048) translate3d(42px, -18px, 0) rotate(1.05deg);
+      }
+      52% {
+        transform: scale(1.038) translate3d(-34px, 14px, 0) rotate(-0.8deg);
+      }
+      64% {
+        transform: scale(1.028) translate3d(25px, -10px, 0) rotate(0.55deg);
+        filter: saturate(1.3) contrast(1.09);
+      }
+      78% {
+        transform: scale(1.017) translate3d(-15px, 6px, 0) rotate(-0.3deg);
+      }
+      90% {
+        transform: scale(1.008) translate3d(8px, -3px, 0) rotate(0.14deg);
+      }
+      100% {
+        transform: scale(1);
+        filter: saturate(1) contrast(1);
+      }
+    }
+
+    .input-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 16px;
+      padding: 13px 14px;
+      font-size: 18px;
+      font-weight: 800;
+      outline: none;
+      background: rgba(2, 6, 23, 0.66);
+      color: var(--ink);
+    }
+
+    input:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.14);
+    }
+
+    .words {
+      min-height: 124px;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.42);
+      border: 1px solid rgba(148, 163, 184, 0.20);
+    }
+
+    #gameScreen.versus-mode #wordsA,
+    #gameScreen.versus-mode #wordsB {
+      min-height: 124px;
+      margin: 0;
+      align-self: stretch;
+      overflow: auto;
+    }
+
+    .word-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      margin: 4px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      color: #e0f2fe;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .hint {
+      min-height: 24px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .hidden-opponent-hint {
+      display: none;
+    }
+
+    .answer-panel {
+      margin-top: 14px;
+    }
+
+    .answer-inner {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      border-radius: 22px;
+      padding: 12px;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      box-shadow:
+        0 18px 54px rgba(0, 0, 0, 0.30),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px);
+    }
+
+    .answer-input-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .answer-hint {
+      margin-top: 8px;
+    }
+
+    .message {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.86);
+      border: 1px solid var(--line);
+      text-align: center;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .message.success { background: rgba(6, 78, 59, 0.60); color: #bbf7d0; border-color: rgba(52, 211, 153, 0.34); }
+    .message.warn { background: rgba(124, 45, 18, 0.60); color: #fed7aa; border-color: rgba(251, 146, 60, 0.34); }
+    .message.danger { background: rgba(127, 29, 29, 0.60); color: #fecaca; border-color: rgba(248, 113, 113, 0.34); }
+
+    .log {
+      margin-top: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: #111827;
+      color: #d1d5db;
+      border-radius: 18px;
+      padding: 14px;
+      min-height: 130px;
+      max-height: 220px;
+      overflow: auto;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 6, 23, 0.74);
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .modal-backdrop.show { display: flex; }
+
+    .modal {
+      width: min(680px, 100%);
+      min-height: 360px;
+      border-radius: 36px;
+      padding: 46px 34px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.15), transparent 42%),
+        linear-gradient(180deg, #111827, #020617);
+      color: var(--ink);
+      text-align: center;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      box-shadow: 0 34px 100px rgba(0,0,0,0.54);
+      animation: popIn 200ms ease-out forwards;
+    }
+
+    .modal h2 {
+      margin: 0 0 14px;
+      font-size: 48px;
+      letter-spacing: -0.05em;
+    }
+
+    .modal h2.versus-result-title {
+      font-size: clamp(64px, 14vw, 112px);
+      line-height: 0.95;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+
+    .modal p {
+      margin: 0 0 24px;
+      font-size: 22px;
+      font-weight: 850;
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    .modal p.versus-score {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 18px;
+      width: min(360px, 100%);
+      margin: 0 auto 28px;
+      font-size: clamp(34px, 8vw, 58px);
+      font-weight: 950;
+      line-height: 1;
+      white-space: normal;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .versus-score .score-left {
+      text-align: right;
+    }
+
+    .versus-score .score-separator {
+      text-align: center;
+      color: var(--muted);
+      min-width: 0.8em;
+    }
+
+    .versus-score .score-right {
+      text-align: left;
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .win-flash-overlay {
+      position: fixed;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      background: rgba(125, 211, 252, 0.84);
+      mix-blend-mode: screen;
+    }
+
+    .win-flash-overlay.flash-active {
+      animation: full-screen-win-flash 0.8s ease-out;
+    }
+
+    .lightning-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 215;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      mix-blend-mode: screen;
+      transition: opacity 0.2s ease;
+      background:
+        radial-gradient(ellipse at 50% 46%, rgba(56,189,248,0.70) 0%, rgba(37,99,235,0.46) 24%, transparent 62%),
+        radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.30) 0%, transparent 50%);
+    }
+
+    .lightning-layer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.20) 0%, rgba(244,114,182,0.14) 5%, transparent 18%),
+        linear-gradient(90deg, transparent 0%, rgba(37,99,235,0.05) 36%, rgba(96,165,250,0.20) 50%, rgba(37,99,235,0.05) 64%, transparent 100%);
+      animation: lightning-blue-bloom 2.2s ease-out both;
+    }
+
+    .lightning-layer.lightning-active {
+      animation: lightning-layer-fade 2.2s ease-out both;
+    }
+
+    .lightning-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      transform: scale(1.04);
+      filter: brightness(1.65) contrast(1.16) saturate(1.35);
+      clip-path: inset(0 0 100% 0);
+    }
+
+    .lightning-layer.lightning-active .lightning-image {
+      animation: lightning-image-burst 1.35s cubic-bezier(.12, .78, .18, 1) both;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.94); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes full-screen-win-flash {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes lightning-layer-fade {
+      0% { opacity: 0; }
+      4% { opacity: 1; }
+      12% { opacity: 0.62; }
+      18% { opacity: 1; }
+      42% { opacity: 0.92; }
+      70% { opacity: 0.46; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes lightning-blue-bloom {
+      0% { opacity: 0; filter: blur(12px); }
+      8% { opacity: 1; filter: blur(18px); }
+      28% { opacity: 0.85; filter: blur(22px); }
+      100% { opacity: 0; filter: blur(30px); }
+    }
+
+    @keyframes lightning-image-burst {
+      0% {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        transform: scale(1.08) translate3d(0, 0, 0);
+        filter: brightness(1.2) contrast(1.05) saturate(1.15) blur(2px);
+      }
+      5% {
+        opacity: 1;
+        clip-path: inset(0 0 86% 0);
+        transform: scale(1.07) translate3d(-0.5%, 0.1%, 0);
+        filter: brightness(2.8) contrast(1.28) saturate(1.55) blur(0);
+      }
+      12% {
+        opacity: 0.98;
+        clip-path: inset(0 0 62% 0);
+        transform: scale(1.06) translate3d(0.5%, -0.1%, 0);
+        filter: brightness(2.35) contrast(1.20) saturate(1.45) blur(0);
+      }
+      22% {
+        opacity: 1;
+        clip-path: inset(0 0 34% 0);
+        transform: scale(1.05) translate3d(-0.35%, 0.1%, 0);
+        filter: brightness(2.65) contrast(1.25) saturate(1.55) blur(0);
+      }
+      34% {
+        opacity: 0.96;
+        clip-path: inset(0 0 8% 0);
+        transform: scale(1.04) translate3d(0.35%, 0, 0);
+        filter: brightness(2.05) contrast(1.16) saturate(1.38) blur(0.1px);
+      }
+      42% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: scale(1.035) translate3d(-0.15%, 0, 0);
+        filter: brightness(2.35) contrast(1.18) saturate(1.42) blur(0);
+      }
+      68% {
+        opacity: 0.72;
+        clip-path: inset(0 0 0 0);
+        transform: scale(1.02) translate3d(0, 0, 0);
+        filter: brightness(1.55) contrast(1.08) saturate(1.22) blur(0.7px);
+      }
+      100% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: scale(1.0) translate3d(0, 0, 0);
+        filter: brightness(1.0) contrast(1.0) saturate(1.0) blur(2px);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      .side-panel { position: static; }
+      .players { grid-template-columns: 1fr; }
+      #gameScreen.versus-mode .players { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .app {
+        padding: 8px 10px;
+      }
+
+      h1 { font-size: 28px; }
+      .start-card h1 { font-size: 42px; }
+
+      #gameScreen {
+        display: block;
+        min-height: 100svh;
+        padding-bottom: 0;
+      }
+
+      #gameScreen.hidden {
+        display: none !important;
+      }
+
+      #gameScreen .layout,
+      #gameScreen main {
+        min-height: 0;
+      }
+
+      #gameScreen .layout {
+        display: block;
+      }
+
+      #gameScreen main {
+        position: fixed;
+        top: 8px;
+        left: 10px;
+        right: 10px;
+        bottom: calc(96px + env(safe-area-inset-bottom));
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: hidden;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 12px;
+        box-shadow: 0 10px 28px rgba(17, 24, 39, 0.06);
+      }
+
+      .round-card {
+        gap: 9px;
+        position: relative;
+        z-index: 1;
+        flex: 0 0 auto;
+      }
+
+      .round-top {
+        gap: 8px;
+      }
+
+      .status {
+        min-width: 84px;
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+
+      .rule-visual {
+        gap: 8px;
+      }
+
+      .rule-row {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .rule-op {
+        display: block;
+        font-size: 22px;
+      }
+
+      .rule-box,
+      .rule-single,
+      .rule-placeholder {
+        min-height: 86px;
+        border-radius: 18px;
+        padding: 10px;
+      }
+
+      .rule-box .caption,
+      .rule-single .caption {
+        font-size: 11px;
+        margin-bottom: 6px;
+      }
+
+      .rule-box .main,
+      .rule-single .main {
+        font-size: 44px;
+      }
+
+      .rule-chips {
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .rule-chip {
+        min-width: 56px;
+        min-height: 56px;
+        border-radius: 16px;
+        font-size: 36px;
+      }
+
+      .rule-pattern {
+        font-size: 38px;
+      }
+
+      .timebar-wrap {
+        width: 108px;
+        height: 26px;
+      }
+
+      .timebar-text {
+        font-size: 12px;
+      }
+
+      .players {
+        margin-top: 0;
+        min-height: 0;
+        flex: 1 1 0;
+        display: grid;
+        gap: 8px;
+        grid-auto-rows: minmax(0, 1fr);
+        align-items: stretch;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+      }
+
+      #gameScreen.versus-mode .players {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: minmax(0, 1fr);
+      }
+
+      #gameScreen.versus-mode #playerA,
+      #gameScreen.versus-mode #playerB {
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        height: 100%;
+        min-height: 0;
+        align-self: stretch;
+      }
+
+      .player-card {
+        border-radius: 18px;
+        padding: 12px;
+        min-height: 0;
+        height: 100%;
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr);
+        row-gap: 8px;
+        overflow: hidden;
+      }
+
+      .player-card.a.active,
+      #gameScreen.versus-mode .player-card.b.active {
+        transform: none;
+      }
+
+      .scorebar-wrap {
+        height: 8px;
+        margin-bottom: 0;
+      }
+
+      .input-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .answer-panel {
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        bottom: calc(env(safe-area-inset-bottom) + 8px);
+        z-index: 80;
+        margin-top: 0;
+        will-change: transform;
+      }
+
+      .answer-inner {
+        width: 100%;
+        padding: 8px;
+        border-radius: 18px;
+        background: rgba(15, 23, 42, 0.94);
+        border: 1px solid rgba(148, 163, 184, 0.26);
+        box-shadow:
+          0 16px 42px rgba(0, 0, 0, 0.42),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+      }
+
+      .answer-input-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+      }
+
+      .answer-input-row input {
+        font-size: 16px;
+        padding: 11px 12px;
+      }
+
+      .answer-input-row button {
+        padding: 11px 13px;
+      }
+
+      .answer-hint {
+        min-height: 18px;
+        margin-top: 6px;
+        font-size: 12px;
+      }
+
+      input {
+        border-radius: 13px;
+        padding: 10px 12px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 10px 13px;
+      }
+
+      .words {
+        min-height: 0;
+        height: 100%;
+        max-height: none;
+        align-self: stretch;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-top: 0;
+        padding: 8px;
+        border-radius: 14px;
+      }
+
+      #gameScreen.versus-mode #wordsA,
+      #gameScreen.versus-mode #wordsB {
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        min-height: 0;
+        align-self: stretch;
+        overflow: auto;
+      }
+
+      .word-chip {
+        padding: 5px 8px;
+        margin: 3px;
+        font-size: 12px;
+      }
+
+      .hint {
+        min-height: 18px;
+        margin-top: 6px;
+        font-size: 12px;
+      }
+
+      .modal-actions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="winFlashOverlay" class="win-flash-overlay"></div>
+  <div id="lightningLayer" class="lightning-layer" aria-hidden="true">
+    <img id="lightningImage" class="lightning-image" src="assets/lightning_win1.png" alt="" />
+  </div>
+  <div class="app start-screen" id="startScreen">
+    <section class="card start-card">
+      <div>
+        <h1>Word Rush</h1>
+        <div class="subtitle">
+          条件に合う英単語を入力して、50点到達を目指します。
+        </div>
+      </div>
+
+      <div class="start-actions">
+        <button id="randomMatchBtn">Random Match</button>
+        <button id="friendMatchBtn">Friend Match</button>
+      </div>
+
+      <div class="start-dictionary">
+        <span id="dictionaryInfo">判定：同じフォルダの words_alpha.txt 読み込み中</span>
+        <span id="startNotice">single play は辞書読み込み後に開始できます。</span>
+      </div>
+
+      <div class="policy-links">
+        <a href="policy.html" target="_blank" rel="noopener">利用規約・プライバシーポリシー</a>
+      </div>
+
+    </section>
+
+    <section id="friendMatchPanel" class="card waiting-room-card start-panel hidden">
+      <h2>Friend Match</h2>
+      <div id="friendMatchMenu" class="friend-match-menu">
+        <button id="createFriendRoomBtn" type="button">Create Room</button>
+        <button id="showJoinRoomBtn" class="secondary" type="button">Join Room</button>
+        <button class="secondary" id="friendBackBtn" type="button">Back</button>
+      </div>
+      <div id="friendJoinRoomPanel" class="start-panel hidden">
+        <input id="friendRoomCodeInput" placeholder="Room code" autocomplete="off" />
+        <button id="joinFriendRoomBtn" type="button">Join Room</button>
+        <button class="secondary" id="friendJoinBackBtn" type="button">Back</button>
+      </div>
+      <div id="friendMatchStatus" class="online-status"></div>
+    </section>
+
+    <section class="card waiting-room-card hidden" id="waitingRoomPanel">
+      <h2>Waiting Room</h2>
+      <div id="waitingSpinner" class="waiting-spinner" aria-hidden="true"></div>
+      <div class="waiting-room-meta">
+        <div id="waitingRoomCodeLabel">Room Code</div>
+        <div id="waitingRoomCode" class="room-code-view">------</div>
+        <div id="waitingRoomRole">You: -</div>
+        <div id="waitingRoomOpponent">Opponent: Waiting...</div>
+        <div id="waitingRoomStatus">Status: waiting</div>
+      </div>
+      <button id="cancelOnlineMatchBtn" class="secondary" type="button">Cancel</button>
+    </section>
+  </div>
+
+  <div class="app hidden" id="gameScreen">
+    <div class="layout">
+      <main>
+        <section class="card round-card">
+          <div class="round-top">
+            <div class="round-label" id="roundLabel">Round 1</div>
+            <div class="timebar-wrap">
+              <div class="timebar-fill" id="timebarFill"></div>
+              <div class="timebar-text" id="timebarText">40s</div>
+            </div>
+          </div>
+
+          <div class="rule-visual" id="ruleVisual">
+            <div class="rule-placeholder">Press Start</div>
+          </div>
+
+        </section>
+
+        <section class="players">
+          <div class="player-card a" id="playerA">
+            <div class="scorebar-wrap">
+              <div class="scorebar-fill" id="scorebarFill"></div>
+            </div>
+            <div class="words" id="wordsA"></div>
+          </div>
+          <div class="player-card b opponent-card" id="playerB">
+            <div class="scorebar-wrap">
+              <div class="scorebar-fill opponent-scorebar-fill" id="opponentScorebarFill"></div>
+            </div>
+            <div class="words" id="wordsB"></div>
+            <div class="hint hidden-opponent-hint" id="hintB"></div>
+          </div>
+        </section>
+
+        <section class="answer-panel" id="answerPanel">
+          <div class="answer-inner">
+            <div class="input-row answer-input-row">
+              <input id="inputA" placeholder="Type a word" autocomplete="off" disabled />
+              <button class="blue" id="submitA" disabled>Send</button>
+            </div>
+            <div class="hint answer-hint" id="hintA"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <h2 id="modalTitle">Clear!</h2>
+      <p id="modalMessage"></p>
+      <div class="modal-actions">
+        <button id="startAgainBtn">start again</button>
+        <button class="secondary" id="backToTitleBtn">back to title</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    /*
+      Supabase MVP schema for online matches:
+
+      create table if not exists word_rush_rooms (
+        id uuid primary key default gen_random_uuid(),
+        room_code text unique,
+        mode text not null,
+        status text not null default 'waiting',
+        host_id text not null,
+        guest_id text,
+        host_name text,
+        guest_name text,
+        current_round integer default 0,
+        question_set jsonb,
+        scores jsonb default '{"A":0,"B":0}'::jsonb,
+        created_at timestamptz default now(),
+        updated_at timestamptz default now(),
+        started_at timestamptz,
+        finished_at timestamptz
+      );
+
+      create table if not exists word_rush_room_events (
+        id bigserial primary key,
+        room_id uuid references word_rush_rooms(id) on delete cascade,
+        event_type text not null,
+        player_id text not null,
+        player_role text not null,
+        payload jsonb default '{}'::jsonb,
+        server_time timestamptz default now(),
+        created_at timestamptz default now()
+      );
+
+      create table if not exists word_rush_random_queue (
+        id uuid primary key default gen_random_uuid(),
+        player_id text not null,
+        player_name text,
+        status text not null default 'waiting',
+        room_id uuid,
+        created_at timestamptz default now(),
+        updated_at timestamptz default now()
+      );
+
+      RLS policies are intentionally left for the production pass.
+    */
+
+    const WIN_SCORE = 50;
+    const ROUND_SECONDS = 40;
+    // Default generated-question range. Some rule types use a type-specific lower bound.
+    const MIN_QUESTION_CANDIDATES = 1000;
+    const MAX_QUESTION_CANDIDATES = 20000;
+    const SEQUENCE_LENGTH_OPTIONS = [2, 3, 4];
+    const EDGE_LENGTH_MIN_CANDIDATES = 2000;
+    const CONTAINS_SEQUENCE_MIN_CANDIDATES = 2000;
+    const QUESTION_PICK_MAX_ATTEMPTS = 500;
+    const SUPABASE_URL = "https://lntgmwmjpwempyndezkr.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxudGdtd21qcHdlbXB5bmRlemtyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzgzMDk4OTYsImV4cCI6MjA5Mzg4NTg5Nn0.q8X9OM_C3S0Di0So3ki7c_YjROTudvhnQ2gffdedGbQ";
+
+    let supabaseClient = null;
+
+    const lightningImageByVariant = {
+      1: "assets/lightning_win1.png",
+      2: "assets/lightning_win2.png",
+      3: "assets/lightning_win3.png",
+      4: "assets/lightning_win4.png",
+      5: "assets/lightning_win5.png"
+    };
+
+    const soundEffects = {
+      near: new Audio("sound/near.mp3"),
+      rank: new Audio("sound/rank.mp3"),
+      correct1: new Audio("sound/correct1.mp3"),
+      correct2: new Audio("sound/correct2.mp3"),
+      far: new Audio("sound/far.mp3")
+    };
+
+    let soundUnlocked = false;
+
+    let dictionary = new Set();
+    let dictionarySource = "loading";
+
+    function normalizeDictionaryWord(value) {
+      return String(value)
+        .trim()
+        .toLowerCase()
+        .replace(/#.*$/, "")
+        .trim();
+    }
+
+    function buildDictionaryFromWordListText(text) {
+      const words = text
+        .split(/\r?\n/)
+        .map(normalizeDictionaryWord)
+        .filter((word) => /^[a-z]+$/.test(word) && word.length >= 3);
+
+      return new Set(words);
+    }
+
+    function applyDictionaryText(text, sourceLabel) {
+      const loadedDictionary = buildDictionaryFromWordListText(text);
+
+      if (loadedDictionary.size === 0) {
+        throw new Error(`${sourceLabel} contained no valid words`);
+      }
+
+      dictionary = loadedDictionary;
+      dictionarySource = sourceLabel;
+      log(`Dictionary loaded from ${sourceLabel}: ${dictionary.size.toLocaleString()} valid words.`);
+      updateDictionaryInfo();
+      setStatus("Ready");
+      updateUI();
+    }
+
+    async function loadDictionary() {
+      try {
+        setStatus("Loading dictionary");
+        const response = await fetch("./words_alpha.txt", { cache: "no-store" });
+
+        if (!response.ok) {
+          throw new Error(`./words_alpha.txt HTTP ${response.status}`);
+        }
+
+        const text = await response.text();
+        applyDictionaryText(text, "words_alpha.txt");
+      } catch (error) {
+        dictionary = new Set();
+        dictionarySource = "load failed";
+        log(`Failed to auto-load words_alpha.txt. Reason: ${error.message}`);
+        log("The app first tries to load ./words_alpha.txt from the same folder as this HTML file.");
+        log("If you opened this HTML directly with file://, browser security may block that read. Start a local server in /Users/kobayashihikari/Desktop/app_developer/Word_Rush with: python3 -m http.server 8000");
+        setMessage("同じフォルダの words_alpha.txt の自動読み込みに失敗しました。file://で開いている場合は、/Users/kobayashihikari/Desktop/app_developer/Word_Rush で python3 -m http.server 8000 を実行し、http://localhost:8000/Word_Rush.html を開いてください。", "warn");
+        updateDictionaryInfo();
+        setStartNotice("辞書を読み込めませんでした。Load words_alpha.txt から手動で読み込んでください。", "warn");
+        setStatus("Dictionary missing");
+        updateUI();
+      }
+    }
+
+    function loadDictionaryFromFile(file) {
+      if (!file) return;
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        try {
+          applyDictionaryText(String(reader.result || ""), file.name || "selected dictionary file");
+          setMessage(`${file.name} を辞書として読み込みました。`, "success");
+        } catch (error) {
+          log(`Failed to load selected dictionary file: ${error.message}`);
+          setMessage(`辞書ファイルの読み込みに失敗しました: ${error.message}`, "danger");
+        }
+      };
+
+      reader.onerror = () => {
+        log("Failed to read selected dictionary file.");
+        setMessage("選択した辞書ファイルを読み込めませんでした。", "danger");
+      };
+
+      reader.readAsText(file);
+    }
+
+    const COMMON_START_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
+    const COMMON_END_LETTERS = "abcdefghijklmnopqrstuvwxyz".split("");
+    const NTH_LETTER_POSITIONS = [2, 3, 4];
+    const NTH_LETTER_DIRECTIONS = ["front", "back"];
+    const NTH_LETTER_OPTIONS = "abcdefghijklmnopqrstuvwxyz".split("");
+    const CONTAINS_LETTER_OPTIONS = "abcdefghijklmnopqrstuvwxyz".split("");
+    const EXACT_LENGTH_OPTIONS = [5, 6, 7];
+    const MIN_LENGTH_OPTIONS = [8, 9, 10];
+    const QUESTION_TYPES = [
+      "start_end",
+      "edge_min_length",
+      "nth_letter",
+      "contains_letters",
+      "contains_sequence"
+    ];
+
+    const RECENT_TYPE_SKIP_THRESHOLD = 20;
+
+    const state = {
+      status: "ready",
+      matchMode: "single",
+      roundIndex: 0,
+      currentQuestion: null,
+      lastQuestionType: null,
+      scores: { A: 0, B: 0 },
+      roundWords: { A: [], B: [] },
+      roundRoundScores: { A: 0, B: 0 },
+      usedWords: new Set(),
+      usedQuestionKeys: new Set(),
+      timer: null,
+      roundStart: null,
+      remainingMs: ROUND_SECONDS * 1000,
+      matchOver: false
+    };
+
+    const onlineState = {
+      enabled: false,
+      mode: null,
+      roomId: null,
+      roomCode: null,
+      playerId: null,
+      playerRole: null,
+      opponentId: null,
+      channel: null,
+      questionSet: [],
+      currentRoundStartedAt: null,
+      queueId: null,
+      isHost: false,
+      countdownStarted: false,
+      processedEventIds: new Set(),
+      rematchReadyPlayers: new Set(),
+      leavingOnline: false
+    };
+
+    function getRandomFromArray(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    function getQuestionLabel(q) {
+      if (!q) return "条件に合う単語";
+      switch (q.type) {
+        case "start_end":
+          return `${q.start.toUpperCase()}で始まり${q.end.toUpperCase()}で終わる単語`;
+        case "edge_min_length":
+          if (q.lengthMode === "exact") {
+            if (q.side === "start") return `${q.start.toUpperCase()}で始まる${q.minLen}文字の単語`;
+            return `${q.end.toUpperCase()}で終わる${q.minLen}文字の単語`;
+          }
+          if (q.side === "start") return `${q.start.toUpperCase()}で始まる${q.minLen}文字以上の単語`;
+          return `${q.end.toUpperCase()}で終わる${q.minLen}文字以上の単語`;
+        case "nth_letter":
+          if (q.direction === "back") return `後ろから${q.n}文字目が${q.letter.toUpperCase()}の単語`;
+          return `${q.n}文字目が${q.letter.toUpperCase()}の単語`;
+        case "contains_letters":
+          return `${q.letters.map((l) => l.toUpperCase()).join(" と ")} をすべて含む単語`;
+        case "contains_sequence":
+          return `${q.sequence.toUpperCase()} を含む単語`;
+        // backward compatibility for older names
+        case "start_min_length":
+          return `${q.start.toUpperCase()}で始まる${q.minLen}文字以上の単語`;
+        case "end_min_length":
+          return `${q.end.toUpperCase()}で終わる${q.minLen}文字以上の単語`;
+        case "second_letter":
+          return `2文字目が${q.letter.toUpperCase()}の単語`;
+        case "contains_both":
+          return `${q.letters.map((letter) => letter.toUpperCase()).join(" と ")} を含む単語`;
+        default:
+          return "条件に合う単語";
+      }
+    }
+
+    function getQuestionKey(q) {
+      if (!q) return "";
+
+      switch (q.type) {
+        case "start_end":
+          return `start_end:${q.start || ""}:${q.end || ""}`;
+        case "edge_min_length":
+          return `edge_min_length:${q.side || ""}:${q.start || q.end || ""}:${q.lengthMode || "min"}:${q.minLen || ""}:${q.maxLen || ""}`;
+        case "nth_letter":
+          return `nth_letter:${q.direction || "front"}:${q.n || ""}:${q.letter || ""}`;
+        case "contains_letters":
+          return `contains_letters:${(q.letters || []).slice().sort().join("")}`;
+        case "contains_sequence":
+          return `contains_sequence:${q.sequence || ""}`;
+        case "start_min_length":
+          return `edge_min_length:start:${q.start || ""}:min:${q.minLen || ""}:${q.maxLen || ""}`;
+        case "end_min_length":
+          return `edge_min_length:end:${q.end || ""}:min:${q.minLen || ""}:${q.maxLen || ""}`;
+        case "second_letter":
+          return `nth_letter:front:2:${q.letter || ""}`;
+        case "contains_both":
+          return `contains_letters:${(q.letters || []).slice().sort().join("")}`;
+        default:
+          return `${q.type || "unknown"}:${JSON.stringify(q)}`;
+      }
+    }
+
+    function isQuestionAlreadyUsed(q) {
+      const key = getQuestionKey(q);
+      return key ? state.usedQuestionKeys.has(key) : false;
+    }
+
+    function getPrimaryDisplay(q) {
+      if (!q) return "?";
+      switch (q.type) {
+        case "start_end":
+          return q.start ? q.start.toUpperCase() : "?";
+        case "edge_min_length":
+          return q.side === "start" ? (q.start ? q.start.toUpperCase() : "?") : "ANY";
+        case "nth_letter":
+          return "_";
+        case "contains_letters":
+          return q.letters.map((letter) => letter.toUpperCase()).join("");
+        case "contains_sequence":
+          return q.sequence.toUpperCase();
+        default:
+          return "?";
+      }
+    }
+
+    function getSecondaryDisplay(q) {
+      if (!q) return "?";
+      switch (q.type) {
+        case "start_end":
+          return q.end ? q.end.toUpperCase() : "?";
+        case "edge_min_length":
+          return q.side === "start" ? `${q.minLen}+` : (q.end ? q.end.toUpperCase() : "?");
+        case "nth_letter":
+          return q.letter.toUpperCase();
+        case "contains_letters":
+          return "ALL";
+        case "contains_sequence":
+          return "IN";
+        default:
+          return "?";
+      }
+    }
+
+    function buildRandomLetters(length) {
+      const letters = "abcdefghijklmnopqrstuvwxyz";
+      let value = "";
+
+      for (let i = 0; i < length; i++) {
+        value += letters[Math.floor(Math.random() * letters.length)];
+      }
+
+      return value;
+    }
+
+    function buildRandomSequenceQuestionCandidate() {
+      const length = getRandomFromArray(SEQUENCE_LENGTH_OPTIONS);
+      const sequence = buildRandomLetters(length);
+
+      return {
+        type: "contains_sequence",
+        sequence,
+        minLen: 3,
+        maxLen: null
+      };
+    }
+
+    function buildQuestionCandidateByType(type, dictionaryWords = []) {
+      if (type === "start_end") {
+        return {
+          type: "start_end",
+          start: getRandomFromArray(COMMON_START_LETTERS),
+          end: getRandomFromArray(COMMON_END_LETTERS),
+          minLen: 3,
+          maxLen: null
+        };
+      }
+
+      if (type === "edge_min_length") {
+        // choose whether the edge restriction is on the start or end
+        const side = Math.random() < 0.5 ? "start" : "end";
+        const lengthMode = Math.random() < 0.5 ? "min" : "exact";
+        const minLen = lengthMode === "exact" ? getRandomFromArray(EXACT_LENGTH_OPTIONS) : getRandomFromArray(MIN_LENGTH_OPTIONS);
+        const maxLen = lengthMode === "exact" ? minLen : null;
+        if (side === "start") {
+          return { type: "edge_min_length", side: "start", lengthMode, start: getRandomFromArray(COMMON_START_LETTERS), minLen, maxLen };
+        }
+        return { type: "edge_min_length", side: "end", lengthMode, end: getRandomFromArray(COMMON_END_LETTERS), minLen, maxLen };
+      }
+
+      if (type === "nth_letter") {
+        const n = getRandomFromArray(NTH_LETTER_POSITIONS);
+        const direction = getRandomFromArray(NTH_LETTER_DIRECTIONS);
+        return { type: "nth_letter", direction, n, letter: getRandomFromArray(NTH_LETTER_OPTIONS), minLen: n, maxLen: null };
+      }
+
+      if (type === "contains_letters") {
+        // choose 2 or 3 distinct letters
+        const k = Math.random() < 0.5 ? 2 : 3;
+        const pool = CONTAINS_LETTER_OPTIONS.slice();
+        const letters = [];
+        while (letters.length < k && pool.length) {
+          const i = Math.floor(Math.random() * pool.length);
+          letters.push(pool.splice(i, 1)[0]);
+        }
+        return { type: "contains_letters", letters, minLen: 3, maxLen: null };
+      }
+
+      return buildRandomSequenceQuestionCandidate();
+    }
+
+    // Build a random candidate condition by first picking one of the five
+    // canonical types, then producing concrete parameters for that type.
+    function buildRandomQuestionCandidate(dictionaryWords) {
+      return buildQuestionCandidateByType(getRandomFromArray(QUESTION_TYPES), dictionaryWords);
+    }
+
+    function hydrateQuestion(q, candidates) {
+      const candidateCount = candidates.length;
+      return {
+        ...q,
+        candidateCount,
+        difficulty: getQuestionDifficulty(candidateCount),
+        label: getQuestionLabel(q),
+        note: `${getQuestionLabel(q)}。${getQuestionRuleNote(candidateCount)}`,
+        candidates
+      };
+    }
+
+    function isCandidateCountInRange(count) {
+      return count >= MIN_QUESTION_CANDIDATES && count <= MAX_QUESTION_CANDIDATES;
+    }
+
+    function acceptsCandidateCount(q, count) {
+      if (q && q.type === "contains_sequence") {
+        return count >= CONTAINS_SEQUENCE_MIN_CANDIDATES;
+      }
+      if (q && q.type === "edge_min_length") {
+        return count >= EDGE_LENGTH_MIN_CANDIDATES;
+      }
+      return isCandidateCountInRange(count);
+    }
+
+    function getCandidateCountDistance(count) {
+      if (count < MIN_QUESTION_CANDIDATES) return MIN_QUESTION_CANDIDATES - count;
+      if (count > MAX_QUESTION_CANDIDATES) return count - MAX_QUESTION_CANDIDATES;
+      return 0;
+    }
+
+    function getQuestionCandidateCountDistance(q, count) {
+      if (q && q.type === "contains_sequence") {
+        return count < CONTAINS_SEQUENCE_MIN_CANDIDATES ? CONTAINS_SEQUENCE_MIN_CANDIDATES - count : 0;
+      }
+      if (q && q.type === "edge_min_length") {
+        return count < EDGE_LENGTH_MIN_CANDIDATES ? EDGE_LENGTH_MIN_CANDIDATES - count : 0;
+      }
+      return getCandidateCountDistance(count);
+    }
+
+    function wordsForQuestion(q) {
+      if (!q) return [];
+
+      if (q.candidates && Array.isArray(q.candidates)) {
+        return q.candidates;
+      }
+
+      return Array.from(dictionary).filter((word) => isWordMatchingQuestion(word, q));
+    }
+
+    // Candidate limits are controlled by global MIN_QUESTION_CANDIDATES / MAX_QUESTION_CANDIDATES
+
+    // === DEBUG HELPERS ===
+    const DEBUG_SAMPLE_ANSWER_LIMIT = 12;
+    const DEBUG_CONSOLE_TOP_LIMIT = 10;
+
+    function createQuestionSpaceRow(q, candidateCount, sampleAnswers = []) {
+      return {
+        type: q.type,
+        key: getQuestionKey(q),
+        label: getQuestionLabel(q),
+        candidateCount,
+        acceptedByCurrentRules: acceptsCandidateCount(q, candidateCount),
+        sampleAnswers: sampleAnswers.slice(0, DEBUG_SAMPLE_ANSWER_LIMIT).join(", ")
+      };
+    }
+
+    function makeQuestionSpaceDebugStats(rows, totalQuestionKindsOverride = null) {
+      const counts = rows.map((row) => row.candidateCount);
+      const acceptedRows = rows.filter((row) => row.acceptedByCurrentRules);
+      const acceptedCounts = acceptedRows.map((row) => row.candidateCount);
+      const totalQuestionKinds = totalQuestionKindsOverride === null ? rows.length : totalQuestionKindsOverride;
+      const averageCandidateCount = counts.length ? counts.reduce((sum, count) => sum + count, 0) / totalQuestionKinds : 0;
+      const acceptedAverageCandidateCount = acceptedCounts.length ? acceptedCounts.reduce((sum, count) => sum + count, 0) / acceptedCounts.length : 0;
+
+      return {
+        totalQuestionKinds,
+        acceptedQuestionKinds: acceptedRows.length,
+        rejectedQuestionKinds: totalQuestionKinds - acceptedRows.length,
+        minCandidateCount: counts.length ? Math.min(...counts) : 0,
+        maxCandidateCount: counts.length ? Math.max(...counts) : 0,
+        averageCandidateCount,
+        acceptedMinCandidateCount: acceptedCounts.length ? Math.min(...acceptedCounts) : 0,
+        acceptedMaxCandidateCount: acceptedCounts.length ? Math.max(...acceptedCounts) : 0,
+        acceptedAverageCandidateCount
+      };
+    }
+
+    function buildQuestionSpaceExceptSequencesForDebug(dictionaryWords) {
+      const rows = [];
+
+      COMMON_START_LETTERS.forEach((start) => {
+        COMMON_END_LETTERS.forEach((end) => {
+          const q = { type: "start_end", start, end, minLen: 3, maxLen: null };
+          const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+          rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+        });
+      });
+
+      MIN_LENGTH_OPTIONS.forEach((minLen) => {
+        COMMON_START_LETTERS.forEach((start) => {
+          const q = { type: "edge_min_length", side: "start", lengthMode: "min", start, minLen, maxLen: null };
+          const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+          rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+        });
+        COMMON_END_LETTERS.forEach((end) => {
+          const q = { type: "edge_min_length", side: "end", lengthMode: "min", end, minLen, maxLen: null };
+          const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+          rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+        });
+      });
+
+      EXACT_LENGTH_OPTIONS.forEach((minLen) => {
+        COMMON_START_LETTERS.forEach((start) => {
+          const q = { type: "edge_min_length", side: "start", lengthMode: "exact", start, minLen, maxLen: minLen };
+          const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+          rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+        });
+        COMMON_END_LETTERS.forEach((end) => {
+          const q = { type: "edge_min_length", side: "end", lengthMode: "exact", end, minLen, maxLen: minLen };
+          const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+          rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+        });
+      });
+
+      NTH_LETTER_POSITIONS.forEach((n) => {
+        NTH_LETTER_DIRECTIONS.forEach((direction) => {
+          NTH_LETTER_OPTIONS.forEach((letter) => {
+            const q = { type: "nth_letter", direction, n, letter, minLen: n, maxLen: null };
+            const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q));
+            rows.push(createQuestionSpaceRow(q, candidates.length, candidates));
+          });
+        });
+      });
+
+      for (let i = 0; i < CONTAINS_LETTER_OPTIONS.length; i++) {
+        for (let j = i + 1; j < CONTAINS_LETTER_OPTIONS.length; j++) {
+          const q2 = { type: "contains_letters", letters: [CONTAINS_LETTER_OPTIONS[i], CONTAINS_LETTER_OPTIONS[j]], minLen: 3, maxLen: null };
+          const candidates2 = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q2));
+          rows.push(createQuestionSpaceRow(q2, candidates2.length, candidates2));
+
+          for (let k = j + 1; k < CONTAINS_LETTER_OPTIONS.length; k++) {
+            const q3 = { type: "contains_letters", letters: [CONTAINS_LETTER_OPTIONS[i], CONTAINS_LETTER_OPTIONS[j], CONTAINS_LETTER_OPTIONS[k]], minLen: 3, maxLen: null };
+            const candidates3 = dictionaryWords.filter((word) => isWordMatchingQuestion(word, q3));
+            rows.push(createQuestionSpaceRow(q3, candidates3.length, candidates3));
+          }
+        }
+      }
+
+      return rows;
+    }
+
+    function getSequenceQuestionKindCountForDebug() {
+      return SEQUENCE_LENGTH_OPTIONS.reduce((sum, length) => sum + Math.pow(26, length), 0);
+    }
+
+    function forEachSequenceForDebug(callback) {
+      const letters = "abcdefghijklmnopqrstuvwxyz";
+
+      SEQUENCE_LENGTH_OPTIONS.forEach((length) => {
+        const total = Math.pow(26, length);
+        for (let index = 0; index < total; index++) {
+          let value = "";
+          let n = index;
+
+          for (let i = 0; i < length; i++) {
+            value = letters[n % letters.length] + value;
+            n = Math.floor(n / letters.length);
+          }
+
+          callback(value);
+        }
+      });
+    }
+
+    function buildSequenceQuestionSpaceForDebug(dictionaryWords) {
+      const counts = new Map();
+      const examples = new Map();
+      const lengths = Array.from(new Set(SEQUENCE_LENGTH_OPTIONS));
+
+      dictionaryWords.forEach((word) => {
+        if (!/^[a-z]+$/.test(word) || word.length < 3) return;
+        const seenInWord = new Set();
+
+        lengths.forEach((len) => {
+          if (word.length >= len) {
+            for (let i = 0; i <= word.length - len; i++) {
+              const sequence = word.slice(i, i + len);
+              seenInWord.add(sequence);
+            }
+          }
+        });
+
+        seenInWord.forEach((sequence) => {
+          counts.set(sequence, (counts.get(sequence) || 0) + 1);
+          if (!examples.has(sequence)) examples.set(sequence, []);
+          const list = examples.get(sequence);
+          if (list.length < DEBUG_SAMPLE_ANSWER_LIMIT) list.push(word);
+        });
+      });
+
+      const rows = [];
+      let totalCandidateCountAcrossAllSequences = 0;
+      let maxCandidateCount = 0;
+
+      forEachSequenceForDebug((sequence) => {
+        const candidateCount = counts.get(sequence) || 0;
+        totalCandidateCountAcrossAllSequences += candidateCount;
+        if (candidateCount > maxCandidateCount) maxCandidateCount = candidateCount;
+        if (candidateCount < CONTAINS_SEQUENCE_MIN_CANDIDATES) return;
+
+        const q = { type: "contains_sequence", sequence, minLen: 3, maxLen: null };
+        rows.push(createQuestionSpaceRow(q, candidateCount, examples.get(sequence) || []));
+      });
+
+      rows.sort((a, b) => b.candidateCount - a.candidateCount || a.key.localeCompare(b.key));
+
+      return {
+        rows,
+        totalQuestionKinds: getSequenceQuestionKindCountForDebug(),
+        totalCandidateCountAcrossAllSequences,
+        minCandidateCount: 0,
+        maxCandidateCount
+      };
+    }
+
+    function summarizeQuestionRowsByType(rows, sequenceDebug = null) {
+      return QUESTION_TYPES.map((type) => {
+        const typeRows = rows.filter((row) => row.type === type);
+        const stats = makeQuestionSpaceDebugStats(
+          typeRows,
+          type === "contains_sequence" && sequenceDebug ? sequenceDebug.totalQuestionKinds : null
+        );
+
+        if (type === "contains_sequence" && sequenceDebug) {
+          stats.minCandidateCount = sequenceDebug.minCandidateCount;
+          stats.maxCandidateCount = sequenceDebug.maxCandidateCount;
+          stats.averageCandidateCount = sequenceDebug.totalCandidateCountAcrossAllSequences / sequenceDebug.totalQuestionKinds;
+        }
+
+        return {
+          type,
+          totalQuestionKinds: stats.totalQuestionKinds,
+          acceptedQuestionKinds: stats.acceptedQuestionKinds,
+          rejectedQuestionKinds: stats.rejectedQuestionKinds,
+          minCandidateCount: Math.round(stats.minCandidateCount),
+          averageCandidateCount: Math.round(stats.averageCandidateCount),
+          maxCandidateCount: Math.round(stats.maxCandidateCount),
+          acceptedMinCandidateCount: Math.round(stats.acceptedMinCandidateCount),
+          acceptedAverageCandidateCount: Math.round(stats.acceptedAverageCandidateCount),
+          acceptedMaxCandidateCount: Math.round(stats.acceptedMaxCandidateCount)
+        };
+      });
+    }
+
+    function debugAnalyzeQuestionSpace() {
+      if (dictionary.size === 0) {
+        console.warn("Dictionary is not loaded yet.");
+        return null;
+      }
+
+      console.time("debugAnalyzeQuestionSpace");
+      const dictionaryWords = Array.from(dictionary);
+      const nonSequenceRows = buildQuestionSpaceExceptSequencesForDebug(dictionaryWords);
+      const sequenceDebug = buildSequenceQuestionSpaceForDebug(dictionaryWords);
+      const rows = nonSequenceRows.concat(sequenceDebug.rows);
+      const acceptedRows = rows.filter((row) => row.acceptedByCurrentRules);
+      const byType = summarizeQuestionRowsByType(rows, sequenceDebug);
+      const topAcceptedByType = {};
+
+      QUESTION_TYPES.forEach((type) => {
+        topAcceptedByType[type] = acceptedRows
+          .filter((row) => row.type === type)
+          .sort((a, b) => b.candidateCount - a.candidateCount || a.key.localeCompare(b.key));
+      });
+
+      window.wordRushQuestionSpaceDebug = {
+        generatedAt: new Date().toISOString(),
+        dictionarySize: dictionaryWords.length,
+        byType,
+        rows,
+        acceptedRows,
+        topAcceptedByType,
+        note: "rows includes all non-sequence question kinds and accepted contains_sequence kinds. Rejected contains_sequence rows are summarized only to keep the console responsive."
+      };
+
+      console.log("[WordRush Debug] Question space summary by type");
+      console.table(byType);
+
+      QUESTION_TYPES.forEach((type) => {
+        console.log(`[WordRush Debug] ${type}: accepted questions sorted by candidateCount desc, top ${DEBUG_CONSOLE_TOP_LIMIT}. Full list: window.wordRushQuestionSpaceDebug.topAcceptedByType.${type}`);
+        console.table(topAcceptedByType[type].slice(0, DEBUG_CONSOLE_TOP_LIMIT));
+      });
+
+      console.timeEnd("debugAnalyzeQuestionSpace");
+      console.log("Use window.wordRushQuestionSpaceDebug.acceptedRows for all accepted rows.");
+      console.log("Use window.wordRushQuestionSpaceDebug.topAcceptedByType[type] for per-type accepted rows sorted by candidate count.");
+      return window.wordRushQuestionSpaceDebug;
+    }
+
+    function debugAnalyzeAcceptedQuestionSpace() {
+      const result = debugAnalyzeQuestionSpace();
+      if (!result) return null;
+
+      const acceptedRows = result.acceptedRows.slice().sort((a, b) => b.candidateCount - a.candidateCount);
+      const acceptedByType = summarizeQuestionRowsByType(acceptedRows).map((row) => ({
+        type: row.type,
+        acceptedQuestionKinds: row.totalQuestionKinds,
+        shareOfAcceptedKinds: acceptedRows.length ? row.totalQuestionKinds / acceptedRows.length : 0,
+        maxCandidateCount: row.acceptedMaxCandidateCount,
+        minCandidateCount: row.acceptedMinCandidateCount,
+        averageCandidateCount: row.acceptedAverageCandidateCount
+      }));
+
+      window.wordRushAcceptedQuestionSpaceDebug = { acceptedByType, acceptedRows };
+      console.log("[WordRush Debug] Accepted question space summary by type");
+      console.table(acceptedByType);
+      console.log(`[WordRush Debug] All accepted questions sorted by candidateCount desc, top ${DEBUG_CONSOLE_TOP_LIMIT}`);
+      console.table(acceptedRows.slice(0, DEBUG_CONSOLE_TOP_LIMIT));
+      return window.wordRushAcceptedQuestionSpaceDebug;
+    }
+
+    // === END DEBUG HELPERS ===
+
+    function buildFallbackQuestionCandidates(dictionaryWords) {
+      const rows = [];
+      const sequenceKeys = new Set();
+
+      COMMON_START_LETTERS.forEach((start) => {
+        COMMON_END_LETTERS.forEach((end) => {
+          rows.push({ type: "start_end", start, end, minLen: 3, maxLen: null });
+        });
+      });
+
+      MIN_LENGTH_OPTIONS.forEach((minLen) => {
+        COMMON_START_LETTERS.forEach((start) => {
+          rows.push({ type: "edge_min_length", side: "start", lengthMode: "min", start, minLen, maxLen: null });
+        });
+        COMMON_END_LETTERS.forEach((end) => {
+          rows.push({ type: "edge_min_length", side: "end", lengthMode: "min", end, minLen, maxLen: null });
+        });
+      });
+
+      EXACT_LENGTH_OPTIONS.forEach((minLen) => {
+        COMMON_START_LETTERS.forEach((start) => {
+          rows.push({ type: "edge_min_length", side: "start", lengthMode: "exact", start, minLen, maxLen: minLen });
+        });
+        COMMON_END_LETTERS.forEach((end) => {
+          rows.push({ type: "edge_min_length", side: "end", lengthMode: "exact", end, minLen, maxLen: minLen });
+        });
+      });
+
+      NTH_LETTER_POSITIONS.forEach((n) => {
+        NTH_LETTER_DIRECTIONS.forEach((direction) => {
+          NTH_LETTER_OPTIONS.forEach((letter) => {
+            rows.push({ type: "nth_letter", direction, n, letter, minLen: n, maxLen: null });
+          });
+        });
+      });
+
+      for (let i = 0; i < CONTAINS_LETTER_OPTIONS.length; i++) {
+        for (let j = i + 1; j < CONTAINS_LETTER_OPTIONS.length; j++) {
+          rows.push({ type: "contains_letters", letters: [CONTAINS_LETTER_OPTIONS[i], CONTAINS_LETTER_OPTIONS[j]], minLen: 3, maxLen: null });
+          for (let k = j + 1; k < CONTAINS_LETTER_OPTIONS.length; k++) {
+            rows.push({ type: "contains_letters", letters: [CONTAINS_LETTER_OPTIONS[i], CONTAINS_LETTER_OPTIONS[j], CONTAINS_LETTER_OPTIONS[k]], minLen: 3, maxLen: null });
+          }
+        }
+      }
+
+      for (let i = 0; i < 400; i++) {
+        const sequenceQuestion = buildRandomSequenceQuestionCandidate();
+        if (!sequenceQuestion || sequenceKeys.has(sequenceQuestion.sequence)) continue;
+        sequenceKeys.add(sequenceQuestion.sequence);
+        rows.push(sequenceQuestion);
+      }
+
+      return shuffleArray(rows);
+    }
+
+    function buildRandomQuestionFromDictionary() {
+      if (dictionary.size === 0) return null;
+
+      const dictionaryWords = Array.from(dictionary);
+      let nearestFallback = null;
+
+      for (let attempt = 0; attempt < QUESTION_PICK_MAX_ATTEMPTS; attempt++) {
+        const candidate = buildRandomQuestionCandidate(dictionaryWords);
+        if (!candidate) continue;
+        if (isQuestionAlreadyUsed(candidate)) continue;
+
+        const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, candidate));
+        const sameAsLast = candidate.type && candidate.type === state.lastQuestionType;
+        if (sameAsLast && attempt < RECENT_TYPE_SKIP_THRESHOLD) {
+          continue;
+        }
+
+        if (acceptsCandidateCount(candidate, candidates.length)) {
+          return hydrateQuestion(candidate, candidates);
+        }
+
+        const distance = getQuestionCandidateCountDistance(candidate, candidates.length);
+        if (!nearestFallback || distance < nearestFallback.distance) {
+          nearestFallback = { q: candidate, candidates, distance };
+        }
+      }
+
+      const fallbackRows = buildFallbackQuestionCandidates(dictionaryWords);
+      for (const fallbackQuestion of fallbackRows) {
+        if (isQuestionAlreadyUsed(fallbackQuestion)) continue;
+        const candidates = dictionaryWords.filter((word) => isWordMatchingQuestion(word, fallbackQuestion));
+
+        if (acceptsCandidateCount(fallbackQuestion, candidates.length)) {
+          return hydrateQuestion(fallbackQuestion, candidates);
+        }
+
+        const distance = getQuestionCandidateCountDistance(fallbackQuestion, candidates.length);
+        if (!nearestFallback || distance < nearestFallback.distance) {
+          nearestFallback = { q: fallbackQuestion, candidates, distance };
+        }
+      }
+
+      if (!nearestFallback) return null;
+
+      return hydrateQuestion(nearestFallback.q, nearestFallback.candidates);
+    }
+
+    function isWordMatchingQuestion(word, q) {
+      if (!word || word.length < 3) return false;
+      if (!/^[a-z]+$/.test(word)) return false;
+      const type = q && q.type ? q.type : "start_end";
+
+      // normalize older names to the new canonical types
+      let t = type;
+      if (type === "start_min_length") t = "edge_min_length";
+      if (type === "end_min_length") t = "edge_min_length";
+      if (type === "second_letter") t = "nth_letter";
+      if (type === "contains_both") t = "contains_letters";
+
+      switch (t) {
+        case "start_end":
+          if (!q.start || !q.end) return false;
+          if (word[0] !== q.start) return false;
+          if (word[word.length - 1] !== q.end) return false;
+          break;
+
+        case "edge_min_length":
+          if (q.side === "start") {
+            if (!q.start) return false;
+            if (word[0] !== q.start) return false;
+            if (q.minLen && word.length < q.minLen) return false;
+          } else {
+            if (!q.end) return false;
+            if (word[word.length - 1] !== q.end) return false;
+            if (q.minLen && word.length < q.minLen) return false;
+          }
+          break;
+
+        case "nth_letter":
+          if (!q.n || !q.letter) return false;
+          if (word.length < q.n) return false;
+          if (q.direction === "back") {
+            if (word[word.length - q.n] !== q.letter) return false;
+          } else if (word[q.n - 1] !== q.letter) {
+            return false;
+          }
+          break;
+
+        case "contains_letters":
+          if (!q.letters || q.letters.length < 1) return false;
+          if (!q.letters.every((letter) => word.includes(letter))) return false;
+          break;
+
+        case "contains_sequence":
+          if (!q.sequence) return false;
+          if (!word.includes(q.sequence)) return false;
+          break;
+
+        default:
+          return false;
+      }
+
+      if (q.minLen && word.length < q.minLen) return false;
+      if (q.maxLen && word.length > q.maxLen) return false;
+      return true;
+    }
+
+    function getLengthRuleText(q) {
+      if (!q) return "-";
+      switch (q.type) {
+        case "edge_min_length":
+          return q.lengthMode === "exact" ? `${q.minLen}` : `${q.minLen}+`;
+        case "nth_letter":
+          return `${q.n}+`;
+        case "start_min_length":
+        case "end_min_length":
+          return `${q.minLen}+`;
+        case "start_end":
+          if (q.minLen && q.maxLen && q.minLen === q.maxLen) return `${q.minLen} letters`;
+          if (q.minLen && q.maxLen) return `${q.minLen}-${q.maxLen}`;
+          if (q.minLen) return `${q.minLen}+`;
+          if (q.maxLen) return `<= ${q.maxLen}`;
+          return "3+";
+        default:
+          return "3+";
+      }
+    }
+
+    const $ = (id) => document.getElementById(id);
+
+    function initializeSupabaseClient() {
+      if (!window.supabase) {
+        console.warn("Supabase SDK is not loaded.");
+        return null;
+      }
+
+      if (!SUPABASE_URL || !SUPABASE_ANON_KEY || SUPABASE_URL.includes("ここに") || SUPABASE_ANON_KEY.includes("ここに")) {
+        console.warn("Supabase URL / ANON KEY is not configured.");
+        return null;
+      }
+
+      supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      return supabaseClient;
+    }
+
+    function ensureSupabaseClient() {
+      if (supabaseClient) return supabaseClient;
+      const client = initializeSupabaseClient();
+      if (!client) {
+        setFriendMatchStatus("Supabase is not configured yet.");
+        setStartNotice("Supabase is not configured yet.", "warn");
+      }
+      return client;
+    }
+
+    function getOrCreatePlayerId() {
+      const key = "wordRushPlayerId";
+      let id = localStorage.getItem(key);
+      if (!id) {
+        id = crypto.randomUUID ? crypto.randomUUID() : `player_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+        localStorage.setItem(key, id);
+      }
+      return id;
+    }
+
+    function resetOnlineState() {
+      onlineState.enabled = false;
+      onlineState.mode = null;
+      onlineState.roomId = null;
+      onlineState.roomCode = null;
+      onlineState.playerId = null;
+      onlineState.playerRole = null;
+      onlineState.opponentId = null;
+      onlineState.channel = null;
+      onlineState.questionSet = [];
+      onlineState.currentRoundStartedAt = null;
+      onlineState.queueId = null;
+      onlineState.isHost = false;
+      onlineState.countdownStarted = false;
+      onlineState.processedEventIds = new Set();
+      onlineState.rematchReadyPlayers = new Set();
+      onlineState.leavingOnline = false;
+    }
+
+    function setFriendMatchStatus(text) {
+      const el = $("friendMatchStatus");
+      if (el) el.textContent = text || "";
+      if (text) setStartNotice(text, text.includes("Failed") || text.includes("not") || text.includes("required") ? "warn" : "");
+    }
+
+    function setWaitingRoomStatus(text) {
+      const el = $("waitingRoomStatus");
+      if (el) el.textContent = `Status: ${text || "waiting"}`;
+      const spinner = $("waitingSpinner");
+      if (spinner) {
+        const normalized = String(text || "").toLowerCase();
+        spinner.classList.toggle("hidden", normalized.includes("joined") || normalized.includes("playing") || normalized.includes("finished"));
+      }
+    }
+
+    function showFriendMatchPanel() {
+      $("startScreen").classList.remove("hidden");
+      $("waitingRoomPanel").classList.add("hidden");
+      const startCard = document.querySelector(".start-card");
+      if (startCard) startCard.classList.add("hidden");
+      $("friendMatchPanel").classList.remove("hidden");
+      $("friendMatchMenu").classList.remove("hidden");
+      $("friendJoinRoomPanel").classList.add("hidden");
+      setFriendMatchStatus("");
+    }
+
+    function showFriendJoinRoomPanel() {
+      $("friendMatchMenu").classList.add("hidden");
+      $("friendJoinRoomPanel").classList.remove("hidden");
+      $("friendRoomCodeInput").value = "";
+      setFriendMatchStatus("");
+      setTimeout(() => $("friendRoomCodeInput").focus(), 0);
+    }
+
+    function backToFriendMatchMenu() {
+      $("friendJoinRoomPanel").classList.add("hidden");
+      $("friendMatchMenu").classList.remove("hidden");
+      setFriendMatchStatus("");
+    }
+
+    function hideFriendMatchPanel() {
+      $("friendMatchPanel").classList.add("hidden");
+      $("friendMatchMenu").classList.remove("hidden");
+      $("friendJoinRoomPanel").classList.add("hidden");
+      const startCard = document.querySelector(".start-card");
+      if (startCard) startCard.classList.remove("hidden");
+      setFriendMatchStatus("");
+    }
+
+    function showStartScreen() {
+      $("startScreen").classList.remove("hidden");
+      $("friendMatchPanel").classList.add("hidden");
+      $("waitingRoomPanel").classList.add("hidden");
+      $("gameScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("versus-mode");
+      const startCard = document.querySelector(".start-card");
+      if (startCard) startCard.classList.remove("hidden");
+      setStartNotice(dictionary.size > 0 ? "モードを選んで開始できます。" : "辞書読み込み後に開始できます。", dictionary.size > 0 ? "success" : "");
+    }
+
+    function showWaitingRoom(room) {
+      const roleLabel = onlineState.playerRole === "host" ? "Host" : "Guest";
+      const opponentJoined = Boolean(room && room.host_id && room.guest_id);
+      const isRandomWaiting = onlineState.mode === "random" && !onlineState.roomId && !opponentJoined;
+      $("startScreen").classList.remove("hidden");
+      $("friendMatchPanel").classList.add("hidden");
+      $("waitingRoomPanel").classList.remove("hidden");
+      $("gameScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("versus-mode");
+      const startCard = document.querySelector(".start-card");
+      if (startCard) startCard.classList.add("hidden");
+      $("waitingRoomCodeLabel").classList.toggle("hidden", isRandomWaiting);
+      $("waitingRoomCode").classList.toggle("hidden", isRandomWaiting);
+      $("waitingRoomRole").classList.toggle("hidden", isRandomWaiting);
+      $("waitingRoomCode").textContent = room?.room_code || onlineState.roomCode || "------";
+      $("waitingRoomRole").textContent = `You: ${roleLabel}`;
+      $("waitingRoomOpponent").textContent = `Opponent: ${opponentJoined ? "Joined" : "Waiting..."}`;
+      setWaitingRoomStatus(room?.status || "waiting");
+    }
+
+    function hideWaitingRoom() {
+      $("waitingRoomPanel").classList.add("hidden");
+      $("friendMatchPanel").classList.add("hidden");
+      const startCard = document.querySelector(".start-card");
+      if (startCard) startCard.classList.remove("hidden");
+    }
+
+    function generateRoomCode() {
+      return Math.random().toString(36).slice(2, 8).toUpperCase();
+    }
+
+    function prepareSoundEffects() {
+      Object.values(soundEffects).forEach((sound) => {
+        sound.preload = "auto";
+        sound.volume = 1;
+        sound.load();
+      });
+    }
+
+    function unlockSoundEffects() {
+      if (soundUnlocked) return;
+      soundUnlocked = true;
+
+      Object.values(soundEffects).forEach((sound) => {
+        try {
+          sound.muted = true;
+          sound.currentTime = 0;
+          const playPromise = sound.play();
+          if (playPromise && typeof playPromise.then === "function") {
+            playPromise
+              .then(() => {
+                sound.pause();
+                sound.currentTime = 0;
+                sound.muted = false;
+              })
+              .catch(() => {
+                sound.muted = false;
+              });
+          } else {
+            sound.pause();
+            sound.currentTime = 0;
+            sound.muted = false;
+          }
+        } catch (_) {
+          sound.muted = false;
+        }
+      });
+    }
+
+    function playSound(name) {
+      const sound = soundEffects[name];
+      if (!sound) return;
+
+      try {
+        sound.muted = false;
+        sound.currentTime = 0;
+        const playPromise = sound.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => {});
+        }
+      } catch (_) {}
+    }
+
+    function playSounds(names) {
+      names.forEach(playSound);
+    }
+
+    function preloadLightningImages() {
+      Object.values(lightningImageByVariant).forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+
+    function randomWinVariant() {
+      return Math.floor(Math.random() * 5) + 1;
+    }
+
+    function normalizeWord(value) {
+      return String(value).trim().toLowerCase().replace(/[^a-z]/g, "");
+    }
+
+    function getWordScore(word) {
+      return word.length;
+    }
+
+    function getQuestionScoreMultiplier(q) {
+      return 1;
+    }
+
+    function getQuestionRoundSeconds(q) {
+      return ROUND_SECONDS;
+    }
+
+    function getEffectiveWordScore(word) {
+      return getWordScore(word) * getQuestionScoreMultiplier(state.currentQuestion);
+    }
+
+    function getQuestionRuleNote(candidateCount) {
+      return `候補語 ${candidateCount} 語。制限時間${ROUND_SECONDS}秒・得点は文字数分`;
+    }
+
+    function getQuestionDifficulty(candidateCount) {
+      return "Standard";
+    }
+
+    function setStatus(text) {
+      const el = $("status");
+      if (el) el.textContent = text;
+    }
+
+    function setStartNotice(text, type = "") {
+      const el = $("startNotice");
+      if (!el) return;
+      el.textContent = text;
+      el.style.color = type === "warn" ? "#9a3412" : type === "success" ? "#065f46" : "";
+    }
+
+    function updateDictionaryInfo() {
+      const el = $("dictionaryInfo");
+      if (!el) return;
+
+      if (dictionarySource === "words_alpha.txt") {
+        el.textContent = `判定：同じフォルダの words_alpha.txt（${dictionary.size.toLocaleString()}語）`;
+      } else if (dictionarySource === "load failed") {
+        el.textContent = "判定：words_alpha.txt 未読み込み";
+      } else if (dictionarySource && dictionarySource !== "loading") {
+        el.textContent = `判定：${dictionarySource}（${dictionary.size.toLocaleString()}語）`;
+      } else {
+        el.textContent = "判定：同じフォルダの words_alpha.txt 読み込み中";
+      }
+
+      if (dictionary.size > 0) {
+        setStartNotice("モードを選んで開始できます。", "success");
+      }
+    }
+
+    function setMessage(text, type = "") {
+      const el = $("message");
+      if (!el) return;
+      el.textContent = text;
+      el.className = "message";
+      if (type) el.classList.add(type);
+    }
+
+    function log(text) {
+      const el = $("log");
+      if (!el) return;
+      const time = new Date().toLocaleTimeString();
+      el.innerHTML += `[${time}] ${escapeHtml(text)}<br>`;
+      el.scrollTop = el.scrollHeight;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function renderRuleBox(caption, main, variant = "") {
+      const className = variant ? `rule-box ${variant}` : "rule-box";
+      return `
+        <div class="${className}">
+          <div class="caption">${escapeHtml(caption)}</div>
+          <div class="main">${escapeHtml(main)}</div>
+        </div>
+      `;
+    }
+
+    function getRuleBoxVariant(caption) {
+      return String(caption).toUpperCase() === "LENGTH" ? "length-box" : "";
+    }
+
+    function renderTwoBoxRule(leftCaption, leftMain, op, rightCaption, rightMain) {
+      return `
+        <div class="rule-row">
+          ${renderRuleBox(leftCaption, leftMain, getRuleBoxVariant(leftCaption))}
+          <div class="rule-op">${escapeHtml(op)}</div>
+          ${renderRuleBox(rightCaption, rightMain, getRuleBoxVariant(rightCaption))}
+        </div>
+      `;
+    }
+
+    function renderSingleRule(caption, main) {
+      return `
+        <div class="rule-single">
+          <div class="caption">${escapeHtml(caption)}</div>
+          <div class="main">${escapeHtml(main)}</div>
+        </div>
+      `;
+    }
+
+    function renderChipRule(caption, chips) {
+      return `
+        <div class="rule-single">
+          <div class="caption">${escapeHtml(caption)}</div>
+          <div class="rule-chips">
+            ${chips.map((chip) => `<span class="rule-chip">${escapeHtml(chip)}</span>`).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderNthLetterPattern(position, letter, direction = "front", highlight = false) {
+      const cells = [];
+
+      if (direction === "back") {
+        cells.push("•••");
+        cells.push(highlight ? `<span class="target">${escapeHtml(letter.toUpperCase())}</span>` : escapeHtml(letter.toUpperCase()));
+        for (let i = 1; i < position; i++) {
+          cells.push("_");
+        }
+      } else {
+        for (let i = 1; i <= position; i++) {
+          const value = i === position ? letter.toUpperCase() : "_";
+          cells.push(highlight && i === position ? `<span class="target">${escapeHtml(value)}</span>` : escapeHtml(value));
+        }
+        cells.push("•••");
+      }
+
+      return cells.join(" ");
+    }
+
+    function renderNthLetterRule(position, letter, direction = "front") {
+      const caption = direction === "back"
+        ? `FROM END ${position} = ${letter ? letter.toUpperCase() : "?"}`
+        : `POSITION ${position} = ${letter ? letter.toUpperCase() : "?"}`;
+      return `
+        <div class="rule-single">
+          <div class="caption">${escapeHtml(caption)}</div>
+          <div class="rule-pattern">${renderNthLetterPattern(position, letter || "?", direction, true)}</div>
+        </div>
+      `;
+    }
+
+    function renderRuleVisual(q) {
+      if (!q) {
+        return `<div class="rule-placeholder">Press Start</div>`;
+      }
+
+      switch (q.type) {
+        case "start_end":
+          return renderTwoBoxRule(
+            "START",
+            q.start ? q.start.toUpperCase() : "?",
+            "→",
+            "END",
+            q.end ? q.end.toUpperCase() : "?"
+          );
+
+        case "edge_min_length":
+          if (q.side === "start") {
+            return renderTwoBoxRule(
+              "START",
+              q.start ? q.start.toUpperCase() : "?",
+              "+",
+              "LENGTH",
+              q.lengthMode === "exact" ? `${q.minLen}` : `${q.minLen}+`
+            );
+          }
+
+          return renderTwoBoxRule(
+            "LENGTH",
+            q.lengthMode === "exact" ? `${q.minLen}` : `${q.minLen}+`,
+            "+",
+            "END",
+            q.end ? q.end.toUpperCase() : "?"
+          );
+
+        case "nth_letter":
+          return renderNthLetterRule(q.n, q.letter, q.direction || "front");
+
+        case "contains_letters":
+          return renderChipRule(
+            "INCLUDE ALL",
+            (q.letters || []).map((letter) => letter.toUpperCase())
+          );
+
+        case "contains_sequence":
+          return renderSingleRule(
+            "CONTAINS SEQUENCE",
+            q.sequence ? q.sequence.toUpperCase() : "?"
+          );
+
+        default:
+          return renderSingleRule("RULE", getQuestionLabel(q));
+      }
+    }
+
+    function shuffleArray(array) {
+      const copy = array.slice();
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function pickQuestion() {
+      const generatedQuestion = buildRandomQuestionFromDictionary();
+
+      if (generatedQuestion) {
+        return generatedQuestion;
+      }
+
+      return null;
+    }
+
+    function getMatchModeLabel(mode = state.matchMode) {
+      return {
+        single: "single play",
+        friend: "friend match",
+        random: "random match"
+      }[mode] || "single play";
+    }
+
+    function startMatch(mode = state.matchMode) {
+      if (dictionary.size === 0) {
+        setStartNotice("辞書を読み込み中です。数秒後にもう一度モードを選んでください。", "warn");
+        setMessage("辞書を読み込み中です。数秒後にもう一度Startを押してください。", "warn");
+        return;
+      }
+
+      clearInterval(state.timer);
+      state.matchMode = mode;
+      state.status = "playing";
+      state.roundIndex = 0;
+      state.scores = { A: 0, B: 0 };
+      state.roundRoundScores = { A: 0, B: 0 };
+      state.usedQuestionKeys = new Set();
+      state.matchOver = false;
+      const logEl = $("log");
+      if (logEl) logEl.innerHTML = "";
+      hideModal();
+      clearScoreEffects();
+      $("gameScreen").classList.toggle("versus-mode", mode !== "single");
+      log(`${getMatchModeLabel()} started.`);
+      startRound();
+    }
+
+    function beginMatch(mode = "single") {
+      if (dictionary.size === 0) {
+        setStartNotice("辞書を読み込み中です。数秒後にもう一度モードを選んでください。", "warn");
+        return;
+      }
+
+      state.matchMode = mode;
+      $("startScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("hidden");
+      $("gameScreen").classList.toggle("versus-mode", mode !== "single");
+      startMatch(mode);
+    }
+
+    function beginSinglePlay() {
+      resetOnlineState();
+      beginMatch("single");
+    }
+
+    function buildOnlineQuestionSet(count = 20) {
+      const questions = [];
+      const usedKeys = new Set();
+      const previousUsedKeys = state.usedQuestionKeys;
+      const previousLastQuestionType = state.lastQuestionType;
+
+      state.usedQuestionKeys = usedKeys;
+      state.lastQuestionType = null;
+
+      for (let i = 0; i < count; i++) {
+        const q = buildRandomQuestionFromDictionary();
+        if (!q) break;
+
+        const key = getQuestionKey(q);
+        if (usedKeys.has(key)) continue;
+        usedKeys.add(key);
+        state.lastQuestionType = q.type;
+
+        questions.push({
+          round: questions.length + 1,
+          type: q.type,
+          start: q.start || null,
+          end: q.end || null,
+          side: q.side || null,
+          lengthMode: q.lengthMode || null,
+          minLen: q.minLen || null,
+          maxLen: q.maxLen || null,
+          direction: q.direction || null,
+          n: q.n || null,
+          letter: q.letter || null,
+          letters: q.letters || null,
+          sequence: q.sequence || null,
+          candidateCount: q.candidateCount || null,
+          label: getQuestionLabel(q)
+        });
+      }
+
+      state.usedQuestionKeys = previousUsedKeys;
+      state.lastQuestionType = previousLastQuestionType;
+      return questions;
+    }
+
+    async function createFriendRoom() {
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      const playerId = getOrCreatePlayerId();
+      const roomCode = generateRoomCode();
+      const room = {
+        room_code: roomCode,
+        mode: "friend",
+        status: "waiting",
+        host_id: playerId,
+        host_name: "Host",
+        scores: { A: 0, B: 0 },
+        current_round: 0
+      };
+
+      const { data, error } = await client
+        .from("word_rush_rooms")
+        .insert(room)
+        .select()
+        .single();
+
+      if (error) {
+        console.error(error);
+        setFriendMatchStatus("Failed to create room.");
+        return;
+      }
+
+      onlineState.enabled = true;
+      onlineState.mode = "friend";
+      onlineState.roomId = data.id;
+      onlineState.roomCode = data.room_code;
+      onlineState.playerId = playerId;
+      onlineState.playerRole = "host";
+      onlineState.isHost = true;
+      onlineState.questionSet = Array.isArray(data.question_set) ? data.question_set : [];
+
+      showWaitingRoom(data);
+      await subscribeRoom(data.id);
+    }
+
+    async function joinFriendRoom(roomCode) {
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      const playerId = getOrCreatePlayerId();
+      const code = String(roomCode || "").trim().toUpperCase();
+      if (!code) {
+        setFriendMatchStatus("Room code is required.");
+        return;
+      }
+
+      const { data: room, error: findError } = await client
+        .from("word_rush_rooms")
+        .select("*")
+        .eq("room_code", code)
+        .eq("status", "waiting")
+        .single();
+
+      if (findError || !room) {
+        console.error(findError);
+        setFriendMatchStatus("Room not found or already started.");
+        return;
+      }
+
+      const { data: updatedRoom, error: updateError } = await client
+        .from("word_rush_rooms")
+        .update({
+          guest_id: playerId,
+          guest_name: "Guest",
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", room.id)
+        .is("guest_id", null)
+        .select()
+        .single();
+
+      if (updateError) {
+        console.error(updateError);
+        setFriendMatchStatus("Failed to join room.");
+        return;
+      }
+
+      onlineState.enabled = true;
+      onlineState.mode = "friend";
+      onlineState.roomId = updatedRoom.id;
+      onlineState.roomCode = updatedRoom.room_code;
+      onlineState.playerId = playerId;
+      onlineState.playerRole = "guest";
+      onlineState.isHost = false;
+      onlineState.opponentId = updatedRoom.host_id || null;
+      onlineState.questionSet = Array.isArray(updatedRoom.question_set) ? updatedRoom.question_set : [];
+
+      showWaitingRoom(updatedRoom);
+      await subscribeRoom(updatedRoom.id);
+    }
+
+    async function subscribeRoom(roomId) {
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      if (onlineState.channel) {
+        await client.removeChannel(onlineState.channel);
+        onlineState.channel = null;
+      }
+
+      const channel = client
+        .channel(`word_rush_room_${roomId}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "*",
+            schema: "public",
+            table: "word_rush_rooms",
+            filter: `id=eq.${roomId}`
+          },
+          (payload) => {
+            handleRoomUpdate(payload.new);
+          }
+        )
+        .on(
+          "postgres_changes",
+          {
+            event: "INSERT",
+            schema: "public",
+            table: "word_rush_room_events",
+            filter: `room_id=eq.${roomId}`
+          },
+          (payload) => {
+            handleRoomEvent(payload.new);
+          }
+        )
+        .subscribe();
+
+      onlineState.channel = channel;
+    }
+
+    async function handleRoomUpdate(room) {
+      if (!room) return;
+
+      onlineState.roomId = room.id;
+      onlineState.roomCode = room.room_code;
+      onlineState.opponentId = onlineState.playerRole === "host" ? room.guest_id : room.host_id;
+      if (Array.isArray(room.question_set)) onlineState.questionSet = room.question_set;
+
+      if (room.status === "abandoned" && onlineState.enabled && !onlineState.leavingOnline) {
+        showRoomDissolvedAndReturnTitle();
+        return;
+      }
+
+      if (room.status === "playing") {
+        if (onlineState.questionSet.length) startOnlineMatch();
+        return;
+      }
+
+      if (room.status === "finished") {
+        $("waitingRoomPanel").classList.add("hidden");
+        $("friendMatchPanel").classList.add("hidden");
+        $("startScreen").classList.add("hidden");
+        const scores = room.scores || {};
+        if (Number.isFinite(Number(scores.A))) state.scores.A = Number(scores.A);
+        if (Number.isFinite(Number(scores.B))) state.scores.B = Number(scores.B);
+        finishOnlineMatch(Number(state.scores.A) >= Number(state.scores.B) ? "A" : "B", { publish: false });
+        return;
+      }
+
+      showWaitingRoom(room);
+
+      if (room.status === "countdown") {
+        setWaitingRoomStatus("Starting...");
+      }
+
+      if (onlineState.isHost && room.status === "waiting" && room.guest_id && !onlineState.countdownStarted) {
+        await startOnlineCountdownAsHost(room);
+      }
+    }
+
+    async function publishRoomEvent(eventType, payload = {}) {
+      const client = ensureSupabaseClient();
+      if (!client || !onlineState.roomId) return;
+
+      const { error } = await client.from("word_rush_room_events").insert({
+        room_id: onlineState.roomId,
+        event_type: eventType,
+        player_id: onlineState.playerId,
+        player_role: onlineState.playerRole,
+        payload
+      });
+
+      if (error) {
+        console.error("Failed to publish event:", eventType, error);
+      }
+    }
+
+    async function startOnlineCountdownAsHost(room) {
+      if (onlineState.countdownStarted) return;
+      onlineState.countdownStarted = true;
+
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      const questionSet = buildOnlineQuestionSet(20);
+      onlineState.questionSet = questionSet;
+
+      await client
+        .from("word_rush_rooms")
+        .update({
+          status: "countdown",
+          question_set: questionSet,
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", room.id);
+
+      await publishRoomEvent("countdown_started", { startsInMs: 3000 });
+      setWaitingRoomStatus("Starting in 3...");
+
+      setTimeout(async () => {
+        await client
+          .from("word_rush_rooms")
+          .update({
+            status: "playing",
+            started_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+          })
+          .eq("id", room.id);
+
+        await publishRoomEvent("match_started", {});
+        startOnlineMatch();
+      }, 3000);
+    }
+
+    function startOnlineMatch() {
+      if (!onlineState.questionSet.length) {
+        setWaitingRoomStatus("Waiting for questions...");
+        return;
+      }
+
+      if (
+        onlineState.enabled &&
+        state.status === "playing" &&
+        state.currentQuestion &&
+        state.matchMode !== "single" &&
+        !$("gameScreen").classList.contains("hidden") &&
+        $("waitingRoomPanel").classList.contains("hidden")
+      ) {
+        return;
+      }
+
+      $("startScreen").classList.add("hidden");
+      $("friendMatchPanel").classList.add("hidden");
+      $("waitingRoomPanel").classList.add("hidden");
+      $("gameScreen").classList.remove("hidden");
+      $("gameScreen").classList.add("versus-mode");
+
+      clearInterval(state.timer);
+      hideModal();
+      clearScoreEffects();
+      state.matchMode = onlineState.mode || "friend";
+      state.status = "playing";
+      state.roundIndex = 0;
+      state.scores = { A: 0, B: 0 };
+      state.roundRoundScores = { A: 0, B: 0 };
+      state.usedWords = new Set();
+      state.usedQuestionKeys = new Set();
+      state.matchOver = false;
+      onlineState.rematchReadyPlayers = new Set();
+
+      startOnlineRound(0);
+    }
+
+    function startOnlineRound(index) {
+      const q = onlineState.questionSet[index];
+      if (!q) {
+        finishOnlineMatch(null);
+        return;
+      }
+
+      state.roundIndex = index;
+      state.currentQuestion = {
+        ...q,
+        note: `${getQuestionLabel(q)}。${getQuestionRuleNote(q.candidateCount || 0)}`
+      };
+      state.roundWords = { A: [], B: [] };
+      state.roundRoundScores = { A: 0, B: 0 };
+      state.usedWords = new Set();
+      state.remainingMs = ROUND_SECONDS * 1000;
+      state.roundDuration = ROUND_SECONDS;
+      state.roundStart = performance.now();
+      state.status = "playing";
+
+      clearAnswerArea();
+      setStatus("Online");
+      setMessage(`${getQuestionLabel(q)}。条件に合う単語を入力してください。`, "");
+
+      clearInterval(state.timer);
+      state.timer = setInterval(tickTimer, 50);
+      updateUI();
+      $("inputA").focus();
+    }
+
+    function nextOnlineRound() {
+      if (state.matchOver) return;
+      startOnlineRound(state.roundIndex + 1);
+    }
+
+    function getOnlineWinnerPlayerId(winner) {
+      if (winner === "A") return onlineState.playerId || null;
+      if (winner === "B") return onlineState.opponentId || null;
+      return null;
+    }
+
+    function getOnlineLoserPlayerId(winner) {
+      if (winner === "A") return onlineState.opponentId || null;
+      if (winner === "B") return onlineState.playerId || null;
+      return null;
+    }
+
+    async function publishOnlineMatchFinished(winner) {
+      if (!onlineState.enabled || !onlineState.roomId) return;
+
+      await publishRoomEvent("match_finished", {
+        winnerPlayerId: getOnlineWinnerPlayerId(winner),
+        loserPlayerId: getOnlineLoserPlayerId(winner),
+        winnerLocalPlayer: winner || null,
+        winnerScore: winner === "A" ? state.scores.A : winner === "B" ? state.scores.B : null,
+        loserScore: winner === "A" ? state.scores.B : winner === "B" ? state.scores.A : null,
+        scores: {
+          self: state.scores.A,
+          opponent: state.scores.B
+        },
+        localScores: {
+          A: state.scores.A,
+          B: state.scores.B
+        },
+        scorePerspective: "sender"
+      });
+    }
+
+    async function finishOnlineMatch(winner, options = {}) {
+      if (state.matchOver) return;
+      const publish = options.publish !== false;
+      const resolvedWinner = winner || (state.scores.A === state.scores.B ? null : state.scores.A > state.scores.B ? "A" : "B");
+      clearInterval(state.timer);
+      state.status = "match_over";
+      state.matchOver = true;
+      setStatus("Match over");
+      setMessage("Match over.", "success");
+
+      if (publish && onlineState.enabled) {
+        await publishOnlineMatchFinished(resolvedWinner);
+
+        const client = ensureSupabaseClient();
+        if (client && onlineState.roomId) {
+          await client
+            .from("word_rush_rooms")
+            .update({
+              status: "finished",
+              scores: state.scores,
+              finished_at: new Date().toISOString(),
+              updated_at: new Date().toISOString()
+            })
+            .eq("id", onlineState.roomId);
+        }
+      }
+
+      updateUI();
+      setTimeout(() => showModal(resolvedWinner), 700);
+    }
+
+    async function requestFriendRematch() {
+      const client = ensureSupabaseClient();
+      if (!client || !onlineState.roomId) return;
+
+      hideModal();
+      clearInterval(state.timer);
+      state.status = "match_over";
+      state.matchOver = true;
+      onlineState.countdownStarted = false;
+      onlineState.questionSet = [];
+      if (!(onlineState.rematchReadyPlayers instanceof Set)) {
+        onlineState.rematchReadyPlayers = new Set();
+      }
+      onlineState.rematchReadyPlayers.add(onlineState.playerId);
+
+      $("gameScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("versus-mode");
+      showWaitingRoom({
+        id: onlineState.roomId,
+        room_code: onlineState.roomCode,
+        status: "rematch waiting",
+        host_id: onlineState.playerRole === "host" ? onlineState.playerId : onlineState.opponentId,
+        guest_id: onlineState.playerRole === "guest" ? onlineState.playerId : onlineState.opponentId
+      });
+      setWaitingRoomStatus(`Waiting for rematch... ${onlineState.rematchReadyPlayers.size}/2`);
+
+      await client
+        .from("word_rush_rooms")
+        .update({
+          status: "rematch_waiting",
+          question_set: null,
+          scores: { A: 0, B: 0 },
+          current_round: 0,
+          updated_at: new Date().toISOString()
+        })
+        .eq("id", onlineState.roomId);
+
+      await publishRoomEvent("rematch_ready", {});
+    }
+
+    async function handleRematchReady(event) {
+      if (!onlineState.enabled || onlineState.mode !== "friend") return;
+      onlineState.rematchReadyPlayers.add(event.player_id);
+      setWaitingRoomStatus(`Waiting for rematch... ${onlineState.rematchReadyPlayers.size}/2`);
+
+      if (onlineState.isHost && onlineState.rematchReadyPlayers.size >= 2 && !onlineState.countdownStarted) {
+        await startOnlineCountdownAsHost({
+          id: onlineState.roomId,
+          room_code: onlineState.roomCode,
+          host_id: onlineState.playerRole === "host" ? onlineState.playerId : onlineState.opponentId,
+          guest_id: onlineState.playerRole === "guest" ? onlineState.playerId : onlineState.opponentId,
+          status: "rematch_waiting"
+        });
+      }
+    }
+
+    async function showRoomDissolvedAndReturnTitle() {
+      const client = supabaseClient;
+      if (client && onlineState.channel) {
+        await client.removeChannel(onlineState.channel);
+      }
+      alert("Room was closed.");
+      resetMatch();
+      resetOnlineState();
+      state.matchMode = "single";
+      hideModal();
+      hideWaitingRoom();
+      showStartScreen();
+    }
+
+    function handleRoomEvent(event) {
+      if (!event) return;
+      if (event.id && onlineState.processedEventIds.has(event.id)) return;
+      if (event.id) onlineState.processedEventIds.add(event.id);
+
+      const payload = event.payload || {};
+      const isMine = event.player_id === onlineState.playerId;
+
+      if (event.event_type === "countdown_started") {
+        setWaitingRoomStatus("Starting...");
+        return;
+      }
+
+      if (event.event_type === "match_started") {
+        startOnlineMatch();
+        return;
+      }
+
+      if (event.event_type === "rematch_ready") {
+        handleRematchReady(event);
+        return;
+      }
+
+      if (event.event_type === "room_dissolved") {
+        if (!isMine && onlineState.mode === "friend") {
+          showRoomDissolvedAndReturnTitle();
+        }
+        return;
+      }
+
+      if (event.event_type === "word_accepted") {
+        if (isMine) return;
+        if (payload.roundIndex !== state.roundIndex) return;
+
+        const word = normalizeWord(payload.word);
+        if (!word) return;
+        const points = Number(payload.points || getWordScore(word));
+        state.usedWords.add(word);
+        state.roundWords.B.push(word);
+        state.scores.B += points;
+        state.roundRoundScores.B += points;
+
+        if (state.scores.B >= WIN_SCORE) {
+          finishOnlineMatch("B", { publish: false });
+          return;
+        }
+
+        updateUI();
+        return;
+      }
+
+      if (event.event_type === "match_finished") {
+        if (state.matchOver) return;
+
+        if (payload.scores && !isMine) {
+          const opponentScore = Number(payload.scores.self);
+          const myScore = Number(payload.scores.opponent);
+          if (Number.isFinite(myScore)) state.scores.A = myScore;
+          if (Number.isFinite(opponentScore)) state.scores.B = opponentScore;
+        }
+
+        if (payload.scores && isMine) {
+          const myScore = Number(payload.scores.self);
+          const opponentScore = Number(payload.scores.opponent);
+          if (Number.isFinite(myScore)) state.scores.A = myScore;
+          if (Number.isFinite(opponentScore)) state.scores.B = opponentScore;
+        }
+
+        const winnerPlayerId = payload.winnerPlayerId || null;
+        if (!winnerPlayerId) {
+          console.warn("match_finished event is missing winnerPlayerId.", payload);
+          finishOnlineMatch(null, { publish: false });
+          return;
+        }
+
+        const iWon = winnerPlayerId === onlineState.playerId;
+        finishOnlineMatch(iWon ? "A" : "B", { publish: false });
+      }
+    }
+
+    async function enterRandomMatch() {
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      const playerId = getOrCreatePlayerId();
+      onlineState.enabled = true;
+      onlineState.mode = "random";
+      onlineState.playerId = playerId;
+
+      const { data: waitingRows, error: findError } = await client
+        .from("word_rush_random_queue")
+        .select("*")
+        .eq("status", "waiting")
+        .neq("player_id", playerId)
+        .order("created_at", { ascending: true })
+        .limit(1);
+
+      if (findError) {
+        console.error(findError);
+        setStartNotice("Failed to find random match.", "warn");
+        return;
+      }
+
+      const opponentQueue = waitingRows && waitingRows[0];
+      if (opponentQueue) {
+        const roomCode = generateRoomCode();
+        const room = {
+          room_code: roomCode,
+          mode: "random",
+          status: "waiting",
+          host_id: opponentQueue.player_id,
+          guest_id: playerId,
+          host_name: opponentQueue.player_name || "Host",
+          guest_name: "Guest",
+          scores: { A: 0, B: 0 },
+          current_round: 0
+        };
+
+        const { data: createdRoom, error: roomError } = await client
+          .from("word_rush_rooms")
+          .insert(room)
+          .select()
+          .single();
+
+        if (roomError) {
+          console.error(roomError);
+          setStartNotice("Failed to create random room.", "warn");
+          return;
+        }
+
+        await client
+          .from("word_rush_random_queue")
+          .update({
+            status: "matched",
+            room_id: createdRoom.id,
+            updated_at: new Date().toISOString()
+          })
+          .eq("id", opponentQueue.id);
+
+        onlineState.roomId = createdRoom.id;
+        onlineState.roomCode = createdRoom.room_code;
+        onlineState.playerRole = "guest";
+        onlineState.isHost = false;
+        onlineState.opponentId = opponentQueue.player_id;
+        showWaitingRoom(createdRoom);
+        await subscribeRoom(createdRoom.id);
+        return;
+      }
+
+      const { data: queueRow, error: queueError } = await client
+        .from("word_rush_random_queue")
+        .insert({
+          player_id: playerId,
+          player_name: "Host",
+          status: "waiting"
+        })
+        .select()
+        .single();
+
+      if (queueError) {
+        console.error(queueError);
+        setStartNotice("Failed to enter random queue.", "warn");
+        return;
+      }
+
+      onlineState.queueId = queueRow.id;
+      onlineState.playerRole = "host";
+      onlineState.isHost = true;
+      showWaitingRoom({
+        room_code: "RANDOM",
+        status: "waiting",
+        host_id: playerId,
+        guest_id: null
+      });
+      await subscribeRandomQueue(queueRow.id);
+    }
+
+    async function subscribeRandomQueue(queueId) {
+      const client = ensureSupabaseClient();
+      if (!client) return;
+
+      if (onlineState.channel) {
+        await client.removeChannel(onlineState.channel);
+        onlineState.channel = null;
+      }
+
+      const channel = client
+        .channel(`word_rush_random_queue_${queueId}`)
+        .on(
+          "postgres_changes",
+          {
+            event: "*",
+            schema: "public",
+            table: "word_rush_random_queue",
+            filter: `id=eq.${queueId}`
+          },
+          async (payload) => {
+            const row = payload.new;
+            if (!row || !row.room_id) return;
+
+            const { data: room, error } = await client
+              .from("word_rush_rooms")
+              .select("*")
+              .eq("id", row.room_id)
+              .single();
+
+            if (error || !room) {
+              console.error(error);
+              setWaitingRoomStatus("Failed to load matched room.");
+              return;
+            }
+
+            onlineState.roomId = room.id;
+            onlineState.roomCode = room.room_code;
+            onlineState.playerRole = "host";
+            onlineState.isHost = true;
+            onlineState.opponentId = room.guest_id || null;
+            onlineState.channel = null;
+            await client.removeChannel(channel);
+            showWaitingRoom(room);
+            await subscribeRoom(room.id);
+
+            if (room.guest_id && !onlineState.countdownStarted) {
+              await startOnlineCountdownAsHost(room);
+            }
+          }
+        )
+        .subscribe();
+
+      onlineState.channel = channel;
+    }
+
+    async function cancelOnlineMatch() {
+      const client = ensureSupabaseClient();
+      onlineState.leavingOnline = true;
+
+      if (client && onlineState.roomId) {
+        await client
+          .from("word_rush_rooms")
+          .update({
+            status: "abandoned",
+            updated_at: new Date().toISOString()
+          })
+          .eq("id", onlineState.roomId);
+      }
+
+      if (client && onlineState.queueId) {
+        await client
+          .from("word_rush_random_queue")
+          .update({
+            status: "cancelled",
+            updated_at: new Date().toISOString()
+          })
+          .eq("id", onlineState.queueId);
+      }
+
+      if (client && onlineState.channel) {
+        await client.removeChannel(onlineState.channel);
+      }
+
+      resetOnlineState();
+      hideWaitingRoom();
+      showStartScreen();
+    }
+
+    async function cancelRandomMatch() {
+      await cancelOnlineMatch();
+    }
+
+    function resetMatch() {
+      clearInterval(state.timer);
+      state.status = "ready";
+      state.roundIndex = 0;
+      state.currentQuestion = null;
+      state.scores = { A: 0, B: 0 };
+      state.roundWords = { A: [], B: [] };
+      state.roundRoundScores = { A: 0, B: 0 };
+      state.usedWords = new Set();
+      state.usedQuestionKeys = new Set();
+      state.matchOver = false;
+      state.roundDuration = ROUND_SECONDS;
+      state.remainingMs = ROUND_SECONDS * 1000;
+      $("gameScreen").classList.toggle("versus-mode", state.matchMode !== "single");
+      const logEl = $("log");
+      if (logEl) logEl.innerHTML = "";
+      hideModal();
+      setMessage("条件に合う単語を入力してください。", "");
+      setStatus("Ready");
+      updateUI();
+      log("Match reset.");
+    }
+
+    function startRound() {
+      clearInterval(state.timer);
+      state.currentQuestion = pickQuestion();
+      if (!state.currentQuestion) {
+        state.status = "ready";
+        setStatus("No questions");
+        setMessage("このセッションで出題できる新しい問題が見つかりませんでした。画面を再読み込みして新しいプレイを開始してください。", "warn");
+        updateUI();
+        log("No unused question could be generated.");
+        return;
+      }
+      state.roundWords = { A: [], B: [] };
+      state.roundRoundScores = { A: 0, B: 0 };
+      state.usedWords = new Set();
+      clearAnswerArea();
+      const q = state.currentQuestion;
+      const candidates = wordsForQuestion(q);
+      q.candidateCount = candidates.length;
+      state.roundDuration = getQuestionRoundSeconds(q);
+      state.remainingMs = state.roundDuration * 1000;
+      state.roundStart = performance.now();
+      state.status = "playing";
+      state.lastQuestionType = q.type;
+      state.usedQuestionKeys.add(getQuestionKey(q));
+
+      log(`Round ${state.roundIndex + 1}: ${getQuestionLabel(q)}, candidates ${candidates.length}, time ${getQuestionRoundSeconds(q)}s.`);
+      setMessage(`${q.note}。条件に合う単語を入力してください。1単語あたり文字数分の点数です。`, "");
+      setStatus("Playing");
+
+      state.timer = setInterval(tickTimer, 50);
+      updateUI();
+      $("inputA").focus();
+    }
+
+    function tickTimer() {
+      if (state.status !== "playing") return;
+      const elapsed = performance.now() - state.roundStart;
+      const totalMs = (state.roundDuration || ROUND_SECONDS) * 1000;
+      state.remainingMs = Math.max(0, totalMs - elapsed);
+
+      if (state.remainingMs <= 0) {
+        clearInterval(state.timer);
+        handleTimeUp();
+      }
+
+      updateTimerUI();
+    }
+
+    function handleTimeUp() {
+      const localPlayerRoundScore = state.roundRoundScores.A;
+      let message = `時間切れ。このラウンドの得点：+${localPlayerRoundScore}。`;
+      let logMessage = `Round ${state.roundIndex + 1} ended. +${localPlayerRoundScore}.`;
+
+      // 対戦モードでのみ減点ルールを適用
+      if (state.matchMode !== "single") {
+        // このラウンドで1つも回答できなかった場合
+        if (state.roundWords.A.length === 0) {
+          const opponentRoundScore = state.roundRoundScores.B;
+          if (opponentRoundScore > 0) {
+            // 減点後のスコアが0未満にならないように調整
+            state.scores.A = Math.max(0, state.scores.A - opponentRoundScore);
+            message += ` 相手が${opponentRoundScore}点獲得したため、あなたの点数が減点されました。`;
+            logMessage += ` Player A received penalty based on opponent's score ${opponentRoundScore}.`;
+          } else {
+            message += ` 相手も得点しなかったため、減点はありませんでした。`;
+          }
+        }
+      }
+
+      message += ` 次のラウンドに進みます。`;
+      setMessage(message, "warn");
+      log(logMessage);
+      state.status = "between_rounds";
+      setStatus("Round over");
+      updateUI();
+      setTimeout(onlineState.enabled ? nextOnlineRound : nextRound, 1400);
+    }
+
+    function submitWord(player) {
+      if (state.status !== "playing" || !state.currentQuestion) return;
+
+      const input = $("inputA");
+      const hint = $("hintA");
+      const word = normalizeWord(input.value);
+      input.value = "";
+
+      const result = validateWord(word, player);
+
+      if (!result.ok) {
+        hint.textContent = result.message;
+        hint.style.color = "#dc2626";
+        playSound("far");
+        log(`${getMatchModeLabel()}: rejected ${word || "(blank)"} - ${result.message}`);
+        updateUI();
+        return;
+      }
+
+      const points = getEffectiveWordScore(word);
+      const wasClear = state.scores[player] >= WIN_SCORE;
+      state.roundWords[player].push(word);
+      state.usedWords.add(word);
+      state.scores[player] += points;
+      state.roundRoundScores[player] += points;
+      hint.textContent = `OK: ${word} +${points}`;
+      hint.style.color = "#0284c7";
+      log(`${getMatchModeLabel()}: ${word} accepted (+${points}).`);
+
+      if (onlineState.enabled) {
+        publishRoomEvent("word_accepted", {
+          roundIndex: state.roundIndex,
+          word,
+          points,
+          totalScore: state.scores[player],
+          player
+        });
+      }
+
+      if (state.scores[player] >= WIN_SCORE) {
+        triggerScoreImpactEffect("correct");
+        if (onlineState.enabled) {
+          finishOnlineMatch("A");
+        } else {
+          finishMatch(player, 900);
+        }
+        return;
+      }
+
+      if (!wasClear) triggerScoreImpactEffect("normal");
+      updateUI();
+      input.focus();
+    }
+
+    function validateWord(word, player) {
+      const q = state.currentQuestion;
+
+      if (!word) return { ok: false, message: "単語を入力してください。" };
+      if (word.length < 3) return { ok: false, message: "3文字以上にしてください。" };
+      if (!/^[a-z]+$/.test(word)) return { ok: false, message: "a-z の英字のみ使えます。" };
+      if (!dictionary.has(word)) return { ok: false, message: "辞書にない単語です。" };
+      if (state.usedWords.has(word)) return { ok: false, message: "このラウンドですでに使われています。" };
+      if (!isWordMatchingQuestion(word, q)) {
+        return {
+          ok: false,
+          message: `${getQuestionLabel(q)} の条件を満たしていません。`
+        };
+      }
+
+      return { ok: true, message: "OK" };
+    }
+
+
+    function nextRound() {
+      if (state.matchOver) return;
+      if (onlineState.enabled) {
+        nextOnlineRound();
+        return;
+      }
+      state.roundIndex += 1;
+      startRound();
+    }
+
+    function skipRound() {
+      if (state.status !== "playing" && state.status !== "between_rounds") return;
+      clearInterval(state.timer);
+      log("Round skipped.");
+      setMessage("ラウンドをスキップしました。", "warn");
+      nextRound();
+    }
+
+    function finishMatch(winner, modalDelay = 0) {
+      clearInterval(state.timer);
+      state.status = "match_over";
+      state.matchOver = true;
+      setStatus("Match over");
+      setMessage(state.matchMode === "single" ? "50点到達。クリアです。" : "Match over.", "success");
+      updateUI();
+      setTimeout(() => showModal(winner), modalDelay);
+      log(`${getMatchModeLabel().toUpperCase()} FINISHED: Winner ${winner}.`);
+    }
+
+    function showModal(winner) {
+      const isSingle = state.matchMode === "single";
+      const title = $("modalTitle");
+      const message = $("modalMessage");
+      const myScore = state.scores.A;
+      const opponentScore = state.scores.B;
+      const leftScore = winner === "A"
+        ? Math.max(myScore, opponentScore)
+        : winner === "B"
+          ? Math.min(myScore, opponentScore)
+          : myScore;
+      const rightScore = winner === "A"
+        ? Math.min(myScore, opponentScore)
+        : winner === "B"
+          ? Math.max(myScore, opponentScore)
+          : opponentScore;
+
+      if (isSingle) {
+        title.textContent = "Clear!";
+      } else if (onlineState.enabled) {
+        title.textContent = winner === "A" ? "You Win" : winner === "B" ? "You Lose" : "Draw";
+      } else {
+        title.textContent = winner === "A" ? "You Win" : winner === "B" ? "You Lose" : "Draw";
+      }
+      title.classList.toggle("versus-result-title", !isSingle);
+
+      message.className = "";
+      if (isSingle) {
+        message.textContent = "";
+        message.hidden = true;
+      } else {
+        message.innerHTML = `
+          <span class="score-left">${leftScore}</span>
+          <span class="score-separator">-</span>
+          <span class="score-right">${rightScore}</span>
+        `;
+        message.classList.add("versus-score");
+        message.hidden = false;
+      }
+      $("modalBackdrop").classList.add("show");
+    }
+
+    function hideModal() {
+      $("modalBackdrop").classList.remove("show");
+      $("modalTitle").classList.remove("versus-result-title");
+      $("modalMessage").className = "";
+      $("modalMessage").hidden = false;
+    }
+
+    function clearScoreEffects() {
+      const player = $("playerA");
+      player.classList.remove("score-impact", "score-overtake", "score-correct");
+      $("gameScreen").classList.remove("max-effect-shake");
+      $("winFlashOverlay").classList.remove("flash-active");
+      $("lightningLayer").classList.remove("lightning-active");
+    }
+
+    function triggerScoreImpactEffect(level = "normal") {
+      const player = $("playerA");
+      const intensityByLevel = {
+        normal: 0.35,
+        overtake: 0.75,
+        correct: 1
+      };
+
+      player.style.setProperty("--impact-intensity", String(intensityByLevel[level] || 0.35));
+      player.classList.remove("score-impact", "score-overtake", "score-correct");
+      void player.offsetWidth;
+      player.classList.add("score-impact");
+
+      if (level === "overtake") {
+        player.classList.add("score-overtake");
+        playSound("rank");
+      } else if (level === "correct") {
+        player.classList.add("score-correct");
+        playSounds(["correct1", "correct2"]);
+        triggerWinEffect();
+      } else {
+        playSound("near");
+      }
+
+      setTimeout(() => {
+        player.classList.remove("score-impact", "score-overtake", "score-correct");
+      }, 700);
+    }
+
+    function triggerScoreOvertakeEffect() {
+      triggerScoreImpactEffect("overtake");
+    }
+
+    function triggerWinEffect() {
+      const variant = randomWinVariant();
+      const imageSrc = lightningImageByVariant[variant] || lightningImageByVariant[1];
+      const game = $("gameScreen");
+      const flash = $("winFlashOverlay");
+      const layer = $("lightningLayer");
+      const image = $("lightningImage");
+
+      image.setAttribute("src", imageSrc);
+      game.classList.remove("max-effect-shake");
+      flash.classList.remove("flash-active");
+      layer.classList.remove("lightning-active");
+
+      void game.offsetWidth;
+      void flash.offsetWidth;
+      void layer.offsetWidth;
+
+      game.classList.add("max-effect-shake");
+      flash.classList.add("flash-active");
+      layer.classList.add("lightning-active");
+
+      setTimeout(() => {
+        game.classList.remove("max-effect-shake");
+      }, 1100);
+    }
+
+    function clearAnswerArea() {
+      $("inputA").value = "";
+      $("wordsA").innerHTML = `<span class="hint">No valid words yet.</span>`;
+      $("wordsB").innerHTML = `<span class="hint">No valid words yet.</span>`;
+      $("hintA").textContent = "";
+      $("hintA").style.color = "";
+      $("hintB").textContent = "";
+      $("hintB").style.color = "";
+    }
+
+    async function startAgainFromModal() {
+      hideModal();
+      if (onlineState.enabled) {
+        if (onlineState.mode === "random") {
+          const client = supabaseClient;
+          if (client && onlineState.channel) {
+            await client.removeChannel(onlineState.channel);
+          }
+          resetMatch();
+          resetOnlineState();
+          await enterRandomMatch();
+          return;
+        }
+
+        if (onlineState.mode === "friend") {
+          await requestFriendRematch();
+          return;
+        }
+      }
+      $("startScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("hidden");
+      startMatch(state.matchMode || "single");
+    }
+
+    async function backToTitleFromModal() {
+      hideModal();
+      const client = supabaseClient;
+      if (onlineState.enabled) {
+        onlineState.leavingOnline = true;
+      }
+      if (onlineState.enabled && onlineState.mode === "friend" && onlineState.roomId) {
+        await publishRoomEvent("room_dissolved", {});
+        if (client) {
+          await client
+            .from("word_rush_rooms")
+            .update({
+              status: "abandoned",
+              updated_at: new Date().toISOString()
+            })
+            .eq("id", onlineState.roomId);
+        }
+      }
+      if (client && onlineState.channel) {
+        await client.removeChannel(onlineState.channel);
+      }
+      resetMatch();
+      resetOnlineState();
+      state.matchMode = "single";
+      $("gameScreen").classList.add("hidden");
+      $("gameScreen").classList.remove("versus-mode");
+      $("startScreen").classList.remove("hidden");
+      hideWaitingRoom();
+      setStartNotice(dictionary.size > 0 ? "モードを選んで開始できます。" : "辞書読み込み後に開始できます。", dictionary.size > 0 ? "success" : "");
+    }
+
+    function updateTimerUI() {
+      const totalMs = ((state.roundDuration || ROUND_SECONDS) * 1000);
+      const ratio = Math.max(0, Math.min(1, state.remainingMs / totalMs));
+      $("timebarFill").style.transform = `scaleX(${ratio})`;
+      $("timebarText").textContent = `${Math.ceil(Math.max(0, state.remainingMs / 1000))}s`;
+    }
+
+    function updateMobileAnswerPanelOffset() {
+      const panel = $("answerPanel");
+      if (!panel) return;
+
+      if (!window.visualViewport || window.innerWidth > 520) {
+        panel.style.transform = "";
+        return;
+      }
+
+      const viewport = window.visualViewport;
+      const keyboardOffset = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
+
+      panel.style.transform = keyboardOffset > 0
+        ? `translate3d(0, ${-keyboardOffset}px, 0)`
+        : "";
+    }
+
+    function renderWords(player) {
+      const safePlayer = player === "B" ? "B" : "A";
+      const container = $(safePlayer === "B" ? "wordsB" : "wordsA");
+      const words = state.roundWords[safePlayer] || [];
+
+      if (words.length === 0) {
+        container.innerHTML = `<span class="hint">No valid words yet.</span>`;
+        return;
+      }
+
+      container.innerHTML = words
+        .map((word) => `<span class="word-chip">${escapeHtml(word)} +${getEffectiveWordScore(word)}</span>`)
+        .join("");
+    }
+
+    function updateUI() {
+      const q = state.currentQuestion;
+      const isPlaying = state.status === "playing";
+      const keepKeyboardReady = isPlaying || state.status === "between_rounds";
+      const isVersus = state.matchMode !== "single";
+
+      $("scorebarFill").style.transform = `scaleX(${Math.max(0, Math.min(1, state.scores.A / WIN_SCORE))})`;
+      $("opponentScorebarFill").style.transform = `scaleX(${Math.max(0, Math.min(1, state.scores.B / WIN_SCORE))})`;
+      $("gameScreen").classList.toggle("versus-mode", isVersus);
+      $("roundLabel").textContent = q ? `Round ${state.roundIndex + 1}` : "Round 1";
+      $("ruleVisual").innerHTML = renderRuleVisual(q);
+
+      $("inputA").disabled = !keepKeyboardReady;
+      $("submitA").disabled = !isPlaying;
+
+      $("playerA").classList.toggle("active", isPlaying);
+      $("playerB").classList.toggle("active", isVersus && isPlaying);
+
+      renderWords("A");
+      renderWords("B");
+      updateTimerUI();
+      updateMobileAnswerPanelOffset();
+    }
+
+    const singlePlayBtn = $("singlePlayBtn");
+    if (singlePlayBtn) singlePlayBtn.onclick = beginSinglePlay;
+    $("friendMatchBtn").onclick = showFriendMatchPanel;
+    $("randomMatchBtn").onclick = enterRandomMatch;
+    $("submitA").onclick = () => submitWord("A");
+    $("startAgainBtn").onclick = startAgainFromModal;
+    $("backToTitleBtn").onclick = backToTitleFromModal;
+    const loadDictBtn = $("loadDictBtn");
+    if (loadDictBtn) loadDictBtn.onclick = () => $("dictionaryFileInput").click();
+    $("createFriendRoomBtn").onclick = createFriendRoom;
+    $("showJoinRoomBtn").onclick = showFriendJoinRoomPanel;
+    $("joinFriendRoomBtn").onclick = () => joinFriendRoom($("friendRoomCodeInput").value);
+    $("friendBackBtn").onclick = hideFriendMatchPanel;
+    $("friendJoinBackBtn").onclick = backToFriendMatchMenu;
+    $("cancelOnlineMatchBtn").onclick = cancelOnlineMatch;
+    const dictionaryFileInput = $("dictionaryFileInput");
+    if (dictionaryFileInput) {
+      dictionaryFileInput.addEventListener("change", (e) => {
+        loadDictionaryFromFile(e.target.files && e.target.files[0]);
+        e.target.value = "";
+      });
+    }
+
+    $("inputA").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") submitWord("A");
+    });
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", updateMobileAnswerPanelOffset);
+      window.visualViewport.addEventListener("scroll", updateMobileAnswerPanelOffset);
+    }
+    window.addEventListener("resize", updateMobileAnswerPanelOffset);
+
+    ["pointerdown", "touchstart", "keydown"].forEach((eventName) => {
+      window.addEventListener(eventName, unlockSoundEffects, { once: true, passive: true });
+    });
+
+    prepareSoundEffects();
+    preloadLightningImages();
+    initializeSupabaseClient();
+    updateDictionaryInfo();
+    updateUI();
+    log("Word Rush loaded. Loading ./words_alpha.txt from the same folder...");
+    loadDictionary();
+  </script>
+</body>
+</html>

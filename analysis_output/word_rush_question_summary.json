@@ -1,0 +1,483 @@
+{
+  "generatedAt": "2026-05-18T11:07:42.754Z",
+  "dictionarySize": 369652,
+  "totalTheoretical": 478006,
+  "totalAcceptedRows": 1217,
+  "totalAcceptedCanonical": 1097,
+  "byType": {
+    "start_end": {
+      "theoretical": 676,
+      "accepted": 119,
+      "rejected": 557,
+      "canonicalAccepted": 119,
+      "minCandidates": 1000,
+      "p50Candidates": 1790,
+      "p90Candidates": 3932,
+      "maxCandidates": 8129,
+      "smallest": [
+        {
+          "label": "Tで始まりLで終わる単語",
+          "candidate_count": 1000
+        },
+        {
+          "label": "Eで始まりNで終わる単語",
+          "candidate_count": 1002
+        },
+        {
+          "label": "Uで始まりLで終わる単語",
+          "candidate_count": 1010
+        },
+        {
+          "label": "Oで始まりGで終わる単語",
+          "candidate_count": 1020
+        },
+        {
+          "label": "Fで始まりDで終わる単語",
+          "candidate_count": 1022
+        },
+        {
+          "label": "Mで始まりTで終わる単語",
+          "candidate_count": 1023
+        },
+        {
+          "label": "Nで始まりNで終わる単語",
+          "candidate_count": 1027
+        },
+        {
+          "label": "Uで始まりTで終わる単語",
+          "candidate_count": 1027
+        },
+        {
+          "label": "Rで始まりRで終わる単語",
+          "candidate_count": 1038
+        },
+        {
+          "label": "Mで始まりRで終わる単語",
+          "candidate_count": 1078
+        }
+      ],
+      "largest": [
+        {
+          "label": "Sで始まりSで終わる単語",
+          "candidate_count": 8129
+        },
+        {
+          "label": "Cで始まりSで終わる単語",
+          "candidate_count": 7148
+        },
+        {
+          "label": "Pで始まりSで終わる単語",
+          "candidate_count": 6575
+        },
+        {
+          "label": "Uで始まりDで終わる単語",
+          "candidate_count": 5487
+        },
+        {
+          "label": "Sで始まりEで終わる単語",
+          "candidate_count": 5421
+        },
+        {
+          "label": "Aで始まりSで終わる単語",
+          "candidate_count": 5266
+        },
+        {
+          "label": "Pで始まりEで終わる単語",
+          "candidate_count": 5265
+        },
+        {
+          "label": "Cで始まりEで終わる単語",
+          "candidate_count": 5192
+        },
+        {
+          "label": "Sで始まりYで終わる単語",
+          "candidate_count": 4121
+        },
+        {
+          "label": "Mで始まりSで終わる単語",
+          "candidate_count": 4120
+        }
+      ]
+    },
+    "edge_min_length": {
+      "theoretical": 520,
+      "accepted": 273,
+      "rejected": 247,
+      "canonicalAccepted": 273,
+      "minCandidates": 1017,
+      "p50Candidates": 3214,
+      "p90Candidates": 12796,
+      "maxCandidates": 19596,
+      "smallest": [
+        {
+          "label": "Hで始まる6文字の単語",
+          "candidate_count": 1017
+        },
+        {
+          "label": "Zで始まる7文字以上の単語",
+          "candidate_count": 1019
+        },
+        {
+          "label": "Wで始まる9文字の単語",
+          "candidate_count": 1034
+        },
+        {
+          "label": "Lで始まる10文字の単語",
+          "candidate_count": 1069
+        },
+        {
+          "label": "Hで終わる8文字の単語",
+          "candidate_count": 1073
+        },
+        {
+          "label": "Tで終わる5文字の単語",
+          "candidate_count": 1090
+        },
+        {
+          "label": "Kで始まる9文字以上の単語",
+          "candidate_count": 1131
+        },
+        {
+          "label": "Lで始まる6文字の単語",
+          "candidate_count": 1134
+        },
+        {
+          "label": "Bで始まる5文字の単語",
+          "candidate_count": 1141
+        },
+        {
+          "label": "Wで始まる7文字の単語",
+          "candidate_count": 1144
+        }
+      ],
+      "largest": [
+        {
+          "label": "Pで始まる10文字以上の単語",
+          "candidate_count": 19596
+        },
+        {
+          "label": "Cで始まる9文字以上の単語",
+          "candidate_count": 19328
+        },
+        {
+          "label": "Nで終わる8文字以上の単語",
+          "candidate_count": 18938
+        },
+        {
+          "label": "Aで始まる8文字以上の単語",
+          "candidate_count": 18625
+        },
+        {
+          "label": "Gで終わる7文字以上の単語",
+          "candidate_count": 18265
+        },
+        {
+          "label": "Dで終わる9文字以上の単語",
+          "candidate_count": 17802
+        },
+        {
+          "label": "Uで始まる9文字以上の単語",
+          "candidate_count": 17782
+        },
+        {
+          "label": "Tで終わる7文字以上の単語",
+          "candidate_count": 17012
+        },
+        {
+          "label": "Mで始まる7文字以上の単語",
+          "candidate_count": 16874
+        },
+        {
+          "label": "Rで終わる7文字以上の単語",
+          "candidate_count": 16849
+        }
+      ]
+    },
+    "nth_letter": {
+      "theoretical": 130,
+      "accepted": 78,
+      "rejected": 52,
+      "canonicalAccepted": 78,
+      "minCandidates": 1004,
+      "p50Candidates": 6289,
+      "p90Candidates": 15452,
+      "maxCandidates": 19510,
+      "smallest": [
+        {
+          "label": "2文字目がFの単語",
+          "candidate_count": 1004
+        },
+        {
+          "label": "6文字目がZの単語",
+          "candidate_count": 1015
+        },
+        {
+          "label": "5文字目がXの単語",
+          "candidate_count": 1032
+        },
+        {
+          "label": "4文字目がXの単語",
+          "candidate_count": 1098
+        },
+        {
+          "label": "5文字目がZの単語",
+          "candidate_count": 1121
+        },
+        {
+          "label": "3文字目がZの単語",
+          "candidate_count": 1195
+        },
+        {
+          "label": "2文字目がGの単語",
+          "candidate_count": 1218
+        },
+        {
+          "label": "4文字目がZの単語",
+          "candidate_count": 1555
+        },
+        {
+          "label": "2文字目がWの単語",
+          "candidate_count": 1557
+        },
+        {
+          "label": "3文字目がXの単語",
+          "candidate_count": 1733
+        }
+      ],
+      "largest": [
+        {
+          "label": "4文字目がNの単語",
+          "candidate_count": 19510
+        },
+        {
+          "label": "3文字目がCの単語",
+          "candidate_count": 19453
+        },
+        {
+          "label": "5文字目がSの単語",
+          "candidate_count": 19284
+        },
+        {
+          "label": "4文字目がLの単語",
+          "candidate_count": 19215
+        },
+        {
+          "label": "4文字目がCの単語",
+          "candidate_count": 17630
+        },
+        {
+          "label": "4文字目がSの単語",
+          "candidate_count": 17322
+        },
+        {
+          "label": "3文字目がPの単語",
+          "candidate_count": 17157
+        },
+        {
+          "label": "3文字目がMの単語",
+          "candidate_count": 15918
+        },
+        {
+          "label": "2文字目がHの単語",
+          "candidate_count": 15452
+        },
+        {
+          "label": "2文字目がLの単語",
+          "candidate_count": 14890
+        }
+      ]
+    },
+    "contains_letters": {
+      "theoretical": 1452,
+      "accepted": 144,
+      "rejected": 1308,
+      "canonicalAccepted": 24,
+      "minCandidates": 8898,
+      "p50Candidates": 16217,
+      "p90Candidates": 17883,
+      "maxCandidates": 19709,
+      "smallest": [
+        {
+          "label": "C と M と P をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "C と P と M をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "M と C と P をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "M と P と C をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "P と C と M をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "P と M と C をすべて含む単語",
+          "candidate_count": 8898
+        },
+        {
+          "label": "L と M と P をすべて含む単語",
+          "candidate_count": 10348
+        },
+        {
+          "label": "L と P と M をすべて含む単語",
+          "candidate_count": 10348
+        },
+        {
+          "label": "M と L と P をすべて含む単語",
+          "candidate_count": 10348
+        },
+        {
+          "label": "M と P と L をすべて含む単語",
+          "candidate_count": 10348
+        }
+      ],
+      "largest": [
+        {
+          "label": "C と P と T をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "C と T と P をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "P と C と T をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "P と T と C をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "T と C と P をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "T と P と C をすべて含む単語",
+          "candidate_count": 19709
+        },
+        {
+          "label": "L と N と P をすべて含む単語",
+          "candidate_count": 18788
+        },
+        {
+          "label": "L と P と N をすべて含む単語",
+          "candidate_count": 18788
+        },
+        {
+          "label": "N と L と P をすべて含む単語",
+          "candidate_count": 18788
+        },
+        {
+          "label": "N と P と L をすべて含む単語",
+          "candidate_count": 18788
+        }
+      ]
+    },
+    "contains_sequence": {
+      "theoretical": 475228,
+      "accepted": 603,
+      "rejected": 474625,
+      "canonicalAccepted": 603,
+      "minCandidates": 2002,
+      "p50Candidates": 3766,
+      "p90Candidates": 16427,
+      "maxCandidates": 63834,
+      "smallest": [
+        {
+          "label": "ETA を含む単語",
+          "candidate_count": 2002
+        },
+        {
+          "label": "INES を含む単語",
+          "candidate_count": 2003
+        },
+        {
+          "label": "EDI を含む単語",
+          "candidate_count": 2012
+        },
+        {
+          "label": "UPE を含む単語",
+          "candidate_count": 2024
+        },
+        {
+          "label": "KER を含む単語",
+          "candidate_count": 2029
+        },
+        {
+          "label": "LLO を含む単語",
+          "candidate_count": 2029
+        },
+        {
+          "label": "OLE を含む単語",
+          "candidate_count": 2031
+        },
+        {
+          "label": "YR を含む単語",
+          "candidate_count": 2032
+        },
+        {
+          "label": "ACK を含む単語",
+          "candidate_count": 2035
+        },
+        {
+          "label": "ILIT を含む単語",
+          "candidate_count": 2035
+        }
+      ],
+      "largest": [
+        {
+          "label": "ER を含む単語",
+          "candidate_count": 63834
+        },
+        {
+          "label": "IN を含む単語",
+          "candidate_count": 57580
+        },
+        {
+          "label": "TI を含む単語",
+          "candidate_count": 46940
+        },
+        {
+          "label": "ES を含む単語",
+          "candidate_count": 44843
+        },
+        {
+          "label": "ON を含む単語",
+          "candidate_count": 44235
+        },
+        {
+          "label": "TE を含む単語",
+          "candidate_count": 42908
+        },
+        {
+          "label": "AT を含む単語",
+          "candidate_count": 41170
+        },
+        {
+          "label": "AL を含む単語",
+          "candidate_count": 39606
+        },
+        {
+          "label": "AN を含む単語",
+          "candidate_count": 38714
+        },
+        {
+          "label": "RE を含む単語",
+          "candidate_count": 38384
+        }
+      ]
+    }
+  },
+  "files": {
+    "csv": "analysis_output/word_rush_accepted_questions.csv",
+    "json": "analysis_output/word_rush_accepted_questions.json"
+  }
+}

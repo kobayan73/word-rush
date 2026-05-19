@@ -1,0 +1,1218 @@
+type,key,canonical_key,label,candidate_count,side,length_mode,start,end,min_len,max_len,n,letter,letters,sequence
+contains_letters,contains_letters:cpt,contains_letters:cpt,C と P と T をすべて含む単語,19709,,,,,3,,,,cpt,
+contains_letters,contains_letters:ctp,contains_letters:cpt,C と T と P をすべて含む単語,19709,,,,,3,,,,ctp,
+contains_letters,contains_letters:pct,contains_letters:cpt,P と C と T をすべて含む単語,19709,,,,,3,,,,pct,
+contains_letters,contains_letters:ptc,contains_letters:cpt,P と T と C をすべて含む単語,19709,,,,,3,,,,ptc,
+contains_letters,contains_letters:tcp,contains_letters:cpt,T と C と P をすべて含む単語,19709,,,,,3,,,,tcp,
+contains_letters,contains_letters:tpc,contains_letters:cpt,T と P と C をすべて含む単語,19709,,,,,3,,,,tpc,
+contains_letters,contains_letters:lnp,contains_letters:lnp,L と N と P をすべて含む単語,18788,,,,,3,,,,lnp,
+contains_letters,contains_letters:lpn,contains_letters:lnp,L と P と N をすべて含む単語,18788,,,,,3,,,,lpn,
+contains_letters,contains_letters:nlp,contains_letters:lnp,N と L と P をすべて含む単語,18788,,,,,3,,,,nlp,
+contains_letters,contains_letters:npl,contains_letters:lnp,N と P と L をすべて含む単語,18788,,,,,3,,,,npl,
+contains_letters,contains_letters:pln,contains_letters:lnp,P と L と N をすべて含む単語,18788,,,,,3,,,,pln,
+contains_letters,contains_letters:pnl,contains_letters:lnp,P と N と L をすべて含む単語,18788,,,,,3,,,,pnl,
+contains_letters,contains_letters:cps,contains_letters:cps,C と P と S をすべて含む単語,17883,,,,,3,,,,cps,
+contains_letters,contains_letters:csp,contains_letters:cps,C と S と P をすべて含む単語,17883,,,,,3,,,,csp,
+contains_letters,contains_letters:pcs,contains_letters:cps,P と C と S をすべて含む単語,17883,,,,,3,,,,pcs,
+contains_letters,contains_letters:psc,contains_letters:cps,P と S と C をすべて含む単語,17883,,,,,3,,,,psc,
+contains_letters,contains_letters:scp,contains_letters:cps,S と C と P をすべて含む単語,17883,,,,,3,,,,scp,
+contains_letters,contains_letters:spc,contains_letters:cps,S と P と C をすべて含む単語,17883,,,,,3,,,,spc,
+contains_letters,contains_letters:lmt,contains_letters:lmt,L と M と T をすべて含む単語,17535,,,,,3,,,,lmt,
+contains_letters,contains_letters:ltm,contains_letters:lmt,L と T と M をすべて含む単語,17535,,,,,3,,,,ltm,
+contains_letters,contains_letters:mlt,contains_letters:lmt,M と L と T をすべて含む単語,17535,,,,,3,,,,mlt,
+contains_letters,contains_letters:mtl,contains_letters:lmt,M と T と L をすべて含む単語,17535,,,,,3,,,,mtl,
+contains_letters,contains_letters:tlm,contains_letters:lmt,T と L と M をすべて含む単語,17535,,,,,3,,,,tlm,
+contains_letters,contains_letters:tml,contains_letters:lmt,T と M と L をすべて含む単語,17535,,,,,3,,,,tml,
+contains_letters,contains_letters:lms,contains_letters:lms,L と M と S をすべて含む単語,17155,,,,,3,,,,lms,
+contains_letters,contains_letters:lsm,contains_letters:lms,L と S と M をすべて含む単語,17155,,,,,3,,,,lsm,
+contains_letters,contains_letters:mls,contains_letters:lms,M と L と S をすべて含む単語,17155,,,,,3,,,,mls,
+contains_letters,contains_letters:msl,contains_letters:lms,M と S と L をすべて含む単語,17155,,,,,3,,,,msl,
+contains_letters,contains_letters:slm,contains_letters:lms,S と L と M をすべて含む単語,17155,,,,,3,,,,slm,
+contains_letters,contains_letters:sml,contains_letters:lms,S と M と L をすべて含む単語,17155,,,,,3,,,,sml,
+contains_letters,contains_letters:lmn,contains_letters:lmn,L と M と N をすべて含む単語,17143,,,,,3,,,,lmn,
+contains_letters,contains_letters:lnm,contains_letters:lmn,L と N と M をすべて含む単語,17143,,,,,3,,,,lnm,
+contains_letters,contains_letters:mln,contains_letters:lmn,M と L と N をすべて含む単語,17143,,,,,3,,,,mln,
+contains_letters,contains_letters:mnl,contains_letters:lmn,M と N と L をすべて含む単語,17143,,,,,3,,,,mnl,
+contains_letters,contains_letters:nlm,contains_letters:lmn,N と L と M をすべて含む単語,17143,,,,,3,,,,nlm,
+contains_letters,contains_letters:nml,contains_letters:lmn,N と M と L をすべて含む単語,17143,,,,,3,,,,nml,
+contains_letters,contains_letters:emp,contains_letters:emp,E と M と P をすべて含む単語,17080,,,,,3,,,,emp,
+contains_letters,contains_letters:epm,contains_letters:emp,E と P と M をすべて含む単語,17080,,,,,3,,,,epm,
+contains_letters,contains_letters:mep,contains_letters:emp,M と E と P をすべて含む単語,17080,,,,,3,,,,mep,
+contains_letters,contains_letters:mpe,contains_letters:emp,M と P と E をすべて含む単語,17080,,,,,3,,,,mpe,
+contains_letters,contains_letters:pem,contains_letters:emp,P と E と M をすべて含む単語,17080,,,,,3,,,,pem,
+contains_letters,contains_letters:pme,contains_letters:emp,P と M と E をすべて含む単語,17080,,,,,3,,,,pme,
+contains_letters,contains_letters:cmr,contains_letters:cmr,C と M と R をすべて含む単語,16820,,,,,3,,,,cmr,
+contains_letters,contains_letters:crm,contains_letters:cmr,C と R と M をすべて含む単語,16820,,,,,3,,,,crm,
+contains_letters,contains_letters:mcr,contains_letters:cmr,M と C と R をすべて含む単語,16820,,,,,3,,,,mcr,
+contains_letters,contains_letters:mrc,contains_letters:cmr,M と R と C をすべて含む単語,16820,,,,,3,,,,mrc,
+contains_letters,contains_letters:rcm,contains_letters:cmr,R と C と M をすべて含む単語,16820,,,,,3,,,,rcm,
+contains_letters,contains_letters:rmc,contains_letters:cmr,R と M と C をすべて含む単語,16820,,,,,3,,,,rmc,
+contains_letters,contains_letters:imp,contains_letters:imp,I と M と P をすべて含む単語,16794,,,,,3,,,,imp,
+contains_letters,contains_letters:ipm,contains_letters:imp,I と P と M をすべて含む単語,16794,,,,,3,,,,ipm,
+contains_letters,contains_letters:mip,contains_letters:imp,M と I と P をすべて含む単語,16794,,,,,3,,,,mip,
+contains_letters,contains_letters:mpi,contains_letters:imp,M と P と I をすべて含む単語,16794,,,,,3,,,,mpi,
+contains_letters,contains_letters:pim,contains_letters:imp,P と I と M をすべて含む単語,16794,,,,,3,,,,pim,
+contains_letters,contains_letters:pmi,contains_letters:imp,P と M と I をすべて含む単語,16794,,,,,3,,,,pmi,
+contains_letters,contains_letters:clp,contains_letters:clp,C と L と P をすべて含む単語,16705,,,,,3,,,,clp,
+contains_letters,contains_letters:cpl,contains_letters:clp,C と P と L をすべて含む単語,16705,,,,,3,,,,cpl,
+contains_letters,contains_letters:lcp,contains_letters:clp,L と C と P をすべて含む単語,16705,,,,,3,,,,lcp,
+contains_letters,contains_letters:lpc,contains_letters:clp,L と P と C をすべて含む単語,16705,,,,,3,,,,lpc,
+contains_letters,contains_letters:pcl,contains_letters:clp,P と C と L をすべて含む単語,16705,,,,,3,,,,pcl,
+contains_letters,contains_letters:plc,contains_letters:clp,P と L と C をすべて含む単語,16705,,,,,3,,,,plc,
+contains_letters,contains_letters:cmt,contains_letters:cmt,C と M と T をすべて含む単語,16553,,,,,3,,,,cmt,
+contains_letters,contains_letters:ctm,contains_letters:cmt,C と T と M をすべて含む単語,16553,,,,,3,,,,ctm,
+contains_letters,contains_letters:mct,contains_letters:cmt,M と C と T をすべて含む単語,16553,,,,,3,,,,mct,
+contains_letters,contains_letters:mtc,contains_letters:cmt,M と T と C をすべて含む単語,16553,,,,,3,,,,mtc,
+contains_letters,contains_letters:tcm,contains_letters:cmt,T と C と M をすべて含む単語,16553,,,,,3,,,,tcm,
+contains_letters,contains_letters:tmc,contains_letters:cmt,T と M と C をすべて含む単語,16553,,,,,3,,,,tmc,
+contains_letters,contains_letters:cnp,contains_letters:cnp,C と N と P をすべて含む単語,16325,,,,,3,,,,cnp,
+contains_letters,contains_letters:cpn,contains_letters:cnp,C と P と N をすべて含む単語,16325,,,,,3,,,,cpn,
+contains_letters,contains_letters:ncp,contains_letters:cnp,N と C と P をすべて含む単語,16325,,,,,3,,,,ncp,
+contains_letters,contains_letters:npc,contains_letters:cnp,N と P と C をすべて含む単語,16325,,,,,3,,,,npc,
+contains_letters,contains_letters:pcn,contains_letters:cnp,P と C と N をすべて含む単語,16325,,,,,3,,,,pcn,
+contains_letters,contains_letters:pnc,contains_letters:cnp,P と N と C をすべて含む単語,16325,,,,,3,,,,pnc,
+contains_letters,contains_letters:lmr,contains_letters:lmr,L と M と R をすべて含む単語,16217,,,,,3,,,,lmr,
+contains_letters,contains_letters:lrm,contains_letters:lmr,L と R と M をすべて含む単語,16217,,,,,3,,,,lrm,
+contains_letters,contains_letters:mlr,contains_letters:lmr,M と L と R をすべて含む単語,16217,,,,,3,,,,mlr,
+contains_letters,contains_letters:mrl,contains_letters:lmr,M と R と L をすべて含む単語,16217,,,,,3,,,,mrl,
+contains_letters,contains_letters:rlm,contains_letters:lmr,R と L と M をすべて含む単語,16217,,,,,3,,,,rlm,
+contains_letters,contains_letters:rml,contains_letters:lmr,R と M と L をすべて含む単語,16217,,,,,3,,,,rml,
+contains_letters,contains_letters:mop,contains_letters:mop,M と O と P をすべて含む単語,16174,,,,,3,,,,mop,
+contains_letters,contains_letters:mpo,contains_letters:mop,M と P と O をすべて含む単語,16174,,,,,3,,,,mpo,
+contains_letters,contains_letters:omp,contains_letters:mop,O と M と P をすべて含む単語,16174,,,,,3,,,,omp,
+contains_letters,contains_letters:opm,contains_letters:mop,O と P と M をすべて含む単語,16174,,,,,3,,,,opm,
+contains_letters,contains_letters:pmo,contains_letters:mop,P と M と O をすべて含む単語,16174,,,,,3,,,,pmo,
+contains_letters,contains_letters:pom,contains_letters:mop,P と O と M をすべて含む単語,16174,,,,,3,,,,pom,
+contains_letters,contains_letters:amp,contains_letters:amp,A と M と P をすべて含む単語,15577,,,,,3,,,,amp,
+contains_letters,contains_letters:apm,contains_letters:amp,A と P と M をすべて含む単語,15577,,,,,3,,,,apm,
+contains_letters,contains_letters:map,contains_letters:amp,M と A と P をすべて含む単語,15577,,,,,3,,,,map,
+contains_letters,contains_letters:mpa,contains_letters:amp,M と P と A をすべて含む単語,15577,,,,,3,,,,mpa,
+contains_letters,contains_letters:pam,contains_letters:amp,P と A と M をすべて含む単語,15577,,,,,3,,,,pam,
+contains_letters,contains_letters:pma,contains_letters:amp,P と M と A をすべて含む単語,15577,,,,,3,,,,pma,
+contains_letters,contains_letters:cmn,contains_letters:cmn,C と M と N をすべて含む単語,15278,,,,,3,,,,cmn,
+contains_letters,contains_letters:cnm,contains_letters:cmn,C と N と M をすべて含む単語,15278,,,,,3,,,,cnm,
+contains_letters,contains_letters:mcn,contains_letters:cmn,M と C と N をすべて含む単語,15278,,,,,3,,,,mcn,
+contains_letters,contains_letters:mnc,contains_letters:cmn,M と N と C をすべて含む単語,15278,,,,,3,,,,mnc,
+contains_letters,contains_letters:ncm,contains_letters:cmn,N と C と M をすべて含む単語,15278,,,,,3,,,,ncm,
+contains_letters,contains_letters:nmc,contains_letters:cmn,N と M と C をすべて含む単語,15278,,,,,3,,,,nmc,
+contains_letters,contains_letters:cms,contains_letters:cms,C と M と S をすべて含む単語,14726,,,,,3,,,,cms,
+contains_letters,contains_letters:csm,contains_letters:cms,C と S と M をすべて含む単語,14726,,,,,3,,,,csm,
+contains_letters,contains_letters:mcs,contains_letters:cms,M と C と S をすべて含む単語,14726,,,,,3,,,,mcs,
+contains_letters,contains_letters:msc,contains_letters:cms,M と S と C をすべて含む単語,14726,,,,,3,,,,msc,
+contains_letters,contains_letters:scm,contains_letters:cms,S と C と M をすべて含む単語,14726,,,,,3,,,,scm,
+contains_letters,contains_letters:smc,contains_letters:cms,S と M と C をすべて含む単語,14726,,,,,3,,,,smc,
+contains_letters,contains_letters:mpr,contains_letters:mpr,M と P と R をすべて含む単語,14367,,,,,3,,,,mpr,
+contains_letters,contains_letters:mrp,contains_letters:mpr,M と R と P をすべて含む単語,14367,,,,,3,,,,mrp,
+contains_letters,contains_letters:pmr,contains_letters:mpr,P と M と R をすべて含む単語,14367,,,,,3,,,,pmr,
+contains_letters,contains_letters:prm,contains_letters:mpr,P と R と M をすべて含む単語,14367,,,,,3,,,,prm,
+contains_letters,contains_letters:rmp,contains_letters:mpr,R と M と P をすべて含む単語,14367,,,,,3,,,,rmp,
+contains_letters,contains_letters:rpm,contains_letters:mpr,R と P と M をすべて含む単語,14367,,,,,3,,,,rpm,
+contains_letters,contains_letters:clm,contains_letters:clm,C と L と M をすべて含む単語,12994,,,,,3,,,,clm,
+contains_letters,contains_letters:cml,contains_letters:clm,C と M と L をすべて含む単語,12994,,,,,3,,,,cml,
+contains_letters,contains_letters:lcm,contains_letters:clm,L と C と M をすべて含む単語,12994,,,,,3,,,,lcm,
+contains_letters,contains_letters:lmc,contains_letters:clm,L と M と C をすべて含む単語,12994,,,,,3,,,,lmc,
+contains_letters,contains_letters:mcl,contains_letters:clm,M と C と L をすべて含む単語,12994,,,,,3,,,,mcl,
+contains_letters,contains_letters:mlc,contains_letters:clm,M と L と C をすべて含む単語,12994,,,,,3,,,,mlc,
+contains_letters,contains_letters:mpt,contains_letters:mpt,M と P と T をすべて含む単語,12853,,,,,3,,,,mpt,
+contains_letters,contains_letters:mtp,contains_letters:mpt,M と T と P をすべて含む単語,12853,,,,,3,,,,mtp,
+contains_letters,contains_letters:pmt,contains_letters:mpt,P と M と T をすべて含む単語,12853,,,,,3,,,,pmt,
+contains_letters,contains_letters:ptm,contains_letters:mpt,P と T と M をすべて含む単語,12853,,,,,3,,,,ptm,
+contains_letters,contains_letters:tmp,contains_letters:mpt,T と M と P をすべて含む単語,12853,,,,,3,,,,tmp,
+contains_letters,contains_letters:tpm,contains_letters:mpt,T と P と M をすべて含む単語,12853,,,,,3,,,,tpm,
+contains_letters,contains_letters:mps,contains_letters:mps,M と P と S をすべて含む単語,12797,,,,,3,,,,mps,
+contains_letters,contains_letters:msp,contains_letters:mps,M と S と P をすべて含む単語,12797,,,,,3,,,,msp,
+contains_letters,contains_letters:pms,contains_letters:mps,P と M と S をすべて含む単語,12797,,,,,3,,,,pms,
+contains_letters,contains_letters:psm,contains_letters:mps,P と S と M をすべて含む単語,12797,,,,,3,,,,psm,
+contains_letters,contains_letters:smp,contains_letters:mps,S と M と P をすべて含む単語,12797,,,,,3,,,,smp,
+contains_letters,contains_letters:spm,contains_letters:mps,S と P と M をすべて含む単語,12797,,,,,3,,,,spm,
+contains_letters,contains_letters:mnp,contains_letters:mnp,M と N と P をすべて含む単語,10865,,,,,3,,,,mnp,
+contains_letters,contains_letters:mpn,contains_letters:mnp,M と P と N をすべて含む単語,10865,,,,,3,,,,mpn,
+contains_letters,contains_letters:nmp,contains_letters:mnp,N と M と P をすべて含む単語,10865,,,,,3,,,,nmp,
+contains_letters,contains_letters:npm,contains_letters:mnp,N と P と M をすべて含む単語,10865,,,,,3,,,,npm,
+contains_letters,contains_letters:pmn,contains_letters:mnp,P と M と N をすべて含む単語,10865,,,,,3,,,,pmn,
+contains_letters,contains_letters:pnm,contains_letters:mnp,P と N と M をすべて含む単語,10865,,,,,3,,,,pnm,
+contains_letters,contains_letters:lmp,contains_letters:lmp,L と M と P をすべて含む単語,10348,,,,,3,,,,lmp,
+contains_letters,contains_letters:lpm,contains_letters:lmp,L と P と M をすべて含む単語,10348,,,,,3,,,,lpm,
+contains_letters,contains_letters:mlp,contains_letters:lmp,M と L と P をすべて含む単語,10348,,,,,3,,,,mlp,
+contains_letters,contains_letters:mpl,contains_letters:lmp,M と P と L をすべて含む単語,10348,,,,,3,,,,mpl,
+contains_letters,contains_letters:plm,contains_letters:lmp,P と L と M をすべて含む単語,10348,,,,,3,,,,plm,
+contains_letters,contains_letters:pml,contains_letters:lmp,P と M と L をすべて含む単語,10348,,,,,3,,,,pml,
+contains_letters,contains_letters:cmp,contains_letters:cmp,C と M と P をすべて含む単語,8898,,,,,3,,,,cmp,
+contains_letters,contains_letters:cpm,contains_letters:cmp,C と P と M をすべて含む単語,8898,,,,,3,,,,cpm,
+contains_letters,contains_letters:mcp,contains_letters:cmp,M と C と P をすべて含む単語,8898,,,,,3,,,,mcp,
+contains_letters,contains_letters:mpc,contains_letters:cmp,M と P と C をすべて含む単語,8898,,,,,3,,,,mpc,
+contains_letters,contains_letters:pcm,contains_letters:cmp,P と C と M をすべて含む単語,8898,,,,,3,,,,pcm,
+contains_letters,contains_letters:pmc,contains_letters:cmp,P と M と C をすべて含む単語,8898,,,,,3,,,,pmc,
+contains_sequence,contains_sequence:er,contains_sequence:er,ER を含む単語,63834,,,,,3,,,,,er
+contains_sequence,contains_sequence:in,contains_sequence:in,IN を含む単語,57580,,,,,3,,,,,in
+contains_sequence,contains_sequence:ti,contains_sequence:ti,TI を含む単語,46940,,,,,3,,,,,ti
+contains_sequence,contains_sequence:es,contains_sequence:es,ES を含む単語,44843,,,,,3,,,,,es
+contains_sequence,contains_sequence:on,contains_sequence:on,ON を含む単語,44235,,,,,3,,,,,on
+contains_sequence,contains_sequence:te,contains_sequence:te,TE を含む単語,42908,,,,,3,,,,,te
+contains_sequence,contains_sequence:at,contains_sequence:at,AT を含む単語,41170,,,,,3,,,,,at
+contains_sequence,contains_sequence:al,contains_sequence:al,AL を含む単語,39606,,,,,3,,,,,al
+contains_sequence,contains_sequence:an,contains_sequence:an,AN を含む単語,38714,,,,,3,,,,,an
+contains_sequence,contains_sequence:re,contains_sequence:re,RE を含む単語,38384,,,,,3,,,,,re
+contains_sequence,contains_sequence:en,contains_sequence:en,EN を含む単語,36734,,,,,3,,,,,en
+contains_sequence,contains_sequence:is,contains_sequence:is,IS を含む単語,35682,,,,,3,,,,,is
+contains_sequence,contains_sequence:ic,contains_sequence:ic,IC を含む単語,35108,,,,,3,,,,,ic
+contains_sequence,contains_sequence:ri,contains_sequence:ri,RI を含む単語,34924,,,,,3,,,,,ri
+contains_sequence,contains_sequence:ra,contains_sequence:ra,RA を含む単語,34506,,,,,3,,,,,ra
+contains_sequence,contains_sequence:le,contains_sequence:le,LE を含む単語,34063,,,,,3,,,,,le
+contains_sequence,contains_sequence:st,contains_sequence:st,ST を含む単語,33463,,,,,3,,,,,st
+contains_sequence,contains_sequence:li,contains_sequence:li,LI を含む単語,32410,,,,,3,,,,,li
+contains_sequence,contains_sequence:ne,contains_sequence:ne,NE を含む単語,31480,,,,,3,,,,,ne
+contains_sequence,contains_sequence:ar,contains_sequence:ar,AR を含む単語,31077,,,,,3,,,,,ar
+contains_sequence,contains_sequence:ro,contains_sequence:ro,RO を含む単語,30360,,,,,3,,,,,ro
+contains_sequence,contains_sequence:ed,contains_sequence:ed,ED を含む単語,30334,,,,,3,,,,,ed
+contains_sequence,contains_sequence:ng,contains_sequence:ng,NG を含む単語,29107,,,,,3,,,,,ng
+contains_sequence,contains_sequence:nt,contains_sequence:nt,NT を含む単語,28551,,,,,3,,,,,nt
+contains_sequence,contains_sequence:or,contains_sequence:or,OR を含む単語,28094,,,,,3,,,,,or
+contains_sequence,contains_sequence:un,contains_sequence:un,UN を含む単語,27169,,,,,3,,,,,un
+contains_sequence,contains_sequence:la,contains_sequence:la,LA を含む単語,24637,,,,,3,,,,,la
+contains_sequence,contains_sequence:it,contains_sequence:it,IT を含む単語,24473,,,,,3,,,,,it
+contains_sequence,contains_sequence:co,contains_sequence:co,CO を含む単語,23747,,,,,3,,,,,co
+contains_sequence,contains_sequence:ing,contains_sequence:ing,ING を含む単語,23325,,,,,3,,,,,ing
+contains_sequence,contains_sequence:ca,contains_sequence:ca,CA を含む単語,22792,,,,,3,,,,,ca
+contains_sequence,contains_sequence:ni,contains_sequence:ni,NI を含む単語,21902,,,,,3,,,,,ni
+contains_sequence,contains_sequence:io,contains_sequence:io,IO を含む単語,21836,,,,,3,,,,,io
+contains_sequence,contains_sequence:de,contains_sequence:de,DE を含む単語,21703,,,,,3,,,,,de
+contains_sequence,contains_sequence:to,contains_sequence:to,TO を含む単語,20825,,,,,3,,,,,to
+contains_sequence,contains_sequence:ta,contains_sequence:ta,TA を含む単語,20745,,,,,3,,,,,ta
+contains_sequence,contains_sequence:se,contains_sequence:se,SE を含む単語,20541,,,,,3,,,,,se
+contains_sequence,contains_sequence:ia,contains_sequence:ia,IA を含む単語,20431,,,,,3,,,,,ia
+contains_sequence,contains_sequence:tr,contains_sequence:tr,TR を含む単語,20090,,,,,3,,,,,tr
+contains_sequence,contains_sequence:ly,contains_sequence:ly,LY を含む単語,20076,,,,,3,,,,,ly
+contains_sequence,contains_sequence:ss,contains_sequence:ss,SS を含む単語,20060,,,,,3,,,,,ss
+contains_sequence,contains_sequence:no,contains_sequence:no,NO を含む単語,19932,,,,,3,,,,,no
+contains_sequence,contains_sequence:us,contains_sequence:us,US を含む単語,19637,,,,,3,,,,,us
+contains_sequence,contains_sequence:ch,contains_sequence:ch,CH を含む単語,19445,,,,,3,,,,,ch
+contains_sequence,contains_sequence:el,contains_sequence:el,EL を含む単語,19439,,,,,3,,,,,el
+contains_sequence,contains_sequence:ma,contains_sequence:ma,MA を含む単語,19318,,,,,3,,,,,ma
+contains_sequence,contains_sequence:ou,contains_sequence:ou,OU を含む単語,19280,,,,,3,,,,,ou
+contains_sequence,contains_sequence:di,contains_sequence:di,DI を含む単語,19148,,,,,3,,,,,di
+contains_sequence,contains_sequence:lo,contains_sequence:lo,LO を含む単語,18728,,,,,3,,,,,lo
+contains_sequence,contains_sequence:me,contains_sequence:me,ME を含む単語,18637,,,,,3,,,,,me
+contains_sequence,contains_sequence:ll,contains_sequence:ll,LL を含む単語,18612,,,,,3,,,,,ll
+contains_sequence,contains_sequence:he,contains_sequence:he,HE を含む単語,18427,,,,,3,,,,,he
+contains_sequence,contains_sequence:na,contains_sequence:na,NA を含む単語,18233,,,,,3,,,,,na
+contains_sequence,contains_sequence:ol,contains_sequence:ol,OL を含む単語,18135,,,,,3,,,,,ol
+contains_sequence,contains_sequence:si,contains_sequence:si,SI を含む単語,17971,,,,,3,,,,,si
+contains_sequence,contains_sequence:et,contains_sequence:et,ET を含む単語,17915,,,,,3,,,,,et
+contains_sequence,contains_sequence:mi,contains_sequence:mi,MI を含む単語,17833,,,,,3,,,,,mi
+contains_sequence,contains_sequence:ac,contains_sequence:ac,AC を含む単語,17726,,,,,3,,,,,ac
+contains_sequence,contains_sequence:ve,contains_sequence:ve,VE を含む単語,17347,,,,,3,,,,,ve
+contains_sequence,contains_sequence:pe,contains_sequence:pe,PE を含む単語,16971,,,,,3,,,,,pe
+contains_sequence,contains_sequence:om,contains_sequence:om,OM を含む単語,16743,,,,,3,,,,,om
+contains_sequence,contains_sequence:as,contains_sequence:as,AS を含む単語,16427,,,,,3,,,,,as
+contains_sequence,contains_sequence:th,contains_sequence:th,TH を含む単語,16272,,,,,3,,,,,th
+contains_sequence,contains_sequence:ph,contains_sequence:ph,PH を含む単語,15867,,,,,3,,,,,ph
+contains_sequence,contains_sequence:il,contains_sequence:il,IL を含む単語,15858,,,,,3,,,,,il
+contains_sequence,contains_sequence:os,contains_sequence:os,OS を含む単語,15324,,,,,3,,,,,os
+contains_sequence,contains_sequence:ati,contains_sequence:ati,ATI を含む単語,15065,,,,,3,,,,,ati
+contains_sequence,contains_sequence:nd,contains_sequence:nd,ND を含む単語,14873,,,,,3,,,,,nd
+contains_sequence,contains_sequence:ea,contains_sequence:ea,EA を含む単語,14859,,,,,3,,,,,ea
+contains_sequence,contains_sequence:ess,contains_sequence:ess,ESS を含む単語,14622,,,,,3,,,,,ess
+contains_sequence,contains_sequence:op,contains_sequence:op,OP を含む単語,14592,,,,,3,,,,,op
+contains_sequence,contains_sequence:hi,contains_sequence:hi,HI を含む単語,14555,,,,,3,,,,,hi
+contains_sequence,contains_sequence:pr,contains_sequence:pr,PR を含む単語,14547,,,,,3,,,,,pr
+contains_sequence,contains_sequence:ce,contains_sequence:ce,CE を含む単語,14537,,,,,3,,,,,ce
+contains_sequence,contains_sequence:ho,contains_sequence:ho,HO を含む単語,14393,,,,,3,,,,,ho
+contains_sequence,contains_sequence:ns,contains_sequence:ns,NS を含む単語,14276,,,,,3,,,,,ns
+contains_sequence,contains_sequence:id,contains_sequence:id,ID を含む単語,14219,,,,,3,,,,,id
+contains_sequence,contains_sequence:ion,contains_sequence:ion,ION を含む単語,14094,,,,,3,,,,,ion
+contains_sequence,contains_sequence:ur,contains_sequence:ur,UR を含む単語,14058,,,,,3,,,,,ur
+contains_sequence,contains_sequence:ul,contains_sequence:ul,UL を含む単語,13938,,,,,3,,,,,ul
+contains_sequence,contains_sequence:ha,contains_sequence:ha,HA を含む単語,13936,,,,,3,,,,,ha
+contains_sequence,contains_sequence:ter,contains_sequence:ter,TER を含む単語,13830,,,,,3,,,,,ter
+contains_sequence,contains_sequence:ie,contains_sequence:ie,IE を含む単語,13309,,,,,3,,,,,ie
+contains_sequence,contains_sequence:ab,contains_sequence:ab,AB を含む単語,13152,,,,,3,,,,,ab
+contains_sequence,contains_sequence:nc,contains_sequence:nc,NC を含む単語,13112,,,,,3,,,,,nc
+contains_sequence,contains_sequence:ec,contains_sequence:ec,EC を含む単語,13051,,,,,3,,,,,ec
+contains_sequence,contains_sequence:ot,contains_sequence:ot,OT を含む単語,12693,,,,,3,,,,,ot
+contains_sequence,contains_sequence:em,contains_sequence:em,EM を含む単語,12552,,,,,3,,,,,em
+contains_sequence,contains_sequence:po,contains_sequence:po,PO を含む単語,12392,,,,,3,,,,,po
+contains_sequence,contains_sequence:bl,contains_sequence:bl,BL を含む単語,12363,,,,,3,,,,,bl
+contains_sequence,contains_sequence:pa,contains_sequence:pa,PA を含む単語,12352,,,,,3,,,,,pa
+contains_sequence,contains_sequence:mo,contains_sequence:mo,MO を含む単語,12304,,,,,3,,,,,mo
+contains_sequence,contains_sequence:nes,contains_sequence:nes,NES を含む単語,11985,,,,,3,,,,,nes
+contains_sequence,contains_sequence:ge,contains_sequence:ge,GE を含む単語,11878,,,,,3,,,,,ge
+contains_sequence,contains_sequence:rs,contains_sequence:rs,RS を含む単語,11779,,,,,3,,,,,rs
+contains_sequence,contains_sequence:tio,contains_sequence:tio,TIO を含む単語,11574,,,,,3,,,,,tio
+contains_sequence,contains_sequence:ate,contains_sequence:ate,ATE を含む単語,11527,,,,,3,,,,,ate
+contains_sequence,contains_sequence:am,contains_sequence:am,AM を含む単語,11354,,,,,3,,,,,am
+contains_sequence,contains_sequence:ci,contains_sequence:ci,CI を含む単語,11350,,,,,3,,,,,ci
+contains_sequence,contains_sequence:ent,contains_sequence:ent,ENT を含む単語,11152,,,,,3,,,,,ent
+contains_sequence,contains_sequence:sh,contains_sequence:sh,SH を含む単語,11036,,,,,3,,,,,sh
+contains_sequence,contains_sequence:tion,contains_sequence:tion,TION を含む単語,10871,,,,,3,,,,,tion
+contains_sequence,contains_sequence:oc,contains_sequence:oc,OC を含む単語,10700,,,,,3,,,,,oc
+contains_sequence,contains_sequence:ous,contains_sequence:ous,OUS を含む単語,10656,,,,,3,,,,,ous
+contains_sequence,contains_sequence:og,contains_sequence:og,OG を含む単語,10548,,,,,3,,,,,og
+contains_sequence,contains_sequence:ap,contains_sequence:ap,AP を含む単語,10501,,,,,3,,,,,ap
+contains_sequence,contains_sequence:su,contains_sequence:su,SU を含む単語,10303,,,,,3,,,,,su
+contains_sequence,contains_sequence:ct,contains_sequence:ct,CT を含む単語,10255,,,,,3,,,,,ct
+contains_sequence,contains_sequence:pi,contains_sequence:pi,PI を含む単語,10214,,,,,3,,,,,pi
+contains_sequence,contains_sequence:ness,contains_sequence:ness,NESS を含む単語,9904,,,,,3,,,,,ness
+contains_sequence,contains_sequence:tic,contains_sequence:tic,TIC を含む単語,9852,,,,,3,,,,,tic
+contains_sequence,contains_sequence:ad,contains_sequence:ad,AD を含む単語,9547,,,,,3,,,,,ad
+contains_sequence,contains_sequence:sc,contains_sequence:sc,SC を含む単語,9488,,,,,3,,,,,sc
+contains_sequence,contains_sequence:ica,contains_sequence:ica,ICA を含む単語,9340,,,,,3,,,,,ica
+contains_sequence,contains_sequence:ut,contains_sequence:ut,UT を含む単語,9258,,,,,3,,,,,ut
+contains_sequence,contains_sequence:sa,contains_sequence:sa,SA を含む単語,9200,,,,,3,,,,,sa
+contains_sequence,contains_sequence:ist,contains_sequence:ist,IST を含む単語,8989,,,,,3,,,,,ist
+contains_sequence,contains_sequence:bi,contains_sequence:bi,BI を含む単語,8845,,,,,3,,,,,bi
+contains_sequence,contains_sequence:so,contains_sequence:so,SO を含む単語,8789,,,,,3,,,,,so
+contains_sequence,contains_sequence:be,contains_sequence:be,BE を含む単語,8781,,,,,3,,,,,be
+contains_sequence,contains_sequence:um,contains_sequence:um,UM を含む単語,8721,,,,,3,,,,,um
+contains_sequence,contains_sequence:da,contains_sequence:da,DA を含む単語,8570,,,,,3,,,,,da
+contains_sequence,contains_sequence:ba,contains_sequence:ba,BA を含む単語,8532,,,,,3,,,,,ba
+contains_sequence,contains_sequence:ep,contains_sequence:ep,EP を含む単語,8532,,,,,3,,,,,ep
+contains_sequence,contains_sequence:sp,contains_sequence:sp,SP を含む単語,8530,,,,,3,,,,,sp
+contains_sequence,contains_sequence:ag,contains_sequence:ag,AG を含む単語,8508,,,,,3,,,,,ag
+contains_sequence,contains_sequence:gi,contains_sequence:gi,GI を含む単語,8481,,,,,3,,,,,gi
+contains_sequence,contains_sequence:rt,contains_sequence:rt,RT を含む単語,8413,,,,,3,,,,,rt
+contains_sequence,contains_sequence:iz,contains_sequence:iz,IZ を含む単語,8376,,,,,3,,,,,iz
+contains_sequence,contains_sequence:iv,contains_sequence:iv,IV を含む単語,8318,,,,,3,,,,,iv
+contains_sequence,contains_sequence:im,contains_sequence:im,IM を含む単語,8309,,,,,3,,,,,im
+contains_sequence,contains_sequence:cr,contains_sequence:cr,CR を含む単語,8306,,,,,3,,,,,cr
+contains_sequence,contains_sequence:cal,contains_sequence:cal,CAL を含む単語,8301,,,,,3,,,,,cal
+contains_sequence,contains_sequence:do,contains_sequence:do,DO を含む単語,8248,,,,,3,,,,,do
+contains_sequence,contains_sequence:ers,contains_sequence:ers,ERS を含む単語,8140,,,,,3,,,,,ers
+contains_sequence,contains_sequence:ble,contains_sequence:ble,BLE を含む単語,8092,,,,,3,,,,,ble
+contains_sequence,contains_sequence:non,contains_sequence:non,NON を含む単語,7996,,,,,3,,,,,non
+contains_sequence,contains_sequence:hy,contains_sequence:hy,HY を含む単語,7963,,,,,3,,,,,hy
+contains_sequence,contains_sequence:ant,contains_sequence:ant,ANT を含む単語,7937,,,,,3,,,,,ant
+contains_sequence,contains_sequence:per,contains_sequence:per,PER を含む単語,7875,,,,,3,,,,,per
+contains_sequence,contains_sequence:ke,contains_sequence:ke,KE を含む単語,7804,,,,,3,,,,,ke
+contains_sequence,contains_sequence:all,contains_sequence:all,ALL を含む単語,7795,,,,,3,,,,,all
+contains_sequence,contains_sequence:ine,contains_sequence:ine,INE を含む単語,7704,,,,,3,,,,,ine
+contains_sequence,contains_sequence:ga,contains_sequence:ga,GA を含む単語,7669,,,,,3,,,,,ga
+contains_sequence,contains_sequence:od,contains_sequence:od,OD を含む単語,7660,,,,,3,,,,,od
+contains_sequence,contains_sequence:cu,contains_sequence:cu,CU を含む単語,7628,,,,,3,,,,,cu
+contains_sequence,contains_sequence:atio,contains_sequence:atio,ATIO を含む単語,7619,,,,,3,,,,,atio
+contains_sequence,contains_sequence:ry,contains_sequence:ry,RY を含む単語,7548,,,,,3,,,,,ry
+contains_sequence,contains_sequence:oo,contains_sequence:oo,OO を含む単語,7363,,,,,3,,,,,oo
+contains_sequence,contains_sequence:ty,contains_sequence:ty,TY を含む単語,7349,,,,,3,,,,,ty
+contains_sequence,contains_sequence:pl,contains_sequence:pl,PL を含む単語,7329,,,,,3,,,,,pl
+contains_sequence,contains_sequence:ver,contains_sequence:ver,VER を含む単語,7264,,,,,3,,,,,ver
+contains_sequence,contains_sequence:ir,contains_sequence:ir,IR を含む単語,7259,,,,,3,,,,,ir
+contains_sequence,contains_sequence:tu,contains_sequence:tu,TU を含む単語,7255,,,,,3,,,,,tu
+contains_sequence,contains_sequence:sm,contains_sequence:sm,SM を含む単語,7237,,,,,3,,,,,sm
+contains_sequence,contains_sequence:gr,contains_sequence:gr,GR を含む単語,7235,,,,,3,,,,,gr
+contains_sequence,contains_sequence:ee,contains_sequence:ee,EE を含む単語,7230,,,,,3,,,,,ee
+contains_sequence,contains_sequence:eri,contains_sequence:eri,ERI を含む単語,7203,,,,,3,,,,,eri
+contains_sequence,contains_sequence:tin,contains_sequence:tin,TIN を含む単語,7185,,,,,3,,,,,tin
+contains_sequence,contains_sequence:ig,contains_sequence:ig,IG を含む単語,7010,,,,,3,,,,,ig
+contains_sequence,contains_sequence:abl,contains_sequence:abl,ABL を含む単語,7004,,,,,3,,,,,abl
+contains_sequence,contains_sequence:fi,contains_sequence:fi,FI を含む単語,6996,,,,,3,,,,,fi
+contains_sequence,contains_sequence:ip,contains_sequence:ip,IP を含む単語,6995,,,,,3,,,,,ip
+contains_sequence,contains_sequence:mp,contains_sequence:mp,MP を含む単語,6908,,,,,3,,,,,mp
+contains_sequence,contains_sequence:bo,contains_sequence:bo,BO を含む単語,6899,,,,,3,,,,,bo
+contains_sequence,contains_sequence:ali,contains_sequence:ali,ALI を含む単語,6716,,,,,3,,,,,ali
+contains_sequence,contains_sequence:lu,contains_sequence:lu,LU を含む単語,6714,,,,,3,,,,,lu
+contains_sequence,contains_sequence:rm,contains_sequence:rm,RM を含む単語,6689,,,,,3,,,,,rm
+contains_sequence,contains_sequence:vi,contains_sequence:vi,VI を含む単語,6650,,,,,3,,,,,vi
+contains_sequence,contains_sequence:ai,contains_sequence:ai,AI を含む単語,6537,,,,,3,,,,,ai
+contains_sequence,contains_sequence:pre,contains_sequence:pre,PRE を含む単語,6479,,,,,3,,,,,pre
+contains_sequence,contains_sequence:ck,contains_sequence:ck,CK を含む単語,6413,,,,,3,,,,,ck
+contains_sequence,contains_sequence:ov,contains_sequence:ov,OV を含む単語,6353,,,,,3,,,,,ov
+contains_sequence,contains_sequence:ical,contains_sequence:ical,ICAL を含む単語,6339,,,,,3,,,,,ical
+contains_sequence,contains_sequence:tra,contains_sequence:tra,TRA を含む単語,6305,,,,,3,,,,,tra
+contains_sequence,contains_sequence:ze,contains_sequence:ze,ZE を含む単語,6275,,,,,3,,,,,ze
+contains_sequence,contains_sequence:con,contains_sequence:con,CON を含む単語,6257,,,,,3,,,,,con
+contains_sequence,contains_sequence:if,contains_sequence:if,IF を含む単語,6240,,,,,3,,,,,if
+contains_sequence,contains_sequence:br,contains_sequence:br,BR を含む単語,6084,,,,,3,,,,,br
+contains_sequence,contains_sequence:ru,contains_sequence:ru,RU を含む単語,6047,,,,,3,,,,,ru
+contains_sequence,contains_sequence:ae,contains_sequence:ae,AE を含む単語,5995,,,,,3,,,,,ae
+contains_sequence,contains_sequence:lin,contains_sequence:lin,LIN を含む単語,5991,,,,,3,,,,,lin
+contains_sequence,contains_sequence:ted,contains_sequence:ted,TED を含む単語,5985,,,,,3,,,,,ted
+contains_sequence,contains_sequence:sti,contains_sequence:sti,STI を含む単語,5958,,,,,3,,,,,sti
+contains_sequence,contains_sequence:ive,contains_sequence:ive,IVE を含む単語,5845,,,,,3,,,,,ive
+contains_sequence,contains_sequence:tt,contains_sequence:tt,TT を含む単語,5815,,,,,3,,,,,tt
+contains_sequence,contains_sequence:able,contains_sequence:able,ABLE を含む単語,5812,,,,,3,,,,,able
+contains_sequence,contains_sequence:oi,contains_sequence:oi,OI を含む単語,5802,,,,,3,,,,,oi
+contains_sequence,contains_sequence:nte,contains_sequence:nte,NTE を含む単語,5798,,,,,3,,,,,nte
+contains_sequence,contains_sequence:ene,contains_sequence:ene,ENE を含む単語,5797,,,,,3,,,,,ene
+contains_sequence,contains_sequence:rat,contains_sequence:rat,RAT を含む単語,5750,,,,,3,,,,,rat
+contains_sequence,contains_sequence:rr,contains_sequence:rr,RR を含む単語,5747,,,,,3,,,,,rr
+contains_sequence,contains_sequence:rc,contains_sequence:rc,RC を含む単語,5697,,,,,3,,,,,rc
+contains_sequence,contains_sequence:res,contains_sequence:res,RES を含む単語,5697,,,,,3,,,,,res
+contains_sequence,contains_sequence:ies,contains_sequence:ies,IES を含む単語,5690,,,,,3,,,,,ies
+contains_sequence,contains_sequence:est,contains_sequence:est,EST を含む単語,5670,,,,,3,,,,,est
+contains_sequence,contains_sequence:tri,contains_sequence:tri,TRI を含む単語,5666,,,,,3,,,,,tri
+contains_sequence,contains_sequence:rd,contains_sequence:rd,RD を含む単語,5655,,,,,3,,,,,rd
+contains_sequence,contains_sequence:qu,contains_sequence:qu,QU を含む単語,5653,,,,,3,,,,,qu
+contains_sequence,contains_sequence:ts,contains_sequence:ts,TS を含む単語,5635,,,,,3,,,,,ts
+contains_sequence,contains_sequence:oni,contains_sequence:oni,ONI を含む単語,5623,,,,,3,,,,,oni
+contains_sequence,contains_sequence:gl,contains_sequence:gl,GL を含む単語,5606,,,,,3,,,,,gl
+contains_sequence,contains_sequence:pro,contains_sequence:pro,PRO を含む単語,5588,,,,,3,,,,,pro
+contains_sequence,contains_sequence:men,contains_sequence:men,MEN を含む単語,5541,,,,,3,,,,,men
+contains_sequence,contains_sequence:nti,contains_sequence:nti,NTI を含む単語,5531,,,,,3,,,,,nti
+contains_sequence,contains_sequence:fo,contains_sequence:fo,FO を含む単語,5526,,,,,3,,,,,fo
+contains_sequence,contains_sequence:au,contains_sequence:au,AU を含む単語,5430,,,,,3,,,,,au
+contains_sequence,contains_sequence:eo,contains_sequence:eo,EO を含む単語,5428,,,,,3,,,,,eo
+contains_sequence,contains_sequence:tor,contains_sequence:tor,TOR を含む単語,5334,,,,,3,,,,,tor
+contains_sequence,contains_sequence:ub,contains_sequence:ub,UB を含む単語,5273,,,,,3,,,,,ub
+contains_sequence,contains_sequence:lat,contains_sequence:lat,LAT を含む単語,5191,,,,,3,,,,,lat
+contains_sequence,contains_sequence:ex,contains_sequence:ex,EX を含む単語,5166,,,,,3,,,,,ex
+contains_sequence,contains_sequence:ite,contains_sequence:ite,ITE を含む単語,5164,,,,,3,,,,,ite
+contains_sequence,contains_sequence:ari,contains_sequence:ari,ARI を含む単語,5148,,,,,3,,,,,ari
+contains_sequence,contains_sequence:fe,contains_sequence:fe,FE を含む単語,5137,,,,,3,,,,,fe
+contains_sequence,contains_sequence:lly,contains_sequence:lly,LLY を含む単語,5133,,,,,3,,,,,lly
+contains_sequence,contains_sequence:lit,contains_sequence:lit,LIT を含む単語,5132,,,,,3,,,,,lit
+contains_sequence,contains_sequence:ove,contains_sequence:ove,OVE を含む単語,5132,,,,,3,,,,,ove
+contains_sequence,contains_sequence:rin,contains_sequence:rin,RIN を含む単語,5129,,,,,3,,,,,rin
+contains_sequence,contains_sequence:ste,contains_sequence:ste,STE を含む単語,5117,,,,,3,,,,,ste
+contains_sequence,contains_sequence:cl,contains_sequence:cl,CL を含む単語,5068,,,,,3,,,,,cl
+contains_sequence,contains_sequence:up,contains_sequence:up,UP を含む単語,5067,,,,,3,,,,,up
+contains_sequence,contains_sequence:iti,contains_sequence:iti,ITI を含む単語,5036,,,,,3,,,,,iti
+contains_sequence,contains_sequence:dr,contains_sequence:dr,DR を含む単語,5016,,,,,3,,,,,dr
+contains_sequence,contains_sequence:ize,contains_sequence:ize,IZE を含む単語,4994,,,,,3,,,,,ize
+contains_sequence,contains_sequence:va,contains_sequence:va,VA を含む単語,4986,,,,,3,,,,,va
+contains_sequence,contains_sequence:der,contains_sequence:der,DER を含む単語,4953,,,,,3,,,,,der
+contains_sequence,contains_sequence:era,contains_sequence:era,ERA を含む単語,4939,,,,,3,,,,,era
+contains_sequence,contains_sequence:the,contains_sequence:the,THE を含む単語,4929,,,,,3,,,,,the
+contains_sequence,contains_sequence:nde,contains_sequence:nde,NDE を含む単語,4824,,,,,3,,,,,nde
+contains_sequence,contains_sequence:les,contains_sequence:les,LES を含む単語,4800,,,,,3,,,,,les
+contains_sequence,contains_sequence:wa,contains_sequence:wa,WA を含む単語,4798,,,,,3,,,,,wa
+contains_sequence,contains_sequence:go,contains_sequence:go,GO を含む単語,4791,,,,,3,,,,,go
+contains_sequence,contains_sequence:ran,contains_sequence:ran,RAN を含む単語,4775,,,,,3,,,,,ran
+contains_sequence,contains_sequence:ob,contains_sequence:ob,OB を含む単語,4769,,,,,3,,,,,ob
+contains_sequence,contains_sequence:int,contains_sequence:int,INT を含む単語,4764,,,,,3,,,,,int
+contains_sequence,contains_sequence:ism,contains_sequence:ism,ISM を含む単語,4731,,,,,3,,,,,ism
+contains_sequence,contains_sequence:ib,contains_sequence:ib,IB を含む単語,4656,,,,,3,,,,,ib
+contains_sequence,contains_sequence:ere,contains_sequence:ere,ERE を含む単語,4654,,,,,3,,,,,ere
+contains_sequence,contains_sequence:str,contains_sequence:str,STR を含む単語,4651,,,,,3,,,,,str
+contains_sequence,contains_sequence:bu,contains_sequence:bu,BU を含む単語,4624,,,,,3,,,,,bu
+contains_sequence,contains_sequence:dis,contains_sequence:dis,DIS を含む単語,4586,,,,,3,,,,,dis
+contains_sequence,contains_sequence:pt,contains_sequence:pt,PT を含む単語,4578,,,,,3,,,,,pt
+contains_sequence,contains_sequence:ast,contains_sequence:ast,AST を含む単語,4565,,,,,3,,,,,ast
+contains_sequence,contains_sequence:gra,contains_sequence:gra,GRA を含む単語,4525,,,,,3,,,,,gra
+contains_sequence,contains_sequence:uc,contains_sequence:uc,UC を含む単語,4514,,,,,3,,,,,uc
+contains_sequence,contains_sequence:her,contains_sequence:her,HER を含む単語,4495,,,,,3,,,,,her
+contains_sequence,contains_sequence:ons,contains_sequence:ons,ONS を含む単語,4487,,,,,3,,,,,ons
+contains_sequence,contains_sequence:ili,contains_sequence:ili,ILI を含む単語,4486,,,,,3,,,,,ili
+contains_sequence,contains_sequence:man,contains_sequence:man,MAN を含む単語,4473,,,,,3,,,,,man
+contains_sequence,contains_sequence:ian,contains_sequence:ian,IAN を含む単語,4472,,,,,3,,,,,ian
+contains_sequence,contains_sequence:ki,contains_sequence:ki,KI を含む単語,4471,,,,,3,,,,,ki
+contains_sequence,contains_sequence:ric,contains_sequence:ric,RIC を含む単語,4469,,,,,3,,,,,ric
+contains_sequence,contains_sequence:ting,contains_sequence:ting,TING を含む単語,4463,,,,,3,,,,,ting
+contains_sequence,contains_sequence:eu,contains_sequence:eu,EU を含む単語,4457,,,,,3,,,,,eu
+contains_sequence,contains_sequence:ona,contains_sequence:ona,ONA を含む単語,4429,,,,,3,,,,,ona
+contains_sequence,contains_sequence:ato,contains_sequence:ato,ATO を含む単語,4397,,,,,3,,,,,ato
+contains_sequence,contains_sequence:ally,contains_sequence:ally,ALLY を含む単語,4396,,,,,3,,,,,ally
+contains_sequence,contains_sequence:over,contains_sequence:over,OVER を含む単語,4367,,,,,3,,,,,over
+contains_sequence,contains_sequence:olo,contains_sequence:olo,OLO を含む単語,4361,,,,,3,,,,,olo
+contains_sequence,contains_sequence:ei,contains_sequence:ei,EI を含む単語,4351,,,,,3,,,,,ei
+contains_sequence,contains_sequence:ect,contains_sequence:ect,ECT を含む単語,4347,,,,,3,,,,,ect
+contains_sequence,contains_sequence:mat,contains_sequence:mat,MAT を含む単語,4344,,,,,3,,,,,mat
+contains_sequence,contains_sequence:mb,contains_sequence:mb,MB を含む単語,4324,,,,,3,,,,,mb
+contains_sequence,contains_sequence:ow,contains_sequence:ow,OW を含む単語,4318,,,,,3,,,,,ow
+contains_sequence,contains_sequence:ero,contains_sequence:ero,ERO を含む単語,4313,,,,,3,,,,,ero
+contains_sequence,contains_sequence:rn,contains_sequence:rn,RN を含む単語,4304,,,,,3,,,,,rn
+contains_sequence,contains_sequence:oph,contains_sequence:oph,OPH を含む単語,4301,,,,,3,,,,,oph
+contains_sequence,contains_sequence:tro,contains_sequence:tro,TRO を含む単語,4264,,,,,3,,,,,tro
+contains_sequence,contains_sequence:ina,contains_sequence:ina,INA を含む単語,4239,,,,,3,,,,,ina
+contains_sequence,contains_sequence:tiv,contains_sequence:tiv,TIV を含む単語,4237,,,,,3,,,,,tiv
+contains_sequence,contains_sequence:eg,contains_sequence:eg,EG を含む単語,4155,,,,,3,,,,,eg
+contains_sequence,contains_sequence:ity,contains_sequence:ity,ITY を含む単語,4138,,,,,3,,,,,ity
+contains_sequence,contains_sequence:ui,contains_sequence:ui,UI を含む単語,4131,,,,,3,,,,,ui
+contains_sequence,contains_sequence:log,contains_sequence:log,LOG を含む単語,4129,,,,,3,,,,,log
+contains_sequence,contains_sequence:und,contains_sequence:und,UND を含む単語,4118,,,,,3,,,,,und
+contains_sequence,contains_sequence:ua,contains_sequence:ua,UA を含む単語,4111,,,,,3,,,,,ua
+contains_sequence,contains_sequence:ria,contains_sequence:ria,RIA を含む単語,4095,,,,,3,,,,,ria
+contains_sequence,contains_sequence:fl,contains_sequence:fl,FL を含む単語,4084,,,,,3,,,,,fl
+contains_sequence,contains_sequence:hr,contains_sequence:hr,HR を含む単語,4070,,,,,3,,,,,hr
+contains_sequence,contains_sequence:one,contains_sequence:one,ONE を含む単語,4039,,,,,3,,,,,one
+contains_sequence,contains_sequence:ula,contains_sequence:ula,ULA を含む単語,4030,,,,,3,,,,,ula
+contains_sequence,contains_sequence:ani,contains_sequence:ani,ANI を含む単語,4008,,,,,3,,,,,ani
+contains_sequence,contains_sequence:min,contains_sequence:min,MIN を含む単語,3980,,,,,3,,,,,min
+contains_sequence,contains_sequence:chi,contains_sequence:chi,CHI を含む単語,3976,,,,,3,,,,,chi
+contains_sequence,contains_sequence:mu,contains_sequence:mu,MU を含む単語,3973,,,,,3,,,,,mu
+contains_sequence,contains_sequence:red,contains_sequence:red,RED を含む単語,3947,,,,,3,,,,,red
+contains_sequence,contains_sequence:nn,contains_sequence:nn,NN を含む単語,3943,,,,,3,,,,,nn
+contains_sequence,contains_sequence:ome,contains_sequence:ome,OME を含む単語,3888,,,,,3,,,,,ome
+contains_sequence,contains_sequence:fu,contains_sequence:fu,FU を含む単語,3879,,,,,3,,,,,fu
+contains_sequence,contains_sequence:sta,contains_sequence:sta,STA を含む単語,3869,,,,,3,,,,,sta
+contains_sequence,contains_sequence:ps,contains_sequence:ps,PS を含む単語,3858,,,,,3,,,,,ps
+contains_sequence,contains_sequence:ori,contains_sequence:ori,ORI を含む単語,3838,,,,,3,,,,,ori
+contains_sequence,contains_sequence:yl,contains_sequence:yl,YL を含む単語,3816,,,,,3,,,,,yl
+contains_sequence,contains_sequence:gu,contains_sequence:gu,GU を含む単語,3806,,,,,3,,,,,gu
+contains_sequence,contains_sequence:nat,contains_sequence:nat,NAT を含む単語,3795,,,,,3,,,,,nat
+contains_sequence,contains_sequence:ial,contains_sequence:ial,IAL を含む単語,3787,,,,,3,,,,,ial
+contains_sequence,contains_sequence:pho,contains_sequence:pho,PHO を含む単語,3787,,,,,3,,,,,pho
+contains_sequence,contains_sequence:ell,contains_sequence:ell,ELL を含む単語,3775,,,,,3,,,,,ell
+contains_sequence,contains_sequence:ef,contains_sequence:ef,EF を含む単語,3771,,,,,3,,,,,ef
+contains_sequence,contains_sequence:pu,contains_sequence:pu,PU を含む単語,3768,,,,,3,,,,,pu
+contains_sequence,contains_sequence:cti,contains_sequence:cti,CTI を含む単語,3766,,,,,3,,,,,cti
+contains_sequence,contains_sequence:ish,contains_sequence:ish,ISH を含む単語,3766,,,,,3,,,,,ish
+contains_sequence,contains_sequence:lis,contains_sequence:lis,LIS を含む単語,3749,,,,,3,,,,,lis
+contains_sequence,contains_sequence:sl,contains_sequence:sl,SL を含む単語,3741,,,,,3,,,,,sl
+contains_sequence,contains_sequence:emi,contains_sequence:emi,EMI を含む単語,3736,,,,,3,,,,,emi
+contains_sequence,contains_sequence:yp,contains_sequence:yp,YP を含む単語,3724,,,,,3,,,,,yp
+contains_sequence,contains_sequence:and,contains_sequence:and,AND を含む単語,3721,,,,,3,,,,,and
+contains_sequence,contains_sequence:cat,contains_sequence:cat,CAT を含む単語,3710,,,,,3,,,,,cat
+contains_sequence,contains_sequence:rop,contains_sequence:rop,ROP を含む単語,3697,,,,,3,,,,,rop
+contains_sequence,contains_sequence:oa,contains_sequence:oa,OA を含む単語,3659,,,,,3,,,,,oa
+contains_sequence,contains_sequence:ud,contains_sequence:ud,UD を含む単語,3654,,,,,3,,,,,ud
+contains_sequence,contains_sequence:ys,contains_sequence:ys,YS を含む単語,3642,,,,,3,,,,,ys
+contains_sequence,contains_sequence:che,contains_sequence:che,CHE を含む単語,3639,,,,,3,,,,,che
+contains_sequence,contains_sequence:nis,contains_sequence:nis,NIS を含む単語,3635,,,,,3,,,,,nis
+contains_sequence,contains_sequence:nal,contains_sequence:nal,NAL を含む単語,3626,,,,,3,,,,,nal
+contains_sequence,contains_sequence:nter,contains_sequence:nter,NTER を含む単語,3622,,,,,3,,,,,nter
+contains_sequence,contains_sequence:tive,contains_sequence:tive,TIVE を含む単語,3622,,,,,3,,,,,tive
+contains_sequence,contains_sequence:ill,contains_sequence:ill,ILL を含む単語,3610,,,,,3,,,,,ill
+contains_sequence,contains_sequence:wi,contains_sequence:wi,WI を含む単語,3609,,,,,3,,,,,wi
+contains_sequence,contains_sequence:met,contains_sequence:met,MET を含む単語,3576,,,,,3,,,,,met
+contains_sequence,contains_sequence:nce,contains_sequence:nce,NCE を含む単語,3565,,,,,3,,,,,nce
+contains_sequence,contains_sequence:pp,contains_sequence:pp,PP を含む単語,3565,,,,,3,,,,,pp
+contains_sequence,contains_sequence:cy,contains_sequence:cy,CY を含む単語,3554,,,,,3,,,,,cy
+contains_sequence,contains_sequence:fa,contains_sequence:fa,FA を含む単語,3546,,,,,3,,,,,fa
+contains_sequence,contains_sequence:ele,contains_sequence:ele,ELE を含む単語,3542,,,,,3,,,,,ele
+contains_sequence,contains_sequence:lt,contains_sequence:lt,LT を含む単語,3534,,,,,3,,,,,lt
+contains_sequence,contains_sequence:ment,contains_sequence:ment,MENT を含む単語,3514,,,,,3,,,,,ment
+contains_sequence,contains_sequence:ise,contains_sequence:ise,ISE を含む単語,3512,,,,,3,,,,,ise
+contains_sequence,contains_sequence:rp,contains_sequence:rp,RP を含む単語,3503,,,,,3,,,,,rp
+contains_sequence,contains_sequence:av,contains_sequence:av,AV を含む単語,3487,,,,,3,,,,,av
+contains_sequence,contains_sequence:we,contains_sequence:we,WE を含む単語,3480,,,,,3,,,,,we
+contains_sequence,contains_sequence:par,contains_sequence:par,PAR を含む単語,3473,,,,,3,,,,,par
+contains_sequence,contains_sequence:tl,contains_sequence:tl,TL を含む単語,3469,,,,,3,,,,,tl
+contains_sequence,contains_sequence:for,contains_sequence:for,FOR を含む単語,3448,,,,,3,,,,,for
+contains_sequence,contains_sequence:ide,contains_sequence:ide,IDE を含む単語,3433,,,,,3,,,,,ide
+contains_sequence,contains_sequence:du,contains_sequence:du,DU を含む単語,3429,,,,,3,,,,,du
+contains_sequence,contains_sequence:ost,contains_sequence:ost,OST を含む単語,3426,,,,,3,,,,,ost
+contains_sequence,contains_sequence:mm,contains_sequence:mm,MM を含む単語,3424,,,,,3,,,,,mm
+contains_sequence,contains_sequence:ue,contains_sequence:ue,UE を含む単語,3421,,,,,3,,,,,ue
+contains_sequence,contains_sequence:nf,contains_sequence:nf,NF を含む単語,3416,,,,,3,,,,,nf
+contains_sequence,contains_sequence:mis,contains_sequence:mis,MIS を含む単語,3403,,,,,3,,,,,mis
+contains_sequence,contains_sequence:rap,contains_sequence:rap,RAP を含む単語,3394,,,,,3,,,,,rap
+contains_sequence,contains_sequence:rea,contains_sequence:rea,REA を含む単語,3386,,,,,3,,,,,rea
+contains_sequence,contains_sequence:ev,contains_sequence:ev,EV を含む単語,3382,,,,,3,,,,,ev
+contains_sequence,contains_sequence:rac,contains_sequence:rac,RAC を含む単語,3378,,,,,3,,,,,rac
+contains_sequence,contains_sequence:nic,contains_sequence:nic,NIC を含む単語,3371,,,,,3,,,,,nic
+contains_sequence,contains_sequence:ris,contains_sequence:ris,RIS を含む単語,3357,,,,,3,,,,,ris
+contains_sequence,contains_sequence:tal,contains_sequence:tal,TAL を含む単語,3308,,,,,3,,,,,tal
+contains_sequence,contains_sequence:cha,contains_sequence:cha,CHA を含む単語,3298,,,,,3,,,,,cha
+contains_sequence,contains_sequence:lar,contains_sequence:lar,LAR を含む単語,3296,,,,,3,,,,,lar
+contains_sequence,contains_sequence:nu,contains_sequence:nu,NU を含む単語,3295,,,,,3,,,,,nu
+contains_sequence,contains_sequence:phi,contains_sequence:phi,PHI を含む単語,3278,,,,,3,,,,,phi
+contains_sequence,contains_sequence:rg,contains_sequence:rg,RG を含む単語,3250,,,,,3,,,,,rg
+contains_sequence,contains_sequence:ini,contains_sequence:ini,INI を含む単語,3247,,,,,3,,,,,ini
+contains_sequence,contains_sequence:oma,contains_sequence:oma,OMA を含む単語,3240,,,,,3,,,,,oma
+contains_sequence,contains_sequence:ace,contains_sequence:ace,ACE を含む単語,3239,,,,,3,,,,,ace
+contains_sequence,contains_sequence:lli,contains_sequence:lli,LLI を含む単語,3231,,,,,3,,,,,lli
+contains_sequence,contains_sequence:rec,contains_sequence:rec,REC を含む単語,3223,,,,,3,,,,,rec
+contains_sequence,contains_sequence:sto,contains_sequence:sto,STO を含む単語,3222,,,,,3,,,,,sto
+contains_sequence,contains_sequence:wo,contains_sequence:wo,WO を含む単語,3212,,,,,3,,,,,wo
+contains_sequence,contains_sequence:eli,contains_sequence:eli,ELI を含む単語,3206,,,,,3,,,,,eli
+contains_sequence,contains_sequence:gen,contains_sequence:gen,GEN を含む単語,3202,,,,,3,,,,,gen
+contains_sequence,contains_sequence:com,contains_sequence:com,COM を含む単語,3188,,,,,3,,,,,com
+contains_sequence,contains_sequence:len,contains_sequence:len,LEN を含む単語,3187,,,,,3,,,,,len
+contains_sequence,contains_sequence:enes,contains_sequence:enes,ENES を含む単語,3175,,,,,3,,,,,enes
+contains_sequence,contains_sequence:oli,contains_sequence:oli,OLI を含む単語,3172,,,,,3,,,,,oli
+contains_sequence,contains_sequence:nta,contains_sequence:nta,NTA を含む単語,3151,,,,,3,,,,,nta
+contains_sequence,contains_sequence:olog,contains_sequence:olog,OLOG を含む単語,3147,,,,,3,,,,,olog
+contains_sequence,contains_sequence:aph,contains_sequence:aph,APH を含む単語,3137,,,,,3,,,,,aph
+contains_sequence,contains_sequence:mon,contains_sequence:mon,MON を含む単語,3133,,,,,3,,,,,mon
+contains_sequence,contains_sequence:car,contains_sequence:car,CAR を含む単語,3127,,,,,3,,,,,car
+contains_sequence,contains_sequence:tat,contains_sequence:tat,TAT を含む単語,3106,,,,,3,,,,,tat
+contains_sequence,contains_sequence:ten,contains_sequence:ten,TEN を含む単語,3105,,,,,3,,,,,ten
+contains_sequence,contains_sequence:unc,contains_sequence:unc,UNC を含む単語,3095,,,,,3,,,,,unc
+contains_sequence,contains_sequence:tis,contains_sequence:tis,TIS を含む単語,3094,,,,,3,,,,,tis
+contains_sequence,contains_sequence:erm,contains_sequence:erm,ERM を含む単語,3090,,,,,3,,,,,erm
+contains_sequence,contains_sequence:lan,contains_sequence:lan,LAN を含む単語,3087,,,,,3,,,,,lan
+contains_sequence,contains_sequence:rb,contains_sequence:rb,RB を含む単語,3081,,,,,3,,,,,rb
+contains_sequence,contains_sequence:sub,contains_sequence:sub,SUB を含む単語,3067,,,,,3,,,,,sub
+contains_sequence,contains_sequence:anc,contains_sequence:anc,ANC を含む単語,3060,,,,,3,,,,,anc
+contains_sequence,contains_sequence:ff,contains_sequence:ff,FF を含む単語,3056,,,,,3,,,,,ff
+contains_sequence,contains_sequence:eb,contains_sequence:eb,EB を含む単語,3041,,,,,3,,,,,eb
+contains_sequence,contains_sequence:rou,contains_sequence:rou,ROU を含む単語,3040,,,,,3,,,,,rou
+contains_sequence,contains_sequence:ak,contains_sequence:ak,AK を含む単語,3036,,,,,3,,,,,ak
+contains_sequence,contains_sequence:dl,contains_sequence:dl,DL を含む単語,3012,,,,,3,,,,,dl
+contains_sequence,contains_sequence:sy,contains_sequence:sy,SY を含む単語,2992,,,,,3,,,,,sy
+contains_sequence,contains_sequence:cul,contains_sequence:cul,CUL を含む単語,2974,,,,,3,,,,,cul
+contains_sequence,contains_sequence:ls,contains_sequence:ls,LS を含む単語,2965,,,,,3,,,,,ls
+contains_sequence,contains_sequence:enc,contains_sequence:enc,ENC を含む単語,2945,,,,,3,,,,,enc
+contains_sequence,contains_sequence:mic,contains_sequence:mic,MIC を含む単語,2925,,,,,3,,,,,mic
+contains_sequence,contains_sequence:ete,contains_sequence:ete,ETE を含む単語,2924,,,,,3,,,,,ete
+contains_sequence,contains_sequence:sis,contains_sequence:sis,SIS を含む単語,2919,,,,,3,,,,,sis
+contains_sequence,contains_sequence:lic,contains_sequence:lic,LIC を含む単語,2902,,,,,3,,,,,lic
+contains_sequence,contains_sequence:ral,contains_sequence:ral,RAL を含む単語,2886,,,,,3,,,,,ral
+contains_sequence,contains_sequence:ard,contains_sequence:ard,ARD を含む単語,2884,,,,,3,,,,,ard
+contains_sequence,contains_sequence:pha,contains_sequence:pha,PHA を含む単語,2872,,,,,3,,,,,pha
+contains_sequence,contains_sequence:call,contains_sequence:call,CALL を含む単語,2871,,,,,3,,,,,call
+contains_sequence,contains_sequence:out,contains_sequence:out,OUT を含む単語,2869,,,,,3,,,,,out
+contains_sequence,contains_sequence:gh,contains_sequence:gh,GH を含む単語,2855,,,,,3,,,,,gh
+contains_sequence,contains_sequence:ling,contains_sequence:ling,LING を含む単語,2846,,,,,3,,,,,ling
+contains_sequence,contains_sequence:nin,contains_sequence:nin,NIN を含む単語,2836,,,,,3,,,,,nin
+contains_sequence,contains_sequence:ros,contains_sequence:ros,ROS を含む単語,2832,,,,,3,,,,,ros
+contains_sequence,contains_sequence:fr,contains_sequence:fr,FR を含む単語,2829,,,,,3,,,,,fr
+contains_sequence,contains_sequence:oe,contains_sequence:oe,OE を含む単語,2822,,,,,3,,,,,oe
+contains_sequence,contains_sequence:rl,contains_sequence:rl,RL を含む単語,2819,,,,,3,,,,,rl
+contains_sequence,contains_sequence:ont,contains_sequence:ont,ONT を含む単語,2817,,,,,3,,,,,ont
+contains_sequence,contains_sequence:eti,contains_sequence:eti,ETI を含む単語,2816,,,,,3,,,,,eti
+contains_sequence,contains_sequence:tom,contains_sequence:tom,TOM を含む単語,2814,,,,,3,,,,,tom
+contains_sequence,contains_sequence:stic,contains_sequence:stic,STIC を含む単語,2797,,,,,3,,,,,stic
+contains_sequence,contains_sequence:rit,contains_sequence:rit,RIT を含む単語,2793,,,,,3,,,,,rit
+contains_sequence,contains_sequence:art,contains_sequence:art,ART を含む単語,2792,,,,,3,,,,,art
+contains_sequence,contains_sequence:hu,contains_sequence:hu,HU を含む単語,2789,,,,,3,,,,,hu
+contains_sequence,contains_sequence:end,contains_sequence:end,END を含む単語,2785,,,,,3,,,,,end
+contains_sequence,contains_sequence:ida,contains_sequence:ida,IDA を含む単語,2783,,,,,3,,,,,ida
+contains_sequence,contains_sequence:gn,contains_sequence:gn,GN を含む単語,2776,,,,,3,,,,,gn
+contains_sequence,contains_sequence:ara,contains_sequence:ara,ARA を含む単語,2773,,,,,3,,,,,ara
+contains_sequence,contains_sequence:ort,contains_sequence:ort,ORT を含む単語,2773,,,,,3,,,,,ort
+contains_sequence,contains_sequence:sin,contains_sequence:sin,SIN を含む単語,2767,,,,,3,,,,,sin
+contains_sequence,contains_sequence:my,contains_sequence:my,MY を含む単語,2766,,,,,3,,,,,my
+contains_sequence,contains_sequence:inte,contains_sequence:inte,INTE を含む単語,2764,,,,,3,,,,,inte
+contains_sequence,contains_sequence:eni,contains_sequence:eni,ENI を含む単語,2763,,,,,3,,,,,eni
+contains_sequence,contains_sequence:ore,contains_sequence:ore,ORE を含む単語,2751,,,,,3,,,,,ore
+contains_sequence,contains_sequence:ici,contains_sequence:ici,ICI を含む単語,2746,,,,,3,,,,,ici
+contains_sequence,contains_sequence:tes,contains_sequence:tes,TES を含む単語,2744,,,,,3,,,,,tes
+contains_sequence,contains_sequence:pla,contains_sequence:pla,PLA を含む単語,2724,,,,,3,,,,,pla
+contains_sequence,contains_sequence:ated,contains_sequence:ated,ATED を含む単語,2721,,,,,3,,,,,ated
+contains_sequence,contains_sequence:act,contains_sequence:act,ACT を含む単語,2714,,,,,3,,,,,act
+contains_sequence,contains_sequence:lle,contains_sequence:lle,LLE を含む単語,2711,,,,,3,,,,,lle
+contains_sequence,contains_sequence:ds,contains_sequence:ds,DS を含む単語,2702,,,,,3,,,,,ds
+contains_sequence,contains_sequence:ron,contains_sequence:ron,RON を含む単語,2701,,,,,3,,,,,ron
+contains_sequence,contains_sequence:ngl,contains_sequence:ngl,NGL を含む単語,2678,,,,,3,,,,,ngl
+contains_sequence,contains_sequence:lla,contains_sequence:lla,LLA を含む単語,2675,,,,,3,,,,,lla
+contains_sequence,contains_sequence:ang,contains_sequence:ang,ANG を含む単語,2667,,,,,3,,,,,ang
+contains_sequence,contains_sequence:anti,contains_sequence:anti,ANTI を含む単語,2644,,,,,3,,,,,anti
+contains_sequence,contains_sequence:tur,contains_sequence:tur,TUR を含む単語,2629,,,,,3,,,,,tur
+contains_sequence,contains_sequence:oid,contains_sequence:oid,OID を含む単語,2626,,,,,3,,,,,oid
+contains_sequence,contains_sequence:ik,contains_sequence:ik,IK を含む単語,2618,,,,,3,,,,,ik
+contains_sequence,contains_sequence:uns,contains_sequence:uns,UNS を含む単語,2606,,,,,3,,,,,uns
+contains_sequence,contains_sequence:led,contains_sequence:led,LED を含む単語,2598,,,,,3,,,,,led
+contains_sequence,contains_sequence:ler,contains_sequence:ler,LER を含む単語,2595,,,,,3,,,,,ler
+contains_sequence,contains_sequence:rom,contains_sequence:rom,ROM を含む単語,2595,,,,,3,,,,,rom
+contains_sequence,contains_sequence:ay,contains_sequence:ay,AY を含む単語,2591,,,,,3,,,,,ay
+contains_sequence,contains_sequence:ssi,contains_sequence:ssi,SSI を含む単語,2588,,,,,3,,,,,ssi
+contains_sequence,contains_sequence:cho,contains_sequence:cho,CHO を含む単語,2584,,,,,3,,,,,cho
+contains_sequence,contains_sequence:ndi,contains_sequence:ndi,NDI を含む単語,2584,,,,,3,,,,,ndi
+contains_sequence,contains_sequence:sn,contains_sequence:sn,SN を含む単語,2567,,,,,3,,,,,sn
+contains_sequence,contains_sequence:ath,contains_sequence:ath,ATH を含む単語,2556,,,,,3,,,,,ath
+contains_sequence,contains_sequence:vo,contains_sequence:vo,VO を含む単語,2547,,,,,3,,,,,vo
+contains_sequence,contains_sequence:np,contains_sequence:np,NP を含む単語,2537,,,,,3,,,,,np
+contains_sequence,contains_sequence:din,contains_sequence:din,DIN を含む単語,2532,,,,,3,,,,,din
+contains_sequence,contains_sequence:ner,contains_sequence:ner,NER を含む単語,2525,,,,,3,,,,,ner
+contains_sequence,contains_sequence:nder,contains_sequence:nder,NDER を含む単語,2524,,,,,3,,,,,nder
+contains_sequence,contains_sequence:phy,contains_sequence:phy,PHY を含む単語,2521,,,,,3,,,,,phy
+contains_sequence,contains_sequence:ure,contains_sequence:ure,URE を含む単語,2518,,,,,3,,,,,ure
+contains_sequence,contains_sequence:ret,contains_sequence:ret,RET を含む単語,2512,,,,,3,,,,,ret
+contains_sequence,contains_sequence:ita,contains_sequence:ita,ITA を含む単語,2504,,,,,3,,,,,ita
+contains_sequence,contains_sequence:osi,contains_sequence:osi,OSI を含む単語,2498,,,,,3,,,,,osi
+contains_sequence,contains_sequence:ora,contains_sequence:ora,ORA を含む単語,2496,,,,,3,,,,,ora
+contains_sequence,contains_sequence:etr,contains_sequence:etr,ETR を含む単語,2493,,,,,3,,,,,etr
+contains_sequence,contains_sequence:less,contains_sequence:less,LESS を含む単語,2492,,,,,3,,,,,less
+contains_sequence,contains_sequence:ogi,contains_sequence:ogi,OGI を含む単語,2492,,,,,3,,,,,ogi
+contains_sequence,contains_sequence:shi,contains_sequence:shi,SHI を含む単語,2491,,,,,3,,,,,shi
+contains_sequence,contains_sequence:age,contains_sequence:age,AGE を含む単語,2482,,,,,3,,,,,age
+contains_sequence,contains_sequence:tan,contains_sequence:tan,TAN を含む単語,2481,,,,,3,,,,,tan
+contains_sequence,contains_sequence:ht,contains_sequence:ht,HT を含む単語,2472,,,,,3,,,,,ht
+contains_sequence,contains_sequence:hor,contains_sequence:hor,HOR を含む単語,2470,,,,,3,,,,,hor
+contains_sequence,contains_sequence:nit,contains_sequence:nit,NIT を含む単語,2470,,,,,3,,,,,nit
+contains_sequence,contains_sequence:ach,contains_sequence:ach,ACH を含む単語,2466,,,,,3,,,,,ach
+contains_sequence,contains_sequence:ses,contains_sequence:ses,SES を含む単語,2462,,,,,3,,,,,ses
+contains_sequence,contains_sequence:tho,contains_sequence:tho,THO を含む単語,2459,,,,,3,,,,,tho
+contains_sequence,contains_sequence:tica,contains_sequence:tica,TICA を含む単語,2459,,,,,3,,,,,tica
+contains_sequence,contains_sequence:den,contains_sequence:den,DEN を含む単語,2458,,,,,3,,,,,den
+contains_sequence,contains_sequence:tte,contains_sequence:tte,TTE を含む単語,2455,,,,,3,,,,,tte
+contains_sequence,contains_sequence:bil,contains_sequence:bil,BIL を含む単語,2444,,,,,3,,,,,bil
+contains_sequence,contains_sequence:dia,contains_sequence:dia,DIA を含む単語,2443,,,,,3,,,,,dia
+contains_sequence,contains_sequence:nco,contains_sequence:nco,NCO を含む単語,2440,,,,,3,,,,,nco
+contains_sequence,contains_sequence:ono,contains_sequence:ono,ONO を含む単語,2440,,,,,3,,,,,ono
+contains_sequence,contains_sequence:rie,contains_sequence:rie,RIE を含む単語,2440,,,,,3,,,,,rie
+contains_sequence,contains_sequence:za,contains_sequence:za,ZA を含む単語,2429,,,,,3,,,,,za
+contains_sequence,contains_sequence:hal,contains_sequence:hal,HAL を含む単語,2428,,,,,3,,,,,hal
+contains_sequence,contains_sequence:mer,contains_sequence:mer,MER を含む単語,2424,,,,,3,,,,,mer
+contains_sequence,contains_sequence:oto,contains_sequence:oto,OTO を含む単語,2414,,,,,3,,,,,oto
+contains_sequence,contains_sequence:ster,contains_sequence:ster,STER を含む単語,2414,,,,,3,,,,,ster
+contains_sequence,contains_sequence:ens,contains_sequence:ens,ENS を含む単語,2408,,,,,3,,,,,ens
+contains_sequence,contains_sequence:ier,contains_sequence:ier,IER を含む単語,2401,,,,,3,,,,,ier
+contains_sequence,contains_sequence:ym,contains_sequence:ym,YM を含む単語,2397,,,,,3,,,,,ym
+contains_sequence,contains_sequence:ring,contains_sequence:ring,RING を含む単語,2387,,,,,3,,,,,ring
+contains_sequence,contains_sequence:cro,contains_sequence:cro,CRO を含む単語,2380,,,,,3,,,,,cro
+contains_sequence,contains_sequence:ass,contains_sequence:ass,ASS を含む単語,2376,,,,,3,,,,,ass
+contains_sequence,contains_sequence:cc,contains_sequence:cc,CC を含む単語,2368,,,,,3,,,,,cc
+contains_sequence,contains_sequence:ew,contains_sequence:ew,EW を含む単語,2364,,,,,3,,,,,ew
+contains_sequence,contains_sequence:ntr,contains_sequence:ntr,NTR を含む単語,2360,,,,,3,,,,,ntr
+contains_sequence,contains_sequence:nia,contains_sequence:nia,NIA を含む単語,2356,,,,,3,,,,,nia
+contains_sequence,contains_sequence:ug,contains_sequence:ug,UG を含む単語,2352,,,,,3,,,,,ug
+contains_sequence,contains_sequence:unt,contains_sequence:unt,UNT を含む単語,2334,,,,,3,,,,,unt
+contains_sequence,contains_sequence:las,contains_sequence:las,LAS を含む単語,2323,,,,,3,,,,,las
+contains_sequence,contains_sequence:ld,contains_sequence:ld,LD を含む単語,2315,,,,,3,,,,,ld
+contains_sequence,contains_sequence:yn,contains_sequence:yn,YN を含む単語,2315,,,,,3,,,,,yn
+contains_sequence,contains_sequence:hin,contains_sequence:hin,HIN を含む単語,2308,,,,,3,,,,,hin
+contains_sequence,contains_sequence:ans,contains_sequence:ans,ANS を含む単語,2307,,,,,3,,,,,ans
+contains_sequence,contains_sequence:cor,contains_sequence:cor,COR を含む単語,2305,,,,,3,,,,,cor
+contains_sequence,contains_sequence:logi,contains_sequence:logi,LOGI を含む単語,2302,,,,,3,,,,,logi
+contains_sequence,contains_sequence:zi,contains_sequence:zi,ZI を含む単語,2299,,,,,3,,,,,zi
+contains_sequence,contains_sequence:ator,contains_sequence:ator,ATOR を含む単語,2297,,,,,3,,,,,ator
+contains_sequence,contains_sequence:sup,contains_sequence:sup,SUP を含む単語,2297,,,,,3,,,,,sup
+contains_sequence,contains_sequence:ton,contains_sequence:ton,TON を含む単語,2295,,,,,3,,,,,ton
+contains_sequence,contains_sequence:ka,contains_sequence:ka,KA を含む単語,2288,,,,,3,,,,,ka
+contains_sequence,contains_sequence:ven,contains_sequence:ven,VEN を含む単語,2287,,,,,3,,,,,ven
+contains_sequence,contains_sequence:rati,contains_sequence:rati,RATI を含む単語,2283,,,,,3,,,,,rati
+contains_sequence,contains_sequence:uri,contains_sequence:uri,URI を含む単語,2280,,,,,3,,,,,uri
+contains_sequence,contains_sequence:rot,contains_sequence:rot,ROT を含む単語,2279,,,,,3,,,,,rot
+contains_sequence,contains_sequence:atin,contains_sequence:atin,ATIN を含む単語,2275,,,,,3,,,,,atin
+contains_sequence,contains_sequence:lity,contains_sequence:lity,LITY を含む単語,2272,,,,,3,,,,,lity
+contains_sequence,contains_sequence:unde,contains_sequence:unde,UNDE を含む単語,2269,,,,,3,,,,,unde
+contains_sequence,contains_sequence:har,contains_sequence:har,HAR を含む単語,2263,,,,,3,,,,,har
+contains_sequence,contains_sequence:kin,contains_sequence:kin,KIN を含む単語,2258,,,,,3,,,,,kin
+contains_sequence,contains_sequence:yc,contains_sequence:yc,YC を含む単語,2249,,,,,3,,,,,yc
+contains_sequence,contains_sequence:ale,contains_sequence:ale,ALE を含む単語,2245,,,,,3,,,,,ale
+contains_sequence,contains_sequence:iu,contains_sequence:iu,IU を含む単語,2239,,,,,3,,,,,iu
+contains_sequence,contains_sequence:ino,contains_sequence:ino,INO を含む単語,2237,,,,,3,,,,,ino
+contains_sequence,contains_sequence:ser,contains_sequence:ser,SER を含む単語,2234,,,,,3,,,,,ser
+contains_sequence,contains_sequence:erc,contains_sequence:erc,ERC を含む単語,2231,,,,,3,,,,,erc
+contains_sequence,contains_sequence:ogr,contains_sequence:ogr,OGR を含む単語,2230,,,,,3,,,,,ogr
+contains_sequence,contains_sequence:ind,contains_sequence:ind,IND を含む単語,2227,,,,,3,,,,,ind
+contains_sequence,contains_sequence:ins,contains_sequence:ins,INS を含む単語,2225,,,,,3,,,,,ins
+contains_sequence,contains_sequence:ala,contains_sequence:ala,ALA を含む単語,2224,,,,,3,,,,,ala
+contains_sequence,contains_sequence:cen,contains_sequence:cen,CEN を含む単語,2218,,,,,3,,,,,cen
+contains_sequence,contains_sequence:orm,contains_sequence:orm,ORM を含む単語,2218,,,,,3,,,,,orm
+contains_sequence,contains_sequence:omi,contains_sequence:omi,OMI を含む単語,2217,,,,,3,,,,,omi
+contains_sequence,contains_sequence:ber,contains_sequence:ber,BER を含む単語,2213,,,,,3,,,,,ber
+contains_sequence,contains_sequence:raph,contains_sequence:raph,RAPH を含む単語,2205,,,,,3,,,,,raph
+contains_sequence,contains_sequence:idi,contains_sequence:idi,IDI を含む単語,2203,,,,,3,,,,,idi
+contains_sequence,contains_sequence:liz,contains_sequence:liz,LIZ を含む単語,2201,,,,,3,,,,,liz
+contains_sequence,contains_sequence:nk,contains_sequence:nk,NK を含む単語,2200,,,,,3,,,,,nk
+contains_sequence,contains_sequence:sco,contains_sequence:sco,SCO を含む単語,2200,,,,,3,,,,,sco
+contains_sequence,contains_sequence:qui,contains_sequence:qui,QUI を含む単語,2195,,,,,3,,,,,qui
+contains_sequence,contains_sequence:ren,contains_sequence:ren,REN を含む単語,2195,,,,,3,,,,,ren
+contains_sequence,contains_sequence:pol,contains_sequence:pol,POL を含む単語,2192,,,,,3,,,,,pol
+contains_sequence,contains_sequence:ana,contains_sequence:ana,ANA を含む単語,2185,,,,,3,,,,,ana
+contains_sequence,contains_sequence:ely,contains_sequence:ely,ELY を含む単語,2180,,,,,3,,,,,ely
+contains_sequence,contains_sequence:yt,contains_sequence:yt,YT を含む単語,2172,,,,,3,,,,,yt
+contains_sequence,contains_sequence:nch,contains_sequence:nch,NCH を含む単語,2169,,,,,3,,,,,nch
+contains_sequence,contains_sequence:roc,contains_sequence:roc,ROC を含む単語,2169,,,,,3,,,,,roc
+contains_sequence,contains_sequence:col,contains_sequence:col,COL を含む単語,2167,,,,,3,,,,,col
+contains_sequence,contains_sequence:gly,contains_sequence:gly,GLY を含む単語,2166,,,,,3,,,,,gly
+contains_sequence,contains_sequence:eno,contains_sequence:eno,ENO を含む単語,2165,,,,,3,,,,,eno
+contains_sequence,contains_sequence:rous,contains_sequence:rous,ROUS を含む単語,2154,,,,,3,,,,,rous
+contains_sequence,contains_sequence:iat,contains_sequence:iat,IAT を含む単語,2146,,,,,3,,,,,iat
+contains_sequence,contains_sequence:af,contains_sequence:af,AF を含む単語,2143,,,,,3,,,,,af
+contains_sequence,contains_sequence:of,contains_sequence:of,OF を含む単語,2141,,,,,3,,,,,of
+contains_sequence,contains_sequence:sse,contains_sequence:sse,SSE を含む単語,2136,,,,,3,,,,,sse
+contains_sequence,contains_sequence:xi,contains_sequence:xi,XI を含む単語,2136,,,,,3,,,,,xi
+contains_sequence,contains_sequence:ose,contains_sequence:ose,OSE を含む単語,2122,,,,,3,,,,,ose
+contains_sequence,contains_sequence:grap,contains_sequence:grap,GRAP を含む単語,2121,,,,,3,,,,,grap
+contains_sequence,contains_sequence:pin,contains_sequence:pin,PIN を含む単語,2112,,,,,3,,,,,pin
+contains_sequence,contains_sequence:gg,contains_sequence:gg,GG を含む単語,2107,,,,,3,,,,,gg
+contains_sequence,contains_sequence:ogra,contains_sequence:ogra,OGRA を含む単語,2107,,,,,3,,,,,ogra
+contains_sequence,contains_sequence:sem,contains_sequence:sem,SEM を含む単語,2107,,,,,3,,,,,sem
+contains_sequence,contains_sequence:pos,contains_sequence:pos,POS を含む単語,2101,,,,,3,,,,,pos
+contains_sequence,contains_sequence:eme,contains_sequence:eme,EME を含む単語,2096,,,,,3,,,,,eme
+contains_sequence,contains_sequence:bra,contains_sequence:bra,BRA を含む単語,2095,,,,,3,,,,,bra
+contains_sequence,contains_sequence:ert,contains_sequence:ert,ERT を含む単語,2087,,,,,3,,,,,ert
+contains_sequence,contains_sequence:iou,contains_sequence:iou,IOU を含む単語,2086,,,,,3,,,,,iou
+contains_sequence,contains_sequence:ya,contains_sequence:ya,YA を含む単語,2086,,,,,3,,,,,ya
+contains_sequence,contains_sequence:han,contains_sequence:han,HAN を含む単語,2084,,,,,3,,,,,han
+contains_sequence,contains_sequence:hea,contains_sequence:hea,HEA を含む単語,2084,,,,,3,,,,,hea
+contains_sequence,contains_sequence:nr,contains_sequence:nr,NR を含む単語,2083,,,,,3,,,,,nr
+contains_sequence,contains_sequence:esi,contains_sequence:esi,ESI を含む単語,2082,,,,,3,,,,,esi
+contains_sequence,contains_sequence:iona,contains_sequence:iona,IONA を含む単語,2081,,,,,3,,,,,iona
+contains_sequence,contains_sequence:late,contains_sequence:late,LATE を含む単語,2077,,,,,3,,,,,late
+contains_sequence,contains_sequence:des,contains_sequence:des,DES を含む単語,2076,,,,,3,,,,,des
+contains_sequence,contains_sequence:ful,contains_sequence:ful,FUL を含む単語,2072,,,,,3,,,,,ful
+contains_sequence,contains_sequence:nge,contains_sequence:nge,NGE を含む単語,2070,,,,,3,,,,,nge
+contains_sequence,contains_sequence:rh,contains_sequence:rh,RH を含む単語,2069,,,,,3,,,,,rh
+contains_sequence,contains_sequence:tab,contains_sequence:tab,TAB を含む単語,2067,,,,,3,,,,,tab
+contains_sequence,contains_sequence:ami,contains_sequence:ami,AMI を含む単語,2063,,,,,3,,,,,ami
+contains_sequence,contains_sequence:hro,contains_sequence:hro,HRO を含む単語,2061,,,,,3,,,,,hro
+contains_sequence,contains_sequence:alis,contains_sequence:alis,ALIS を含む単語,2059,,,,,3,,,,,alis
+contains_sequence,contains_sequence:ema,contains_sequence:ema,EMA を含む単語,2059,,,,,3,,,,,ema
+contains_sequence,contains_sequence:por,contains_sequence:por,POR を含む単語,2059,,,,,3,,,,,por
+contains_sequence,contains_sequence:ger,contains_sequence:ger,GER を含む単語,2057,,,,,3,,,,,ger
+contains_sequence,contains_sequence:gy,contains_sequence:gy,GY を含む単語,2055,,,,,3,,,,,gy
+contains_sequence,contains_sequence:arc,contains_sequence:arc,ARC を含む単語,2054,,,,,3,,,,,arc
+contains_sequence,contains_sequence:abi,contains_sequence:abi,ABI を含む単語,2053,,,,,3,,,,,abi
+contains_sequence,contains_sequence:thi,contains_sequence:thi,THI を含む単語,2050,,,,,3,,,,,thi
+contains_sequence,contains_sequence:ond,contains_sequence:ond,OND を含む単語,2049,,,,,3,,,,,ond
+contains_sequence,contains_sequence:rti,contains_sequence:rti,RTI を含む単語,2049,,,,,3,,,,,rti
+contains_sequence,contains_sequence:ious,contains_sequence:ious,IOUS を含む単語,2048,,,,,3,,,,,ious
+contains_sequence,contains_sequence:tar,contains_sequence:tar,TAR を含む単語,2043,,,,,3,,,,,tar
+contains_sequence,contains_sequence:ain,contains_sequence:ain,AIN を含む単語,2040,,,,,3,,,,,ain
+contains_sequence,contains_sequence:inc,contains_sequence:inc,INC を含む単語,2038,,,,,3,,,,,inc
+contains_sequence,contains_sequence:ingl,contains_sequence:ingl,INGL を含む単語,2038,,,,,3,,,,,ingl
+contains_sequence,contains_sequence:ack,contains_sequence:ack,ACK を含む単語,2035,,,,,3,,,,,ack
+contains_sequence,contains_sequence:ilit,contains_sequence:ilit,ILIT を含む単語,2035,,,,,3,,,,,ilit
+contains_sequence,contains_sequence:yr,contains_sequence:yr,YR を含む単語,2032,,,,,3,,,,,yr
+contains_sequence,contains_sequence:ole,contains_sequence:ole,OLE を含む単語,2031,,,,,3,,,,,ole
+contains_sequence,contains_sequence:ker,contains_sequence:ker,KER を含む単語,2029,,,,,3,,,,,ker
+contains_sequence,contains_sequence:llo,contains_sequence:llo,LLO を含む単語,2029,,,,,3,,,,,llo
+contains_sequence,contains_sequence:upe,contains_sequence:upe,UPE を含む単語,2024,,,,,3,,,,,upe
+contains_sequence,contains_sequence:edi,contains_sequence:edi,EDI を含む単語,2012,,,,,3,,,,,edi
+contains_sequence,contains_sequence:ines,contains_sequence:ines,INES を含む単語,2003,,,,,3,,,,,ines
+contains_sequence,contains_sequence:eta,contains_sequence:eta,ETA を含む単語,2002,,,,,3,,,,,eta
+edge_min_length,edge:start:p:min:10,edge:start:p:min:10,Pで始まる10文字以上の単語,19596,start,min,p,,10,,,,,
+edge_min_length,edge:start:c:min:9,edge:start:c:min:9,Cで始まる9文字以上の単語,19328,start,min,c,,9,,,,,
+edge_min_length,edge:end:n:min:8,edge:end:n:min:8,Nで終わる8文字以上の単語,18938,end,min,,n,8,,,,,
+edge_min_length,edge:start:a:min:8,edge:start:a:min:8,Aで始まる8文字以上の単語,18625,start,min,a,,8,,,,,
+edge_min_length,edge:end:g:min:7,edge:end:g:min:7,Gで終わる7文字以上の単語,18265,end,min,,g,7,,,,,
+edge_min_length,edge:end:d:min:9,edge:end:d:min:9,Dで終わる9文字以上の単語,17802,end,min,,d,9,,,,,
+edge_min_length,edge:start:u:min:9,edge:start:u:min:9,Uで始まる9文字以上の単語,17782,start,min,u,,9,,,,,
+edge_min_length,edge:end:t:min:7,edge:end:t:min:7,Tで終わる7文字以上の単語,17012,end,min,,t,7,,,,,
+edge_min_length,edge:start:m:min:7,edge:start:m:min:7,Mで始まる7文字以上の単語,16874,start,min,m,,7,,,,,
+edge_min_length,edge:end:r:min:7,edge:end:r:min:7,Rで終わる7文字以上の単語,16849,end,min,,r,7,,,,,
+edge_min_length,edge:start:s:min:10,edge:start:s:min:10,Sで始まる10文字以上の単語,16642,start,min,s,,10,,,,,
+edge_min_length,edge:end:g:min:8,edge:end:g:min:8,Gで終わる8文字以上の単語,16233,end,min,,g,8,,,,,
+edge_min_length,edge:start:d:min:7,edge:start:d:min:7,Dで始まる7文字以上の単語,15911,start,min,d,,7,,,,,
+edge_min_length,edge:end:l:min:7,edge:end:l:min:7,Lで終わる7文字以上の単語,15675,end,min,,l,7,,,,,
+edge_min_length,edge:end:n:min:9,edge:end:n:min:9,Nで終わる9文字以上の単語,15583,end,min,,n,9,,,,,
+edge_min_length,edge:start:t:min:7,edge:start:t:min:7,Tで始まる7文字以上の単語,15419,start,min,t,,7,,,,,
+edge_min_length,edge:start:a:min:9,edge:start:a:min:9,Aで始まる9文字以上の単語,15276,start,min,a,,9,,,,,
+edge_min_length,edge:start:u:min:10,edge:start:u:min:10,Uで始まる10文字以上の単語,14920,start,min,u,,10,,,,,
+edge_min_length,edge:start:m:min:8,edge:start:m:min:8,Mで始まる8文字以上の単語,14634,start,min,m,,8,,,,,
+edge_min_length,edge:start:b:min:7,edge:start:b:min:7,Bで始まる7文字以上の単語,14520,start,min,b,,7,,,,,
+edge_min_length,edge:start:c:min:10,edge:start:c:min:10,Cで始まる10文字以上の単語,14520,start,min,c,,10,,,,,
+edge_min_length,edge:end:t:min:8,edge:end:t:min:8,Tで終わる8文字以上の単語,14423,end,min,,t,8,,,,,
+edge_min_length,edge:start:r:min:7,edge:start:r:min:7,Rで始まる7文字以上の単語,14122,start,min,r,,7,,,,,
+edge_min_length,edge:end:l:min:8,edge:end:l:min:8,Lで終わる8文字以上の単語,13902,end,min,,l,8,,,,,
+edge_min_length,edge:start:d:min:8,edge:start:d:min:8,Dで始まる8文字以上の単語,13781,start,min,d,,8,,,,,
+edge_min_length,edge:end:g:min:9,edge:end:g:min:9,Gで終わる9文字以上の単語,13582,end,min,,g,9,,,,,
+edge_min_length,edge:end:r:min:8,edge:end:r:min:8,Rで終わる8文字以上の単語,13517,end,min,,r,8,,,,,
+edge_min_length,edge:start:t:min:8,edge:start:t:min:8,Tで始まる8文字以上の単語,12974,start,min,t,,8,,,,,
+edge_min_length,edge:end:c:min:7,edge:end:c:min:7,Cで終わる7文字以上の単語,12796,end,min,,c,7,,,,,
+edge_min_length,edge:end:s:exact:9,edge:end:s:exact:9,Sで終わる9文字の単語,12612,end,exact,,s,9,9,,,,
+edge_min_length,edge:end:d:min:10,edge:end:d:min:10,Dで終わる10文字以上の単語,12554,end,min,,d,10,,,,,
+edge_min_length,edge:start:e:min:7,edge:start:e:min:7,Eで始まる7文字以上の単語,12449,start,min,e,,7,,,,,
+edge_min_length,edge:end:a:min:7,edge:end:a:min:7,Aで終わる7文字以上の単語,12422,end,min,,a,7,,,,,
+edge_min_length,edge:end:n:min:10,edge:end:n:min:10,Nで終わる10文字以上の単語,12397,end,min,,n,10,,,,,
+edge_min_length,edge:start:n:min:7,edge:start:n:min:7,Nで始まる7文字以上の単語,12140,start,min,n,,7,,,,,
+edge_min_length,edge:start:i:min:7,edge:start:i:min:7,Iで始まる7文字以上の単語,12031,start,min,i,,7,,,,,
+edge_min_length,edge:start:r:min:8,edge:start:r:min:8,Rで始まる8文字以上の単語,11992,start,min,r,,8,,,,,
+edge_min_length,edge:end:c:min:8,edge:end:c:min:8,Cで終わる8文字以上の単語,11916,end,min,,c,8,,,,,
+edge_min_length,edge:start:m:min:9,edge:start:m:min:9,Mで始まる9文字以上の単語,11886,start,min,m,,9,,,,,
+edge_min_length,edge:end:l:min:9,edge:end:l:min:9,Lで終わる9文字以上の単語,11800,end,min,,l,9,,,,,
+edge_min_length,edge:start:h:min:7,edge:start:h:min:7,Hで始まる7文字以上の単語,11727,start,min,h,,7,,,,,
+edge_min_length,edge:start:a:min:10,edge:start:a:min:10,Aで始まる10文字以上の単語,11589,start,min,a,,10,,,,,
+edge_min_length,edge:start:b:min:8,edge:start:b:min:8,Bで始まる8文字以上の単語,11567,start,min,b,,8,,,,,
+edge_min_length,edge:start:n:min:8,edge:start:n:min:8,Nで始まる8文字以上の単語,11343,start,min,n,,8,,,,,
+edge_min_length,edge:start:o:min:7,edge:start:o:min:7,Oで始まる7文字以上の単語,11330,start,min,o,,7,,,,,
+edge_min_length,edge:end:s:exact:8,edge:end:s:exact:8,Sで終わる8文字の単語,11298,end,exact,,s,8,8,,,,
+edge_min_length,edge:start:d:min:9,edge:start:d:min:9,Dで始まる9文字以上の単語,11149,start,min,d,,9,,,,,
+edge_min_length,edge:start:i:min:8,edge:start:i:min:8,Iで始まる8文字以上の単語,11114,start,min,i,,8,,,,,
+edge_min_length,edge:end:t:min:9,edge:end:t:min:9,Tで終わる9文字以上の単語,11110,end,min,,t,9,,,,,
+edge_min_length,edge:start:e:min:8,edge:start:e:min:8,Eで始まる8文字以上の単語,10892,start,min,e,,8,,,,,
+edge_min_length,edge:end:c:min:9,edge:end:c:min:9,Cで終わる9文字以上の単語,10594,end,min,,c,9,,,,,
+edge_min_length,edge:end:g:min:10,edge:end:g:min:10,Gで終わる10文字以上の単語,10504,end,min,,g,10,,,,,
+edge_min_length,edge:start:n:min:9,edge:start:n:min:9,Nで始まる9文字以上の単語,10345,start,min,n,,9,,,,,
+edge_min_length,edge:start:h:min:8,edge:start:h:min:8,Hで始まる8文字以上の単語,10292,start,min,h,,8,,,,,
+edge_min_length,edge:end:r:min:9,edge:end:r:min:9,Rで終わる9文字以上の単語,10209,end,min,,r,9,,,,,
+edge_min_length,edge:start:t:min:9,edge:start:t:min:9,Tで始まる9文字以上の単語,10197,start,min,t,,9,,,,,
+edge_min_length,edge:start:o:min:8,edge:start:o:min:8,Oで始まる8文字以上の単語,10134,start,min,o,,8,,,,,
+edge_min_length,edge:end:a:min:8,edge:end:a:min:8,Aで終わる8文字以上の単語,10024,end,min,,a,8,,,,,
+edge_min_length,edge:start:i:min:9,edge:start:i:min:9,Iで始まる9文字以上の単語,9862,start,min,i,,9,,,,,
+edge_min_length,edge:end:l:min:10,edge:end:l:min:10,Lで終わる10文字以上の単語,9765,end,min,,l,10,,,,,
+edge_min_length,edge:start:f:min:7,edge:start:f:min:7,Fで始まる7文字以上の単語,9598,start,min,f,,7,,,,,
+edge_min_length,edge:start:r:min:9,edge:start:r:min:9,Rで始まる9文字以上の単語,9433,start,min,r,,9,,,,,
+edge_min_length,edge:end:e:exact:9,edge:end:e:exact:9,Eで終わる9文字の単語,9151,end,exact,,e,9,9,,,,
+edge_min_length,edge:end:m:min:7,edge:end:m:min:7,Mで終わる7文字以上の単語,9136,end,min,,m,7,,,,,
+edge_min_length,edge:start:n:min:10,edge:start:n:min:10,Nで始まる10文字以上の単語,9098,start,min,n,,10,,,,,
+edge_min_length,edge:end:c:min:10,edge:end:c:min:10,Cで終わる10文字以上の単語,8965,end,min,,c,10,,,,,
+edge_min_length,edge:start:m:min:10,edge:start:m:min:10,Mで始まる10文字以上の単語,8862,start,min,m,,10,,,,,
+edge_min_length,edge:start:e:min:9,edge:start:e:min:9,Eで始まる9文字以上の単語,8856,start,min,e,,9,,,,,
+edge_min_length,edge:end:s:exact:7,edge:end:s:exact:7,Sで終わる7文字の単語,8616,end,exact,,s,7,7,,,,
+edge_min_length,edge:end:s:exact:10,edge:end:s:exact:10,Sで終わる10文字の単語,8528,end,exact,,s,10,10,,,,
+edge_min_length,edge:start:h:min:9,edge:start:h:min:9,Hで始まる9文字以上の単語,8521,start,min,h,,9,,,,,
+edge_min_length,edge:start:g:min:7,edge:start:g:min:7,Gで始まる7文字以上の単語,8481,start,min,g,,7,,,,,
+edge_min_length,edge:start:o:min:9,edge:start:o:min:9,Oで始まる9文字以上の単語,8390,start,min,o,,9,,,,,
+edge_min_length,edge:start:d:min:10,edge:start:d:min:10,Dで始まる10文字以上の単語,8328,start,min,d,,10,,,,,
+edge_min_length,edge:start:b:min:9,edge:start:b:min:9,Bで始まる9文字以上の単語,8259,start,min,b,,9,,,,,
+edge_min_length,edge:end:m:min:8,edge:end:m:min:8,Mで終わる8文字以上の単語,8239,end,min,,m,8,,,,,
+edge_min_length,edge:start:i:min:10,edge:start:i:min:10,Iで始まる10文字以上の単語,8216,start,min,i,,10,,,,,
+edge_min_length,edge:end:e:exact:10,edge:end:e:exact:10,Eで終わる10文字の単語,8109,end,exact,,e,10,10,,,,
+edge_min_length,edge:end:e:exact:8,edge:end:e:exact:8,Eで終わる8文字の単語,8060,end,exact,,e,8,8,,,,
+edge_min_length,edge:end:t:min:10,edge:end:t:min:10,Tで終わる10文字以上の単語,7896,end,min,,t,10,,,,,
+edge_min_length,edge:start:f:min:8,edge:start:f:min:8,Fで始まる8文字以上の単語,7856,start,min,f,,8,,,,,
+edge_min_length,edge:end:a:min:9,edge:end:a:min:9,Aで終わる9文字以上の単語,7805,end,min,,a,9,,,,,
+edge_min_length,edge:start:l:min:7,edge:start:l:min:7,Lで始まる7文字以上の単語,7734,start,min,l,,7,,,,,
+edge_min_length,edge:start:t:min:10,edge:start:t:min:10,Tで始まる10文字以上の単語,7461,start,min,t,,10,,,,,
+edge_min_length,edge:end:r:min:10,edge:end:r:min:10,Rで終わる10文字以上の単語,7243,end,min,,r,10,,,,,
+edge_min_length,edge:start:r:min:10,edge:start:r:min:10,Rで始まる10文字以上の単語,6850,start,min,r,,10,,,,,
+edge_min_length,edge:start:g:min:8,edge:start:g:min:8,Gで始まる8文字以上の単語,6827,start,min,g,,8,,,,,
+edge_min_length,edge:end:m:min:9,edge:end:m:min:9,Mで終わる9文字以上の単語,6768,end,min,,m,9,,,,,
+edge_min_length,edge:start:e:min:10,edge:start:e:min:10,Eで始まる10文字以上の単語,6600,start,min,e,,10,,,,,
+edge_min_length,edge:start:h:min:10,edge:start:h:min:10,Hで始まる10文字以上の単語,6565,start,min,h,,10,,,,,
+edge_min_length,edge:start:o:min:10,edge:start:o:min:10,Oで始まる10文字以上の単語,6498,start,min,o,,10,,,,,
+edge_min_length,edge:start:l:min:8,edge:start:l:min:8,Lで始まる8文字以上の単語,6261,start,min,l,,8,,,,,
+edge_min_length,edge:end:e:exact:7,edge:end:e:exact:7,Eで終わる7文字の単語,6077,end,exact,,e,7,7,,,,
+edge_min_length,edge:start:s:exact:8,edge:start:s:exact:8,Sで始まる8文字の単語,5916,start,exact,s,,8,8,,,,
+edge_min_length,edge:start:s:exact:9,edge:start:s:exact:9,Sで始まる9文字の単語,5871,start,exact,s,,9,9,,,,
+edge_min_length,edge:end:a:min:10,edge:end:a:min:10,Aで終わる10文字以上の単語,5776,end,min,,a,10,,,,,
+edge_min_length,edge:start:f:min:9,edge:start:f:min:9,Fで始まる9文字以上の単語,5629,start,min,f,,9,,,,,
+edge_min_length,edge:end:d:exact:8,edge:end:d:exact:8,Dで終わる8文字の単語,5404,end,exact,,d,8,8,,,,
+edge_min_length,edge:start:b:min:10,edge:start:b:min:10,Bで始まる10文字以上の単語,5338,start,min,b,,10,,,,,
+edge_min_length,edge:end:d:exact:9,edge:end:d:exact:9,Dで終わる9文字の単語,5248,end,exact,,d,9,9,,,,
+edge_min_length,edge:end:m:min:10,edge:end:m:min:10,Mで終わる10文字以上の単語,5113,end,min,,m,10,,,,,
+edge_min_length,edge:end:s:exact:6,edge:end:s:exact:6,Sで終わる6文字の単語,5064,end,exact,,s,6,6,,,,
+edge_min_length,edge:start:g:min:9,edge:start:g:min:9,Gで始まる9文字以上の単語,5025,start,min,g,,9,,,,,
+edge_min_length,edge:start:w:min:7,edge:start:w:min:7,Wで始まる7文字以上の単語,4945,start,min,w,,7,,,,,
+edge_min_length,edge:start:c:exact:9,edge:start:c:exact:9,Cで始まる9文字の単語,4808,start,exact,c,,9,9,,,,
+edge_min_length,edge:start:c:exact:8,edge:start:c:exact:8,Cで始まる8文字の単語,4757,start,exact,c,,8,8,,,,
+edge_min_length,edge:start:p:exact:9,edge:start:p:exact:9,Pで始まる9文字の単語,4736,start,exact,p,,9,9,,,,
+edge_min_length,edge:start:s:exact:10,edge:start:s:exact:10,Sで始まる10文字の単語,4735,start,exact,s,,10,10,,,,
+edge_min_length,edge:start:p:exact:10,edge:start:p:exact:10,Pで始まる10文字の単語,4668,start,exact,p,,10,10,,,,
+edge_min_length,edge:start:l:min:9,edge:start:l:min:9,Lで始まる9文字以上の単語,4618,start,min,l,,9,,,,,
+edge_min_length,edge:end:d:exact:10,edge:end:d:exact:10,Dで終わる10文字の単語,4584,end,exact,,d,10,10,,,,
+edge_min_length,edge:start:s:exact:7,edge:start:s:exact:7,Sで始まる7文字の単語,4537,start,exact,s,,7,7,,,,
+edge_min_length,edge:end:h:min:7,edge:end:h:min:7,Hで終わる7文字以上の単語,4462,end,min,,h,7,,,,,
+edge_min_length,edge:start:v:min:7,edge:start:v:min:7,Vで始まる7文字以上の単語,4351,start,min,v,,7,,,,,
+edge_min_length,edge:end:e:exact:6,edge:end:e:exact:6,Eで終わる6文字の単語,4300,end,exact,,e,6,6,,,,
+edge_min_length,edge:end:y:exact:10,edge:end:y:exact:10,Yで終わる10文字の単語,4265,end,exact,,y,10,10,,,,
+edge_min_length,edge:start:c:exact:10,edge:start:c:exact:10,Cで始まる10文字の単語,4117,start,exact,c,,10,10,,,,
+edge_min_length,edge:start:p:exact:8,edge:start:p:exact:8,Pで始まる8文字の単語,3985,start,exact,p,,8,8,,,,
+edge_min_length,edge:end:d:exact:7,edge:end:d:exact:7,Dで終わる7文字の単語,3820,end,exact,,d,7,7,,,,
+edge_min_length,edge:start:w:min:8,edge:start:w:min:8,Wで始まる8文字以上の単語,3801,start,min,w,,8,,,,,
+edge_min_length,edge:end:y:exact:9,edge:end:y:exact:9,Yで終わる9文字の単語,3737,end,exact,,y,9,9,,,,
+edge_min_length,edge:start:c:exact:7,edge:start:c:exact:7,Cで始まる7文字の単語,3731,start,exact,c,,7,7,,,,
+edge_min_length,edge:start:f:min:10,edge:start:f:min:10,Fで始まる10文字以上の単語,3695,start,min,f,,10,,,,,
+edge_min_length,edge:start:a:exact:9,edge:start:a:exact:9,Aで始まる9文字の単語,3687,start,exact,a,,9,9,,,,
+edge_min_length,edge:start:v:min:8,edge:start:v:min:8,Vで始まる8文字以上の単語,3683,start,min,v,,8,,,,,
+edge_min_length,edge:end:h:min:8,edge:end:h:min:8,Hで終わる8文字以上の単語,3506,end,min,,h,8,,,,,
+edge_min_length,edge:start:g:min:10,edge:start:g:min:10,Gで始まる10文字以上の単語,3405,start,min,g,,10,,,,,
+edge_min_length,edge:end:n:exact:8,edge:end:n:exact:8,Nで終わる8文字の単語,3355,end,exact,,n,8,8,,,,
+edge_min_length,edge:start:a:exact:8,edge:start:a:exact:8,Aで始まる8文字の単語,3349,start,exact,a,,8,8,,,,
+edge_min_length,edge:end:r:exact:7,edge:end:r:exact:7,Rで終わる7文字の単語,3332,end,exact,,r,7,7,,,,
+edge_min_length,edge:end:y:exact:8,edge:end:y:exact:8,Yで終わる8文字の単語,3316,end,exact,,y,8,8,,,,
+edge_min_length,edge:end:t:exact:8,edge:end:t:exact:8,Tで終わる8文字の単語,3313,end,exact,,t,8,8,,,,
+edge_min_length,edge:end:r:exact:8,edge:end:r:exact:8,Rで終わる8文字の単語,3308,end,exact,,r,8,8,,,,
+edge_min_length,edge:start:b:exact:8,edge:start:b:exact:8,Bで始まる8文字の単語,3308,start,exact,b,,8,8,,,,
+edge_min_length,edge:start:a:exact:10,edge:start:a:exact:10,Aで始まる10文字の単語,3271,start,exact,a,,10,10,,,,
+edge_min_length,edge:start:u:exact:10,edge:start:u:exact:10,Uで始まる10文字の単語,3268,start,exact,u,,10,10,,,,
+edge_min_length,edge:end:t:exact:9,edge:end:t:exact:9,Tで終わる9文字の単語,3214,end,exact,,t,9,9,,,,
+edge_min_length,edge:start:s:exact:6,edge:start:s:exact:6,Sで始まる6文字の単語,3192,start,exact,s,,6,6,,,,
+edge_min_length,edge:end:n:exact:9,edge:end:n:exact:9,Nで終わる9文字の単語,3186,end,exact,,n,9,9,,,,
+edge_min_length,edge:end:g:exact:10,edge:end:g:exact:10,Gで終わる10文字の単語,3183,end,exact,,g,10,10,,,,
+edge_min_length,edge:start:l:min:10,edge:start:l:min:10,Lで始まる10文字以上の単語,3157,start,min,l,,10,,,,,
+edge_min_length,edge:end:s:exact:5,edge:end:s:exact:5,Sで終わる5文字の単語,3148,end,exact,,s,5,5,,,,
+edge_min_length,edge:start:p:exact:7,edge:start:p:exact:7,Pで始まる7文字の単語,3098,start,exact,p,,7,7,,,,
+edge_min_length,edge:end:g:exact:9,edge:end:g:exact:9,Gで終わる9文字の単語,3078,end,exact,,g,9,9,,,,
+edge_min_length,edge:start:m:exact:9,edge:start:m:exact:9,Mで始まる9文字の単語,3024,start,exact,m,,9,9,,,,
+edge_min_length,edge:end:r:exact:9,edge:end:r:exact:9,Rで終わる9文字の単語,2966,end,exact,,r,9,9,,,,
+edge_min_length,edge:start:b:exact:7,edge:start:b:exact:7,Bで始まる7文字の単語,2953,start,exact,b,,7,7,,,,
+edge_min_length,edge:end:n:exact:7,edge:end:n:exact:7,Nで終わる7文字の単語,2931,end,exact,,n,7,7,,,,
+edge_min_length,edge:start:b:exact:9,edge:start:b:exact:9,Bで始まる9文字の単語,2921,start,exact,b,,9,9,,,,
+edge_min_length,edge:start:a:exact:7,edge:start:a:exact:7,Aで始まる7文字の単語,2875,start,exact,a,,7,7,,,,
+edge_min_length,edge:start:u:exact:9,edge:start:u:exact:9,Uで始まる9文字の単語,2862,start,exact,u,,9,9,,,,
+edge_min_length,edge:start:d:exact:9,edge:start:d:exact:9,Dで始まる9文字の単語,2821,start,exact,d,,9,9,,,,
+edge_min_length,edge:start:v:min:9,edge:start:v:min:9,Vで始まる9文字以上の単語,2813,start,min,v,,9,,,,,
+edge_min_length,edge:start:t:exact:8,edge:start:t:exact:8,Tで始まる8文字の単語,2777,start,exact,t,,8,8,,,,
+edge_min_length,edge:start:m:exact:8,edge:start:m:exact:8,Mで始まる8文字の単語,2748,start,exact,m,,8,8,,,,
+edge_min_length,edge:end:r:exact:10,edge:end:r:exact:10,Rで終わる10文字の単語,2743,end,exact,,r,10,10,,,,
+edge_min_length,edge:end:y:exact:7,edge:end:y:exact:7,Yで終わる7文字の単語,2738,end,exact,,y,7,7,,,,
+edge_min_length,edge:start:t:exact:9,edge:start:t:exact:9,Tで始まる9文字の単語,2736,start,exact,t,,9,9,,,,
+edge_min_length,edge:end:n:exact:10,edge:end:n:exact:10,Nで終わる10文字の単語,2677,end,exact,,n,10,10,,,,
+edge_min_length,edge:end:g:exact:8,edge:end:g:exact:8,Gで終わる8文字の単語,2651,end,exact,,g,8,8,,,,
+edge_min_length,edge:start:d:exact:8,edge:start:d:exact:8,Dで始まる8文字の単語,2632,start,exact,d,,8,8,,,,
+edge_min_length,edge:end:r:exact:6,edge:end:r:exact:6,Rで終わる6文字の単語,2606,end,exact,,r,6,6,,,,
+edge_min_length,edge:end:t:exact:7,edge:end:t:exact:7,Tで終わる7文字の単語,2589,end,exact,,t,7,7,,,,
+edge_min_length,edge:start:m:exact:10,edge:start:m:exact:10,Mで始まる10文字の単語,2583,start,exact,m,,10,10,,,,
+edge_min_length,edge:start:r:exact:9,edge:start:r:exact:9,Rで始まる9文字の単語,2583,start,exact,r,,9,9,,,,
+edge_min_length,edge:start:r:exact:8,edge:start:r:exact:8,Rで始まる8文字の単語,2559,start,exact,r,,8,8,,,,
+edge_min_length,edge:start:w:min:9,edge:start:w:min:9,Wで始まる9文字以上の単語,2550,start,min,w,,9,,,,,
+edge_min_length,edge:start:c:exact:6,edge:start:c:exact:6,Cで始まる6文字の単語,2533,start,exact,c,,6,6,,,,
+edge_min_length,edge:end:t:exact:10,edge:end:t:exact:10,Tで終わる10文字の単語,2531,end,exact,,t,10,10,,,,
+edge_min_length,edge:end:d:exact:6,edge:end:d:exact:6,Dで終わる6文字の単語,2495,end,exact,,d,6,6,,,,
+edge_min_length,edge:start:k:min:7,edge:start:k:min:7,Kで始まる7文字以上の単語,2453,start,min,k,,7,,,,,
+edge_min_length,edge:start:t:exact:7,edge:start:t:exact:7,Tで始まる7文字の単語,2445,start,exact,t,,7,7,,,,
+edge_min_length,edge:end:h:min:9,edge:end:h:min:9,Hで終わる9文字以上の単語,2433,end,min,,h,9,,,,,
+edge_min_length,edge:start:d:exact:10,edge:start:d:exact:10,Dで始まる10文字の単語,2431,start,exact,d,,10,10,,,,
+edge_min_length,edge:end:k:min:7,edge:end:k:min:7,Kで終わる7文字以上の単語,2407,end,min,,k,7,,,,,
+edge_min_length,edge:end:a:exact:7,edge:end:a:exact:7,Aで終わる7文字の単語,2398,end,exact,,a,7,7,,,,
+edge_min_length,edge:end:n:exact:6,edge:end:n:exact:6,Nで終わる6文字の単語,2318,end,exact,,n,6,6,,,,
+edge_min_length,edge:end:y:exact:6,edge:end:y:exact:6,Yで終わる6文字の単語,2314,end,exact,,y,6,6,,,,
+edge_min_length,edge:start:e:exact:9,edge:start:e:exact:9,Eで始まる9文字の単語,2256,start,exact,e,,9,9,,,,
+edge_min_length,edge:start:m:exact:7,edge:start:m:exact:7,Mで始まる7文字の単語,2240,start,exact,m,,7,7,,,,
+edge_min_length,edge:start:u:exact:8,edge:start:u:exact:8,Uで始まる8文字の単語,2228,start,exact,u,,8,8,,,,
+edge_min_length,edge:start:f:exact:8,edge:start:f:exact:8,Fで始まる8文字の単語,2227,start,exact,f,,8,8,,,,
+edge_min_length,edge:start:t:exact:10,edge:start:t:exact:10,Tで始まる10文字の単語,2223,start,exact,t,,10,10,,,,
+edge_min_length,edge:end:a:exact:8,edge:end:a:exact:8,Aで終わる8文字の単語,2219,end,exact,,a,8,8,,,,
+edge_min_length,edge:start:b:exact:6,edge:start:b:exact:6,Bで始まる6文字の単語,2173,start,exact,b,,6,6,,,,
+edge_min_length,edge:start:d:exact:7,edge:start:d:exact:7,Dで始まる7文字の単語,2130,start,exact,d,,7,7,,,,
+edge_min_length,edge:start:r:exact:7,edge:start:r:exact:7,Rで始まる7文字の単語,2130,start,exact,r,,7,7,,,,
+edge_min_length,edge:end:l:exact:8,edge:end:l:exact:8,Lで終わる8文字の単語,2102,end,exact,,l,8,8,,,,
+edge_min_length,edge:start:r:exact:10,edge:start:r:exact:10,Rで始まる10文字の単語,2093,start,exact,r,,10,10,,,,
+edge_min_length,edge:start:a:exact:6,edge:start:a:exact:6,Aで始まる6文字の単語,2084,start,exact,a,,6,6,,,,
+edge_min_length,edge:start:b:exact:10,edge:start:b:exact:10,Bで始まる10文字の単語,2079,start,exact,b,,10,10,,,,
+edge_min_length,edge:end:l:exact:10,edge:end:l:exact:10,Lで終わる10文字の単語,2061,end,exact,,l,10,10,,,,
+edge_min_length,edge:end:c:exact:10,edge:end:c:exact:10,Cで終わる10文字の単語,2051,end,exact,,c,10,10,,,,
+edge_min_length,edge:start:e:exact:8,edge:start:e:exact:8,Eで始まる8文字の単語,2036,start,exact,e,,8,8,,,,
+edge_min_length,edge:end:l:exact:9,edge:end:l:exact:9,Lで終わる9文字の単語,2035,end,exact,,l,9,9,,,,
+edge_min_length,edge:end:g:exact:7,edge:end:g:exact:7,Gで終わる7文字の単語,2032,end,exact,,g,7,7,,,,
+edge_min_length,edge:end:a:exact:9,edge:end:a:exact:9,Aで終わる9文字の単語,2029,end,exact,,a,9,9,,,,
+edge_min_length,edge:start:v:min:10,edge:start:v:min:10,Vで始まる10文字以上の単語,1971,start,min,v,,10,,,,,
+edge_min_length,edge:end:a:exact:6,edge:end:a:exact:6,Aで終わる6文字の単語,1966,end,exact,,a,6,6,,,,
+edge_min_length,edge:start:h:exact:9,edge:start:h:exact:9,Hで始まる9文字の単語,1956,start,exact,h,,9,9,,,,
+edge_min_length,edge:start:f:exact:9,edge:start:f:exact:9,Fで始まる9文字の単語,1934,start,exact,f,,9,9,,,,
+edge_min_length,edge:start:e:exact:10,edge:start:e:exact:10,Eで始まる10文字の単語,1933,start,exact,e,,10,10,,,,
+edge_min_length,edge:end:t:exact:6,edge:end:t:exact:6,Tで終わる6文字の単語,1926,end,exact,,t,6,6,,,,
+edge_min_length,edge:end:o:min:7,edge:end:o:min:7,Oで終わる7文字以上の単語,1923,end,min,,o,7,,,,,
+edge_min_length,edge:start:p:exact:6,edge:start:p:exact:6,Pで始まる6文字の単語,1922,start,exact,p,,6,6,,,,
+edge_min_length,edge:end:p:min:7,edge:end:p:min:7,Pで終わる7文字以上の単語,1911,end,min,,p,7,,,,,
+edge_min_length,edge:start:j:min:7,edge:start:j:min:7,Jで始まる7文字以上の単語,1902,start,min,j,,7,,,,,
+edge_min_length,edge:start:o:exact:9,edge:start:o:exact:9,Oで始まる9文字の単語,1892,start,exact,o,,9,9,,,,
+edge_min_length,edge:end:e:exact:5,edge:end:e:exact:5,Eで終わる5文字の単語,1873,end,exact,,e,5,5,,,,
+edge_min_length,edge:start:t:exact:6,edge:start:t:exact:6,Tで始まる6文字の単語,1845,start,exact,t,,6,6,,,,
+edge_min_length,edge:end:a:exact:10,edge:end:a:exact:10,Aで終わる10文字の単語,1835,end,exact,,a,10,10,,,,
+edge_min_length,edge:end:i:min:7,edge:end:i:min:7,Iで終わる7文字以上の単語,1832,end,min,,i,7,,,,,
+edge_min_length,edge:start:s:exact:5,edge:start:s:exact:5,Sで始まる5文字の単語,1813,start,exact,s,,5,5,,,,
+edge_min_length,edge:start:g:exact:8,edge:start:g:exact:8,Gで始まる8文字の単語,1802,start,exact,g,,8,8,,,,
+edge_min_length,edge:start:k:min:8,edge:start:k:min:8,Kで始まる8文字以上の単語,1777,start,min,k,,8,,,,,
+edge_min_length,edge:end:l:exact:7,edge:end:l:exact:7,Lで終わる7文字の単語,1773,end,exact,,l,7,7,,,,
+edge_min_length,edge:start:h:exact:8,edge:start:h:exact:8,Hで始まる8文字の単語,1771,start,exact,h,,8,8,,,,
+edge_min_length,edge:start:i:exact:10,edge:start:i:exact:10,Iで始まる10文字の単語,1755,start,exact,i,,10,10,,,,
+edge_min_length,edge:start:o:exact:8,edge:start:o:exact:8,Oで始まる8文字の単語,1744,start,exact,o,,8,8,,,,
+edge_min_length,edge:start:f:exact:7,edge:start:f:exact:7,Fで始まる7文字の単語,1742,start,exact,f,,7,7,,,,
+edge_min_length,edge:end:k:min:8,edge:end:k:min:8,Kで終わる8文字以上の単語,1726,end,min,,k,8,,,,,
+edge_min_length,edge:start:o:exact:10,edge:start:o:exact:10,Oで始まる10文字の単語,1726,start,exact,o,,10,10,,,,
+edge_min_length,edge:end:y:exact:5,edge:end:y:exact:5,Yで終わる5文字の単語,1686,end,exact,,y,5,5,,,,
+edge_min_length,edge:start:h:exact:10,edge:start:h:exact:10,Hで始まる10文字の単語,1675,start,exact,h,,10,10,,,,
+edge_min_length,edge:end:m:exact:9,edge:end:m:exact:9,Mで終わる9文字の単語,1655,end,exact,,m,9,9,,,,
+edge_min_length,edge:start:g:exact:7,edge:start:g:exact:7,Gで始まる7文字の単語,1654,start,exact,g,,7,7,,,,
+edge_min_length,edge:start:i:exact:9,edge:start:i:exact:9,Iで始まる9文字の単語,1646,start,exact,i,,9,9,,,,
+edge_min_length,edge:start:l:exact:8,edge:start:l:exact:8,Lで始まる8文字の単語,1643,start,exact,l,,8,8,,,,
+edge_min_length,edge:end:c:exact:9,edge:end:c:exact:9,Cで終わる9文字の単語,1629,end,exact,,c,9,9,,,,
+edge_min_length,edge:start:g:exact:9,edge:start:g:exact:9,Gで始まる9文字の単語,1620,start,exact,g,,9,9,,,,
+edge_min_length,edge:end:p:min:8,edge:end:p:min:8,Pで終わる8文字以上の単語,1585,end,min,,p,8,,,,,
+edge_min_length,edge:start:m:exact:6,edge:start:m:exact:6,Mで始まる6文字の単語,1567,start,exact,m,,6,6,,,,
+edge_min_length,edge:start:r:exact:6,edge:start:r:exact:6,Rで始まる6文字の単語,1566,start,exact,r,,6,6,,,,
+edge_min_length,edge:start:e:exact:7,edge:start:e:exact:7,Eで始まる7文字の単語,1557,start,exact,e,,7,7,,,,
+edge_min_length,edge:start:w:min:10,edge:start:w:min:10,Wで始まる10文字以上の単語,1516,start,min,w,,10,,,,,
+edge_min_length,edge:start:d:exact:6,edge:start:d:exact:6,Dで始まる6文字の単語,1507,start,exact,d,,6,6,,,,
+edge_min_length,edge:end:h:min:10,edge:end:h:min:10,Hで終わる10文字以上の単語,1504,end,min,,h,10,,,,,
+edge_min_length,edge:start:q:min:7,edge:start:q:min:7,Qで始まる7文字以上の単語,1495,start,min,q,,7,,,,,
+edge_min_length,edge:start:l:exact:7,edge:start:l:exact:7,Lで始まる7文字の単語,1473,start,exact,l,,7,7,,,,
+edge_min_length,edge:end:m:exact:8,edge:end:m:exact:8,Mで終わる8文字の単語,1471,end,exact,,m,8,8,,,,
+edge_min_length,edge:end:l:exact:6,edge:end:l:exact:6,Lで終わる6文字の単語,1467,end,exact,,l,6,6,,,,
+edge_min_length,edge:start:l:exact:9,edge:start:l:exact:9,Lで始まる9文字の単語,1461,start,exact,l,,9,9,,,,
+edge_min_length,edge:start:f:exact:10,edge:start:f:exact:10,Fで始まる10文字の単語,1443,start,exact,f,,10,10,,,,
+edge_min_length,edge:start:h:exact:7,edge:start:h:exact:7,Hで始まる7文字の単語,1435,start,exact,h,,7,7,,,,
+edge_min_length,edge:end:m:exact:10,edge:end:m:exact:10,Mで終わる10文字の単語,1410,end,exact,,m,10,10,,,,
+edge_min_length,edge:start:u:exact:7,edge:start:u:exact:7,Uで始まる7文字の単語,1362,start,exact,u,,7,7,,,,
+edge_min_length,edge:start:j:min:8,edge:start:j:min:8,Jで始まる8文字以上の単語,1352,start,min,j,,8,,,,,
+edge_min_length,edge:end:c:exact:8,edge:end:c:exact:8,Cで終わる8文字の単語,1322,end,exact,,c,8,8,,,,
+edge_min_length,edge:end:a:exact:5,edge:end:a:exact:5,Aで終わる5文字の単語,1282,end,exact,,a,5,5,,,,
+edge_min_length,edge:start:n:exact:10,edge:start:n:exact:10,Nで始まる10文字の単語,1280,start,exact,n,,10,10,,,,
+edge_min_length,edge:start:q:min:8,edge:start:q:min:8,Qで始まる8文字以上の単語,1276,start,min,q,,8,,,,,
+edge_min_length,edge:start:g:exact:6,edge:start:g:exact:6,Gで始まる6文字の単語,1266,start,exact,g,,6,6,,,,
+edge_min_length,edge:end:o:min:8,edge:end:o:min:8,Oで終わる8文字以上の単語,1259,end,min,,o,8,,,,,
+edge_min_length,edge:start:i:exact:8,edge:start:i:exact:8,Iで始まる8文字の単語,1252,start,exact,i,,8,8,,,,
+edge_min_length,edge:start:w:exact:8,edge:start:w:exact:8,Wで始まる8文字の単語,1251,start,exact,w,,8,8,,,,
+edge_min_length,edge:end:p:min:9,edge:end:p:min:9,Pで終わる9文字以上の単語,1247,end,min,,p,9,,,,,
+edge_min_length,edge:start:n:exact:9,edge:start:n:exact:9,Nで始まる9文字の単語,1247,start,exact,n,,9,9,,,,
+edge_min_length,edge:end:i:min:8,edge:end:i:min:8,Iで終わる8文字以上の単語,1227,end,min,,i,8,,,,,
+edge_min_length,edge:start:f:exact:6,edge:start:f:exact:6,Fで始まる6文字の単語,1213,start,exact,f,,6,6,,,,
+edge_min_length,edge:start:c:exact:5,edge:start:c:exact:5,Cで始まる5文字の単語,1197,start,exact,c,,5,5,,,,
+edge_min_length,edge:start:o:exact:7,edge:start:o:exact:7,Oで始まる7文字の単語,1196,start,exact,o,,7,7,,,,
+edge_min_length,edge:start:a:exact:5,edge:start:a:exact:5,Aで始まる5文字の単語,1174,start,exact,a,,5,5,,,,
+edge_min_length,edge:start:g:exact:10,edge:start:g:exact:10,Gで始まる10文字の単語,1171,start,exact,g,,10,10,,,,
+edge_min_length,edge:start:w:exact:7,edge:start:w:exact:7,Wで始まる7文字の単語,1144,start,exact,w,,7,7,,,,
+edge_min_length,edge:start:b:exact:5,edge:start:b:exact:5,Bで始まる5文字の単語,1141,start,exact,b,,5,5,,,,
+edge_min_length,edge:start:l:exact:6,edge:start:l:exact:6,Lで始まる6文字の単語,1134,start,exact,l,,6,6,,,,
+edge_min_length,edge:start:k:min:9,edge:start:k:min:9,Kで始まる9文字以上の単語,1131,start,min,k,,9,,,,,
+edge_min_length,edge:end:t:exact:5,edge:end:t:exact:5,Tで終わる5文字の単語,1090,end,exact,,t,5,5,,,,
+edge_min_length,edge:end:h:exact:8,edge:end:h:exact:8,Hで終わる8文字の単語,1073,end,exact,,h,8,8,,,,
+edge_min_length,edge:start:l:exact:10,edge:start:l:exact:10,Lで始まる10文字の単語,1069,start,exact,l,,10,10,,,,
+edge_min_length,edge:start:w:exact:9,edge:start:w:exact:9,Wで始まる9文字の単語,1034,start,exact,w,,9,9,,,,
+edge_min_length,edge:start:z:min:7,edge:start:z:min:7,Zで始まる7文字以上の単語,1019,start,min,z,,7,,,,,
+edge_min_length,edge:start:h:exact:6,edge:start:h:exact:6,Hで始まる6文字の単語,1017,start,exact,h,,6,6,,,,
+nth_letter,nth:4:n,nth:4:n,4文字目がNの単語,19510,,,,,4,,4,n,,
+nth_letter,nth:3:c,nth:3:c,3文字目がCの単語,19453,,,,,3,,3,c,,
+nth_letter,nth:5:s,nth:5:s,5文字目がSの単語,19284,,,,,5,,5,s,,
+nth_letter,nth:4:l,nth:4:l,4文字目がLの単語,19215,,,,,4,,4,l,,
+nth_letter,nth:4:c,nth:4:c,4文字目がCの単語,17630,,,,,4,,4,c,,
+nth_letter,nth:4:s,nth:4:s,4文字目がSの単語,17322,,,,,4,,4,s,,
+nth_letter,nth:3:p,nth:3:p,3文字目がPの単語,17157,,,,,3,,3,p,,
+nth_letter,nth:3:m,nth:3:m,3文字目がMの単語,15918,,,,,3,,3,m,,
+nth_letter,nth:2:h,nth:2:h,2文字目がHの単語,15452,,,,,2,,2,h,,
+nth_letter,nth:2:l,nth:2:l,2文字目がLの単語,14890,,,,,2,,2,l,,
+nth_letter,nth:6:c,nth:6:c,6文字目がCの単語,14619,,,,,6,,6,c,,
+nth_letter,nth:4:p,nth:4:p,4文字目がPの単語,13889,,,,,4,,4,p,,
+nth_letter,nth:5:c,nth:5:c,5文字目がCの単語,13638,,,,,5,,5,c,,
+nth_letter,nth:4:u,nth:4:u,4文字目がUの単語,13595,,,,,4,,4,u,,
+nth_letter,nth:3:u,nth:3:u,3文字目がUの単語,12903,,,,,3,,3,u,,
+nth_letter,nth:4:d,nth:4:d,4文字目がDの単語,12887,,,,,4,,4,d,,
+nth_letter,nth:3:d,nth:3:d,3文字目がDの単語,12269,,,,,3,,3,d,,
+nth_letter,nth:5:u,nth:5:u,5文字目がUの単語,12028,,,,,5,,5,u,,
+nth_letter,nth:5:h,nth:5:h,5文字目がHの単語,12016,,,,,5,,5,h,,
+nth_letter,nth:4:m,nth:4:m,4文字目がMの単語,11815,,,,,4,,4,m,,
+nth_letter,nth:5:m,nth:5:m,5文字目がMの単語,11236,,,,,5,,5,m,,
+nth_letter,nth:4:h,nth:4:h,4文字目がHの単語,10767,,,,,4,,4,h,,
+nth_letter,nth:3:b,nth:3:b,3文字目がBの単語,10576,,,,,3,,3,b,,
+nth_letter,nth:5:p,nth:5:p,5文字目がPの単語,10518,,,,,5,,5,p,,
+nth_letter,nth:5:d,nth:5:d,5文字目がDの単語,10301,,,,,5,,5,d,,
+nth_letter,nth:6:m,nth:6:m,6文字目がMの単語,10289,,,,,6,,6,m,,
+nth_letter,nth:6:d,nth:6:d,6文字目がDの単語,10121,,,,,6,,6,d,,
+nth_letter,nth:6:h,nth:6:h,6文字目がHの単語,9376,,,,,6,,6,h,,
+nth_letter,nth:2:y,nth:2:y,2文字目がYの単語,9262,,,,,2,,2,y,,
+nth_letter,nth:6:u,nth:6:u,6文字目がUの単語,9251,,,,,6,,6,u,,
+nth_letter,nth:6:p,nth:6:p,6文字目がPの単語,9138,,,,,6,,6,p,,
+nth_letter,nth:4:g,nth:4:g,4文字目がGの単語,9085,,,,,4,,4,g,,
+nth_letter,nth:3:g,nth:3:g,3文字目がGの単語,9051,,,,,3,,3,g,,
+nth_letter,nth:6:g,nth:6:g,6文字目がGの単語,8160,,,,,6,,6,g,,
+nth_letter,nth:2:p,nth:2:p,2文字目がPの単語,7775,,,,,2,,2,p,,
+nth_letter,nth:4:b,nth:4:b,4文字目がBの単語,7349,,,,,4,,4,b,,
+nth_letter,nth:5:g,nth:5:g,5文字目がGの単語,7268,,,,,5,,5,g,,
+nth_letter,nth:2:t,nth:2:t,2文字目がTの単語,7073,,,,,2,,2,t,,
+nth_letter,nth:2:c,nth:2:c,2文字目がCの単語,6830,,,,,2,,2,c,,
+nth_letter,nth:5:b,nth:5:b,5文字目がBの単語,6289,,,,,5,,5,b,,
+nth_letter,nth:4:k,nth:4:k,4文字目がKの単語,6021,,,,,4,,4,k,,
+nth_letter,nth:6:y,nth:6:y,6文字目がYの単語,5764,,,,,6,,6,y,,
+nth_letter,nth:2:m,nth:2:m,2文字目がMの単語,5599,,,,,2,,2,m,,
+nth_letter,nth:5:y,nth:5:y,5文字目がYの単語,5527,,,,,5,,5,y,,
+nth_letter,nth:6:b,nth:6:b,6文字目がBの単語,5375,,,,,6,,6,b,,
+nth_letter,nth:2:s,nth:2:s,2文字目がSの単語,5341,,,,,2,,2,s,,
+nth_letter,nth:3:f,nth:3:f,3文字目がFの単語,5337,,,,,3,,3,f,,
+nth_letter,nth:4:f,nth:4:f,4文字目がFの単語,5171,,,,,4,,4,f,,
+nth_letter,nth:2:v,nth:2:v,2文字目がVの単語,4944,,,,,2,,2,v,,
+nth_letter,nth:3:h,nth:3:h,3文字目がHの単語,4731,,,,,3,,3,h,,
+nth_letter,nth:3:y,nth:3:y,3文字目がYの単語,4670,,,,,3,,3,y,,
+nth_letter,nth:3:v,nth:3:v,3文字目がVの単語,4600,,,,,3,,3,v,,
+nth_letter,nth:6:f,nth:6:f,6文字目がFの単語,4520,,,,,6,,6,f,,
+nth_letter,nth:5:f,nth:5:f,5文字目がFの単語,4474,,,,,5,,5,f,,
+nth_letter,nth:4:v,nth:4:v,4文字目がVの単語,4273,,,,,4,,4,v,,
+nth_letter,nth:4:y,nth:4:y,4文字目がYの単語,4255,,,,,4,,4,y,,
+nth_letter,nth:5:k,nth:5:k,5文字目がKの単語,4093,,,,,5,,5,k,,
+nth_letter,nth:3:w,nth:3:w,3文字目がWの単語,3106,,,,,3,,3,w,,
+nth_letter,nth:2:x,nth:2:x,2文字目がXの単語,3063,,,,,2,,2,x,,
+nth_letter,nth:6:v,nth:6:v,6文字目がVの単語,2962,,,,,6,,6,v,,
+nth_letter,nth:4:w,nth:4:w,4文字目がWの単語,2856,,,,,4,,4,w,,
+nth_letter,nth:5:w,nth:5:w,5文字目がWの単語,2786,,,,,5,,5,w,,
+nth_letter,nth:6:w,nth:6:w,6文字目がWの単語,2574,,,,,6,,6,w,,
+nth_letter,nth:5:v,nth:5:v,5文字目がVの単語,2533,,,,,5,,5,v,,
+nth_letter,nth:2:d,nth:2:d,2文字目がDの単語,2321,,,,,2,,2,d,,
+nth_letter,nth:6:k,nth:6:k,6文字目がKの単語,2175,,,,,6,,6,k,,
+nth_letter,nth:2:b,nth:2:b,2文字目がBの単語,2050,,,,,2,,2,b,,
+nth_letter,nth:3:k,nth:3:k,3文字目がKの単語,1947,,,,,3,,3,k,,
+nth_letter,nth:3:x,nth:3:x,3文字目がXの単語,1733,,,,,3,,3,x,,
+nth_letter,nth:2:w,nth:2:w,2文字目がWの単語,1557,,,,,2,,2,w,,
+nth_letter,nth:4:z,nth:4:z,4文字目がZの単語,1555,,,,,4,,4,z,,
+nth_letter,nth:2:g,nth:2:g,2文字目がGの単語,1218,,,,,2,,2,g,,
+nth_letter,nth:3:z,nth:3:z,3文字目がZの単語,1195,,,,,3,,3,z,,
+nth_letter,nth:5:z,nth:5:z,5文字目がZの単語,1121,,,,,5,,5,z,,
+nth_letter,nth:4:x,nth:4:x,4文字目がXの単語,1098,,,,,4,,4,x,,
+nth_letter,nth:5:x,nth:5:x,5文字目がXの単語,1032,,,,,5,,5,x,,
+nth_letter,nth:6:z,nth:6:z,6文字目がZの単語,1015,,,,,6,,6,z,,
+nth_letter,nth:2:f,nth:2:f,2文字目がFの単語,1004,,,,,2,,2,f,,
+start_end,start_end:s:s,start_end:s:s,Sで始まりSで終わる単語,8129,,,s,s,3,,,,,
+start_end,start_end:c:s,start_end:c:s,Cで始まりSで終わる単語,7148,,,c,s,3,,,,,
+start_end,start_end:p:s,start_end:p:s,Pで始まりSで終わる単語,6575,,,p,s,3,,,,,
+start_end,start_end:u:d,start_end:u:d,Uで始まりDで終わる単語,5487,,,u,d,3,,,,,
+start_end,start_end:s:e,start_end:s:e,Sで始まりEで終わる単語,5421,,,s,e,3,,,,,
+start_end,start_end:a:s,start_end:a:s,Aで始まりSで終わる単語,5266,,,a,s,3,,,,,
+start_end,start_end:p:e,start_end:p:e,Pで始まりEで終わる単語,5265,,,p,e,3,,,,,
+start_end,start_end:c:e,start_end:c:e,Cで始まりEで終わる単語,5192,,,c,e,3,,,,,
+start_end,start_end:s:y,start_end:s:y,Sで始まりYで終わる単語,4121,,,s,y,3,,,,,
+start_end,start_end:m:s,start_end:m:s,Mで始まりSで終わる単語,4120,,,m,s,3,,,,,
+start_end,start_end:a:e,start_end:a:e,Aで始まりEで終わる単語,4087,,,a,e,3,,,,,
+start_end,start_end:b:s,start_end:b:s,Bで始まりSで終わる単語,4007,,,b,s,3,,,,,
+start_end,start_end:t:s,start_end:t:s,Tで始まりSで終わる単語,3932,,,t,s,3,,,,,
+start_end,start_end:d:s,start_end:d:s,Dで始まりSで終わる単語,3882,,,d,s,3,,,,,
+start_end,start_end:u:y,start_end:u:y,Uで始まりYで終わる単語,3699,,,u,y,3,,,,,
+start_end,start_end:u:e,start_end:u:e,Uで始まりEで終わる単語,3562,,,u,e,3,,,,,
+start_end,start_end:p:y,start_end:p:y,Pで始まりYで終わる単語,3504,,,p,y,3,,,,,
+start_end,start_end:r:s,start_end:r:s,Rで始まりSで終わる単語,3440,,,r,s,3,,,,,
+start_end,start_end:u:s,start_end:u:s,Uで始まりSで終わる単語,3192,,,u,s,3,,,,,
+start_end,start_end:d:e,start_end:d:e,Dで始まりEで終わる単語,3191,,,d,e,3,,,,,
+start_end,start_end:m:e,start_end:m:e,Mで始まりEで終わる単語,3049,,,m,e,3,,,,,
+start_end,start_end:s:d,start_end:s:d,Sで始まりDで終わる単語,3044,,,s,d,3,,,,,
+start_end,start_end:e:s,start_end:e:s,Eで始まりSで終わる単語,2927,,,e,s,3,,,,,
+start_end,start_end:h:s,start_end:h:s,Hで始まりSで終わる単語,2919,,,h,s,3,,,,,
+start_end,start_end:t:e,start_end:t:e,Tで始まりEで終わる単語,2911,,,t,e,3,,,,,
+start_end,start_end:c:y,start_end:c:y,Cで始まりYで終わる単語,2833,,,c,y,3,,,,,
+start_end,start_end:f:s,start_end:f:s,Fで始まりSで終わる単語,2745,,,f,s,3,,,,,
+start_end,start_end:r:e,start_end:r:e,Rで始まりEで終わる単語,2738,,,r,e,3,,,,,
+start_end,start_end:b:e,start_end:b:e,Bで始まりEで終わる単語,2669,,,b,e,3,,,,,
+start_end,start_end:s:r,start_end:s:r,Sで始まりRで終わる単語,2634,,,s,r,3,,,,,
+start_end,start_end:p:n,start_end:p:n,Pで始まりNで終わる単語,2599,,,p,n,3,,,,,
+start_end,start_end:o:s,start_end:o:s,Oで始まりSで終わる単語,2553,,,o,s,3,,,,,
+start_end,start_end:i:e,start_end:i:e,Iで始まりEで終わる単語,2535,,,i,e,3,,,,,
+start_end,start_end:s:n,start_end:s:n,Sで始まりNで終わる単語,2524,,,s,n,3,,,,,
+start_end,start_end:i:s,start_end:i:s,Iで始まりSで終わる単語,2474,,,i,s,3,,,,,
+start_end,start_end:g:s,start_end:g:s,Gで始まりSで終わる単語,2463,,,g,s,3,,,,,
+start_end,start_end:n:y,start_end:n:y,Nで始まりYで終わる単語,2407,,,n,y,3,,,,,
+start_end,start_end:l:s,start_end:l:s,Lで始まりSで終わる単語,2399,,,l,s,3,,,,,
+start_end,start_end:e:e,start_end:e:e,Eで始まりEで終わる単語,2390,,,e,e,3,,,,,
+start_end,start_end:p:l,start_end:p:l,Pで始まりLで終わる単語,2372,,,p,l,3,,,,,
+start_end,start_end:n:s,start_end:n:s,Nで始まりSで終わる単語,2354,,,n,s,3,,,,,
+start_end,start_end:c:n,start_end:c:n,Cで始まりNで終わる単語,2304,,,c,n,3,,,,,
+start_end,start_end:p:d,start_end:p:d,Pで始まりDで終わる単語,2275,,,p,d,3,,,,,
+start_end,start_end:c:d,start_end:c:d,Cで始まりDで終わる単語,2207,,,c,d,3,,,,,
+start_end,start_end:s:t,start_end:s:t,Sで始まりTで終わる単語,2195,,,s,t,3,,,,,
+start_end,start_end:n:e,start_end:n:e,Nで始まりEで終わる単語,2155,,,n,e,3,,,,,
+start_end,start_end:a:y,start_end:a:y,Aで始まりYで終わる単語,2139,,,a,y,3,,,,,
+start_end,start_end:p:c,start_end:p:c,Pで始まりCで終わる単語,2086,,,p,c,3,,,,,
+start_end,start_end:s:l,start_end:s:l,Sで始まりLで終わる単語,2048,,,s,l,3,,,,,
+start_end,start_end:a:n,start_end:a:n,Aで始まりNで終わる単語,1996,,,a,n,3,,,,,
+start_end,start_end:u:g,start_end:u:g,Uで始まりGで終わる単語,1989,,,u,g,3,,,,,
+start_end,start_end:s:g,start_end:s:g,Sで始まりGで終わる単語,1979,,,s,g,3,,,,,
+start_end,start_end:c:r,start_end:c:r,Cで始まりRで終わる単語,1970,,,c,r,3,,,,,
+start_end,start_end:p:t,start_end:p:t,Pで始まりTで終わる単語,1934,,,p,t,3,,,,,
+start_end,start_end:a:a,start_end:a:a,Aで始まりAで終わる単語,1903,,,a,a,3,,,,,
+start_end,start_end:i:y,start_end:i:y,Iで始まりYで終わる単語,1860,,,i,y,3,,,,,
+start_end,start_end:h:e,start_end:h:e,Hで始まりEで終わる単語,1856,,,h,e,3,,,,,
+start_end,start_end:o:e,start_end:o:e,Oで始まりEで終わる単語,1834,,,o,e,3,,,,,
+start_end,start_end:r:d,start_end:r:d,Rで始まりDで終わる単語,1794,,,r,d,3,,,,,
+start_end,start_end:p:a,start_end:p:a,Pで始まりAで終わる単語,1790,,,p,a,3,,,,,
+start_end,start_end:f:e,start_end:f:e,Fで始まりEで終わる単語,1781,,,f,e,3,,,,,
+start_end,start_end:p:r,start_end:p:r,Pで始まりRで終わる単語,1780,,,p,r,3,,,,,
+start_end,start_end:d:y,start_end:d:y,Dで始まりYで終わる単語,1732,,,d,y,3,,,,,
+start_end,start_end:c:a,start_end:c:a,Cで始まりAで終わる単語,1730,,,c,a,3,,,,,
+start_end,start_end:b:d,start_end:b:d,Bで始まりDで終わる単語,1716,,,b,d,3,,,,,
+start_end,start_end:c:t,start_end:c:t,Cで始まりTで終わる単語,1705,,,c,t,3,,,,,
+start_end,start_end:t:y,start_end:t:y,Tで始まりYで終わる単語,1636,,,t,y,3,,,,,
+start_end,start_end:a:c,start_end:a:c,Aで始まりCで終わる単語,1624,,,a,c,3,,,,,
+start_end,start_end:m:y,start_end:m:y,Mで始まりYで終わる単語,1593,,,m,y,3,,,,,
+start_end,start_end:g:e,start_end:g:e,Gで始まりEで終わる単語,1587,,,g,e,3,,,,,
+start_end,start_end:d:d,start_end:d:d,Dで始まりDで終わる単語,1555,,,d,d,3,,,,,
+start_end,start_end:r:g,start_end:r:g,Rで始まりGで終わる単語,1538,,,r,g,3,,,,,
+start_end,start_end:d:n,start_end:d:n,Dで始まりNで終わる単語,1498,,,d,n,3,,,,,
+start_end,start_end:p:g,start_end:p:g,Pで始まりGで終わる単語,1486,,,p,g,3,,,,,
+start_end,start_end:a:t,start_end:a:t,Aで始まりTで終わる単語,1465,,,a,t,3,,,,,
+start_end,start_end:w:s,start_end:w:s,Wで始まりSで終わる単語,1461,,,w,s,3,,,,,
+start_end,start_end:c:l,start_end:c:l,Cで始まりLで終わる単語,1458,,,c,l,3,,,,,
+start_end,start_end:m:n,start_end:m:n,Mで始まりNで終わる単語,1450,,,m,n,3,,,,,
+start_end,start_end:l:e,start_end:l:e,Lで始まりEで終わる単語,1445,,,l,e,3,,,,,
+start_end,start_end:c:g,start_end:c:g,Cで始まりGで終わる単語,1435,,,c,g,3,,,,,
+start_end,start_end:s:a,start_end:s:a,Sで始まりAで終わる単語,1435,,,s,a,3,,,,,
+start_end,start_end:t:n,start_end:t:n,Tで始まりNで終わる単語,1434,,,t,n,3,,,,,
+start_end,start_end:m:d,start_end:m:d,Mで始まりDで終わる単語,1413,,,m,d,3,,,,,
+start_end,start_end:o:y,start_end:o:y,Oで始まりYで終わる単語,1400,,,o,y,3,,,,,
+start_end,start_end:a:l,start_end:a:l,Aで始まりLで終わる単語,1360,,,a,l,3,,,,,
+start_end,start_end:p:m,start_end:p:m,Pで始まりMで終わる単語,1328,,,p,m,3,,,,,
+start_end,start_end:r:y,start_end:r:y,Rで始まりYで終わる単語,1328,,,r,y,3,,,,,
+start_end,start_end:r:n,start_end:r:n,Rで始まりNで終わる単語,1283,,,r,n,3,,,,,
+start_end,start_end:o:d,start_end:o:d,Oで始まりDで終わる単語,1282,,,o,d,3,,,,,
+start_end,start_end:b:r,start_end:b:r,Bで始まりRで終わる単語,1269,,,b,r,3,,,,,
+start_end,start_end:e:y,start_end:e:y,Eで始まりYで終わる単語,1253,,,e,y,3,,,,,
+start_end,start_end:h:y,start_end:h:y,Hで始まりYで終わる単語,1252,,,h,y,3,,,,,
+start_end,start_end:a:d,start_end:a:d,Aで始まりDで終わる単語,1248,,,a,d,3,,,,,
+start_end,start_end:v:s,start_end:v:s,Vで始まりSで終わる単語,1234,,,v,s,3,,,,,
+start_end,start_end:b:y,start_end:b:y,Bで始まりYで終わる単語,1225,,,b,y,3,,,,,
+start_end,start_end:t:d,start_end:t:d,Tで始まりDで終わる単語,1215,,,t,d,3,,,,,
+start_end,start_end:t:r,start_end:t:r,Tで始まりRで終わる単語,1214,,,t,r,3,,,,,
+start_end,start_end:d:g,start_end:d:g,Dで始まりGで終わる単語,1185,,,d,g,3,,,,,
+start_end,start_end:m:a,start_end:m:a,Mで始まりAで終わる単語,1184,,,m,a,3,,,,,
+start_end,start_end:s:c,start_end:s:c,Sで始まりCで終わる単語,1181,,,s,c,3,,,,,
+start_end,start_end:a:r,start_end:a:r,Aで始まりRで終わる単語,1178,,,a,r,3,,,,,
+start_end,start_end:r:t,start_end:r:t,Rで始まりTで終わる単語,1170,,,r,t,3,,,,,
+start_end,start_end:d:r,start_end:d:r,Dで始まりRで終わる単語,1169,,,d,r,3,,,,,
+start_end,start_end:d:t,start_end:d:t,Dで始まりTで終わる単語,1169,,,d,t,3,,,,,
+start_end,start_end:b:n,start_end:b:n,Bで始まりNで終わる単語,1153,,,b,n,3,,,,,
+start_end,start_end:f:y,start_end:f:y,Fで始まりYで終わる単語,1106,,,f,y,3,,,,,
+start_end,start_end:s:m,start_end:s:m,Sで始まりMで終わる単語,1104,,,s,m,3,,,,,
+start_end,start_end:b:t,start_end:b:t,Bで始まりTで終わる単語,1100,,,b,t,3,,,,,
+start_end,start_end:b:g,start_end:b:g,Bで始まりGで終わる単語,1085,,,b,g,3,,,,,
+start_end,start_end:m:r,start_end:m:r,Mで始まりRで終わる単語,1078,,,m,r,3,,,,,
+start_end,start_end:r:r,start_end:r:r,Rで始まりRで終わる単語,1038,,,r,r,3,,,,,
+start_end,start_end:n:n,start_end:n:n,Nで始まりNで終わる単語,1027,,,n,n,3,,,,,
+start_end,start_end:u:t,start_end:u:t,Uで始まりTで終わる単語,1027,,,u,t,3,,,,,
+start_end,start_end:m:t,start_end:m:t,Mで始まりTで終わる単語,1023,,,m,t,3,,,,,
+start_end,start_end:f:d,start_end:f:d,Fで始まりDで終わる単語,1022,,,f,d,3,,,,,
+start_end,start_end:o:g,start_end:o:g,Oで始まりGで終わる単語,1020,,,o,g,3,,,,,
+start_end,start_end:u:l,start_end:u:l,Uで始まりLで終わる単語,1010,,,u,l,3,,,,,
+start_end,start_end:e:n,start_end:e:n,Eで始まりNで終わる単語,1002,,,e,n,3,,,,,
+start_end,start_end:t:l,start_end:t:l,Tで始まりLで終わる単語,1000,,,t,l,3,,,,,
