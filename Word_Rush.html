@@ -1689,35 +1689,35 @@
     }
 
     function getQuestionLabel(q) {
-      if (!q) return "条件に合う単語";
+      if (!q) return "A word matching the rule";
       switch (q.type) {
         case "start_end":
-          return `${q.start.toUpperCase()}で始まり${q.end.toUpperCase()}で終わる単語`;
+          return `Words starting with ${q.start.toUpperCase()} and ending with ${q.end.toUpperCase()}`;
         case "edge_min_length":
           if (q.lengthMode === "exact") {
-            if (q.side === "start") return `${q.start.toUpperCase()}で始まる${q.minLen}文字の単語`;
-            return `${q.end.toUpperCase()}で終わる${q.minLen}文字の単語`;
+            if (q.side === "start") return `Words starting with ${q.start.toUpperCase()} and exactly ${q.minLen} letters long`;
+            return `Words ending with ${q.end.toUpperCase()} and exactly ${q.minLen} letters long`;
           }
-          if (q.side === "start") return `${q.start.toUpperCase()}で始まる${q.minLen}文字以上の単語`;
-          return `${q.end.toUpperCase()}で終わる${q.minLen}文字以上の単語`;
+          if (q.side === "start") return `Words starting with ${q.start.toUpperCase()} and at least ${q.minLen} letters long`;
+          return `Words ending with ${q.end.toUpperCase()} and at least ${q.minLen} letters long`;
         case "nth_letter":
-          if (q.direction === "back") return `後ろから${q.n}文字目が${q.letter.toUpperCase()}の単語`;
-          return `${q.n}文字目が${q.letter.toUpperCase()}の単語`;
+          if (q.direction === "back") return `Words with ${q.letter.toUpperCase()} as the ${q.n}th letter from the end`;
+          return `Words with ${q.letter.toUpperCase()} as the ${q.n}th letter`;
         case "contains_letters":
-          return `${q.letters.map((l) => l.toUpperCase()).join(" と ")} をすべて含む単語`;
+          return `Words containing all of ${q.letters.map((l) => l.toUpperCase()).join(", ")}`;
         case "contains_sequence":
-          return `${q.sequence.toUpperCase()} を含む単語`;
+          return `Words containing ${q.sequence.toUpperCase()}`;
         // backward compatibility for older names
         case "start_min_length":
-          return `${q.start.toUpperCase()}で始まる${q.minLen}文字以上の単語`;
+          return `Words starting with ${q.start.toUpperCase()} and at least ${q.minLen} letters long`;
         case "end_min_length":
-          return `${q.end.toUpperCase()}で終わる${q.minLen}文字以上の単語`;
+          return `Words ending with ${q.end.toUpperCase()} and at least ${q.minLen} letters long`;
         case "second_letter":
-          return `2文字目が${q.letter.toUpperCase()}の単語`;
+          return `Words with ${q.letter.toUpperCase()} as the 2nd letter`;
         case "contains_both":
-          return `${q.letters.map((letter) => letter.toUpperCase()).join(" と ")} を含む単語`;
+          return `Words containing ${q.letters.map((letter) => letter.toUpperCase()).join(" and ")}`;
         default:
-          return "条件に合う単語";
+          return "A word matching the rule";
       }
     }
 
@@ -1869,7 +1869,7 @@
         candidateCount,
         difficulty: getQuestionDifficulty(candidateCount),
         label: getQuestionLabel(q),
-        note: `${getQuestionLabel(q)}。${getQuestionRuleNote(candidateCount)}`,
+        note: [getQuestionLabel(q), getQuestionRuleNote(candidateCount)].filter(Boolean).join(". "),
         candidates
       };
     }
@@ -2607,7 +2607,7 @@
     }
 
     function getQuestionRuleNote(candidateCount) {
-      return `候補語 ${candidateCount} 語。制限時間${ROUND_SECONDS}秒・得点は文字数分`;
+      return "";
     }
 
     function getQuestionDifficulty(candidateCount) {
@@ -3191,7 +3191,7 @@
       state.roundIndex = index;
       state.currentQuestion = {
         ...q,
-        note: `${getQuestionLabel(q)}。${getQuestionRuleNote(q.candidateCount || 0)}`
+        note: [getQuestionLabel(q), getQuestionRuleNote(q.candidateCount || 0)].filter(Boolean).join(". ")
       };
       state.roundWords = { A: [], B: [] };
       state.roundRoundScores = { A: 0, B: 0 };
@@ -3203,7 +3203,7 @@
 
       clearAnswerArea();
       setStatus("Online");
-      setMessage(`${getQuestionLabel(q)}。条件に合う単語を入力してください。`, "");
+      setMessage("", "");
 
       clearInterval(state.timer);
       state.timer = setInterval(tickTimer, 50);
@@ -3636,7 +3636,7 @@
       const logEl = $("log");
       if (logEl) logEl.innerHTML = "";
       hideModal();
-      setMessage("条件に合う単語を入力してください。", "");
+      setMessage("", "");
       setStatus("Ready");
       updateUI();
       log("Match reset.");
@@ -3648,7 +3648,7 @@
       if (!state.currentQuestion) {
         state.status = "ready";
         setStatus("No questions");
-        setMessage("このセッションで出題できる新しい問題が見つかりませんでした。画面を再読み込みして新しいプレイを開始してください。", "warn");
+        setMessage("No new questions are available for this session. Reload the page to start a new match.", "warn");
         updateUI();
         log("No unused question could be generated.");
         return;
@@ -3668,7 +3668,7 @@
       state.usedQuestionKeys.add(getQuestionKey(q));
 
       log(`Round ${state.roundIndex + 1}: ${getQuestionLabel(q)}, candidates ${candidates.length}, time ${getQuestionRoundSeconds(q)}s.`);
-      setMessage(`${q.note}。条件に合う単語を入力してください。1単語あたり文字数分の点数です。`, "");
+      setMessage("", "");
       setStatus("Playing");
 
       state.timer = setInterval(tickTimer, 50);
@@ -3692,7 +3692,7 @@
 
     function handleTimeUp() {
       const localPlayerRoundScore = state.roundRoundScores.A;
-      let message = `時間切れ。このラウンドの得点：+${localPlayerRoundScore}。`;
+      let message = `Time is up. Round score: +${localPlayerRoundScore}.`;
       let logMessage = `Round ${state.roundIndex + 1} ended. +${localPlayerRoundScore}.`;
 
       // 対戦モードでのみ減点ルールを適用
@@ -3703,15 +3703,15 @@
           if (opponentRoundScore > 0) {
             // 減点後のスコアが0未満にならないように調整
             state.scores.A = Math.max(0, state.scores.A - opponentRoundScore);
-            message += ` 相手が${opponentRoundScore}点獲得したため、あなたの点数が減点されました。`;
+            message += ` Your score was reduced because your opponent scored ${opponentRoundScore} points.`;
             logMessage += ` Player A received penalty based on opponent's score ${opponentRoundScore}.`;
           } else {
-            message += ` 相手も得点しなかったため、減点はありませんでした。`;
+            message += ` No penalty was applied because your opponent did not score.`;
           }
         }
       }
 
-      message += ` 次のラウンドに進みます。`;
+      message += ` Moving to the next round.`;
       setMessage(message, "warn");
       log(logMessage);
       state.status = "between_rounds";
@@ -3777,15 +3777,15 @@
     function validateWord(word, player) {
       const q = state.currentQuestion;
 
-      if (!word) return { ok: false, message: "単語を入力してください。" };
-      if (word.length < 3) return { ok: false, message: "3文字以上にしてください。" };
-      if (!/^[a-z]+$/.test(word)) return { ok: false, message: "a-z の英字のみ使えます。" };
-      if (!dictionary.has(word)) return { ok: false, message: "辞書にない単語です。" };
-      if (state.usedWords.has(word)) return { ok: false, message: "このラウンドですでに使われています。" };
+      if (!word) return { ok: false, message: "Enter a word." };
+      if (word.length < 3) return { ok: false, message: "Use at least 3 letters." };
+      if (!/^[a-z]+$/.test(word)) return { ok: false, message: "Use only a-z letters." };
+      if (!dictionary.has(word)) return { ok: false, message: "This word is not in the dictionary." };
+      if (state.usedWords.has(word)) return { ok: false, message: "This word has already been used this round." };
       if (!isWordMatchingQuestion(word, q)) {
         return {
           ok: false,
-          message: `${getQuestionLabel(q)} の条件を満たしていません。`
+          message: `This word does not match: ${getQuestionLabel(q)}.`
         };
       }
 
@@ -3807,7 +3807,7 @@
       if (state.status !== "playing" && state.status !== "between_rounds") return;
       clearInterval(state.timer);
       log("Round skipped.");
-      setMessage("ラウンドをスキップしました。", "warn");
+      setMessage("Round skipped.", "warn");
       nextRound();
     }
 
@@ -3816,7 +3816,7 @@
       state.status = "match_over";
       state.matchOver = true;
       setStatus("Match over");
-      setMessage(state.matchMode === "single" ? "50点到達。クリアです。" : "Match over.", "success");
+      setMessage(state.matchMode === "single" ? "Clear! You reached 50 points." : "Match over.", "success");
       updateUI();
       setTimeout(() => showModal(winner), modalDelay);
       log(`${getMatchModeLabel().toUpperCase()} FINISHED: Winner ${winner}.`);
