@@ -1361,7 +1361,7 @@
       <div>
         <h1>Word Rush</h1>
         <div class="subtitle">
-          Enter English words that match each rule. Reach 50 points to win.
+          Enter English words that match each rule. Reach 500 points to win.
         </div>
       </div>
 
@@ -1510,7 +1510,7 @@
       RLS policies are intentionally left for the production pass.
     */
 
-    const WIN_SCORE = 50;
+    const WIN_SCORE = 500;
     const ROUND_SECONDS = 40;
     // Default generated-question range. Some rule types use a type-specific lower bound.
     const MIN_QUESTION_CANDIDATES = 1000;
@@ -3811,7 +3811,7 @@
       state.status = "match_over";
       state.matchOver = true;
       setStatus("Match over");
-      setMessage(state.matchMode === "single" ? "Clear! You reached 50 points." : "Match over.", "success");
+      setMessage(state.matchMode === "single" ? "Clear! You reached 500 points." : "Match over.", "success");
       updateUI();
       setTimeout(() => showModal(winner), modalDelay);
       log(`${getMatchModeLabel().toUpperCase()} FINISHED: Winner ${winner}.`);
