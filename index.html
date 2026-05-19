@@ -1361,7 +1361,7 @@
       <div>
         <h1>Word Rush</h1>
         <div class="subtitle">
-          条件に合う英単語を入力して、50点到達を目指します。
+          Enter English words that match each rule. Reach 50 points to win.
         </div>
       </div>
 
@@ -1370,13 +1370,8 @@
         <button id="friendMatchBtn">Friend Match</button>
       </div>
 
-      <div class="start-dictionary">
-        <span id="dictionaryInfo">判定：同じフォルダの words_alpha.txt 読み込み中</span>
-        <span id="startNotice">single play は辞書読み込み後に開始できます。</span>
-      </div>
-
       <div class="policy-links">
-        <a href="policy.html" target="_blank" rel="noopener">利用規約・プライバシーポリシー</a>
+        <a href="policy.html" target="_blank" rel="noopener">Terms & Privacy Policy</a>
       </div>
 
     </section>
@@ -2485,7 +2480,7 @@
       $("gameScreen").classList.remove("versus-mode");
       const startCard = document.querySelector(".start-card");
       if (startCard) startCard.classList.remove("hidden");
-      setStartNotice(dictionary.size > 0 ? "モードを選んで開始できます。" : "辞書読み込み後に開始できます。", dictionary.size > 0 ? "success" : "");
+      setStartNotice(dictionary.size > 0 ? "Choose a mode to start." : "Loading dictionary...", dictionary.size > 0 ? "success" : "");
     }
 
     function showWaitingRoom(room) {
@@ -2631,17 +2626,17 @@
       if (!el) return;
 
       if (dictionarySource === "words_alpha.txt") {
-        el.textContent = `判定：同じフォルダの words_alpha.txt（${dictionary.size.toLocaleString()}語）`;
+        el.textContent = `Dictionary: words_alpha.txt (${dictionary.size.toLocaleString()} words)`;
       } else if (dictionarySource === "load failed") {
-        el.textContent = "判定：words_alpha.txt 未読み込み";
+        el.textContent = "Dictionary: words_alpha.txt not loaded";
       } else if (dictionarySource && dictionarySource !== "loading") {
-        el.textContent = `判定：${dictionarySource}（${dictionary.size.toLocaleString()}語）`;
+        el.textContent = `Dictionary: ${dictionarySource} (${dictionary.size.toLocaleString()} words)`;
       } else {
-        el.textContent = "判定：同じフォルダの words_alpha.txt 読み込み中";
+        el.textContent = "Dictionary: loading words_alpha.txt";
       }
 
       if (dictionary.size > 0) {
-        setStartNotice("モードを選んで開始できます。", "success");
+        setStartNotice("Choose a mode to start.", "success");
       }
     }
 
@@ -4000,7 +3995,7 @@
       $("gameScreen").classList.remove("versus-mode");
       $("startScreen").classList.remove("hidden");
       hideWaitingRoom();
-      setStartNotice(dictionary.size > 0 ? "モードを選んで開始できます。" : "辞書読み込み後に開始できます。", dictionary.size > 0 ? "success" : "");
+      setStartNotice(dictionary.size > 0 ? "Choose a mode to start." : "Loading dictionary...", dictionary.size > 0 ? "success" : "");
     }
 
     function updateTimerUI() {
